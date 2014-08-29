@@ -1,19 +1,42 @@
-<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="/"><?=c('site_name')?></a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li<?php if( g('a') == 'index' ): ?> class="active"<?php endif; ?>><a href="?a=index">Home</a></li>
-              <li<?php if( g('a') == 'about' ): ?> class="active"<?php endif; ?>><a href="?a=about">About</a></li>
-              <li<?php if( g('a') == 'contact' ): ?> class="active"<?php endif; ?>><a href="?a=contact">Contact</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+<div id="header">
+    <div class="hdt-wrap">
+        <div class="hdt">
+            <div class="logo" style="position:relative;">
+                <a href="http://mslms.net/"><img src="static/img/844_8891.gif" id="ctl00_top1_top41_IMG1"></a>
+            </div>
+            <div class="hdc geyou">
+                <div class="hdi">
+                    <div id="ctl00_top1_top41_ul_outLogin" class="login">
+                        <span class="left"></span>
+                        <span>欢迎登陆！</span>
+                        <a class="loga" id="li_login">[登录]</a>
+                        <a class="loga" id="li_reg">[注册]</a>
+                        <a class="loga" id="li_forgetpwd">找回密码</a>
+                    </div>
+                    <ul>
+                        <li id="Li1"><a onclick="addToFavorite('http://mslms.net','米嗖辣米嗖官方网上订餐外卖,东四十条外卖、呼家楼外卖、国贸外卖网上订餐，米搜拉米搜送餐,');return false;">我要收藏</a><span></span></li>
+                        <li><a id="pop02" href="http://mslms.net/msg/user_jfgw.aspx">积分商城</a><span></span></li>
+                        <li><a href="http://mslms.net/msg/zhinan.aspx">订餐指南</a><span></span></li>
+                        <li><a href="http://mslms.net/usercenter/user_dangan.aspx" style="color:#FF6900;">订单查询</a></li>
+                    </ul>
+                </div>
+
+                <div class="search">
+                    <a><img alt="订餐页面广告2" src="static/img/548_9062.jpg"></a>
+                </div>
+                <a href="http://mslms.net/dingcan.aspx?id=85#cart"><div class="cart">我的餐车（<b>3</b>）</div></a>
+            </div>
         </div>
-      </div>
     </div>
+    <div class="nav-wrap">
+        <div id="nav" class="nav">
+            <a class="current" id="a_100" href="http://mslms.net/Default.aspx"><span>我要订餐</span></a>
+            <a id="a_101" href="http://mslms.net/msg/zhinan.aspx"><span>订餐指南</span></a>
+            <a id="a_102" href="http://mslms.net/usercenter/user_dangan.aspx"><span>会员中心</span></a>
+            <a id="a_103" href="http://mslms.net/msg/user_jfgw.aspx"><span>积分商城</span></a>
+            <a id="a_104" href="http://mslms.net/msg/getPrize.aspx"><span>积分抽奖</span></a>
+            <a id="a_105" href="http://mslms.net/msg/gonggao.aspx"><span>广而告之</span></a>
+            <a id="a_109" href="http://mslms.net/msg/message.aspx"><span>我要留言</span></a>
+        </div>
+    </div>
+</div>
