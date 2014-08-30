@@ -1,296 +1,188 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="static/css/home.css">
-    <style type="text/css">
-        .right1 {
-            margin: 0 4px 0 5px;
-        }
-
-        body {
-            font: 12px/1 arial, "宋体"
-        }
-    </style>
 </head>
-
 <body>
 <?php @include_once( dirname(__FILE__) ) . DS . 'header.tpl.html'; ?>
-
 <div class="main">
-<div style=" clear:both;"></div>
-<table class="gundong">
-    <tbody>
-    <tr>
-        <td class="gd_img"></td>
-        <td class="gd_gg"><marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="3">
-            <a style="padding-right:10px;" href="http://mslms.net/msg/gonggao.aspx?id=85&amp;pid=256&amp;type=gonggao">2014年6月23日起，11：00前网上点餐每笔定单满50元送一个两升装的大桶饮料，不满50元每份餐立减一元，本优惠活动两者不能同时享用,机会不多送完为止快来抢购吧！</a> </marquee></td>
-        <td class="gd_yh"><span id="ctl00_lb_youhui"></span></td>
-    </tr>
-    </tbody>
-</table>
-<span id="ctl00_xx"></span>
-<a id="p_top"></a>
-<a class="a_gg_img"><img alt="订餐页面广告" src="static/img/766_36509.jpg"></a>
+    <div>
+        <table class="notice">
+            <tbody>
+            <tr>
+                <td width="20%">&nbsp;</td>
+                <td>
+                    <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="3">
+                        <a href="http://www.baidu.com" target="_blank">
+                            2014年6月23日起，11：00前网上点餐每笔定单满50元送一个两升装的大桶饮料，不满50元每份餐立减一元，本优惠活动两者不能同时享用,机会不多送完为止快来抢购吧！
+                        </a>
+                    </marquee>
+                </td>
+                <td width="20%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+        <a>
+            <img alt="订餐页面广告" src="static/img/766_36509.jpg">
+        </a>
+    </div>
 
-<div class="right1">
-    <div class="helptext dingcan dcstate1">
-        <div class="rank-recommend">
-            <div class="new_search">
-                <div class="sequence-side">
-                    <div class="seq-result">
-                        <dl class="clear">
-                            <dt>日期：</dt>
-                            <dd>
-                                          <span id="div_date">
-                                             <a class="sr-current" href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-6-27 0:00:00">今天(6-27)</a>
+    <div class="left">
+        <div class="filters">
+            <div class="sequence-side">
+                <div class="seq-result">
+                    <dl class="clear">
+                        <dt><span> 分类：</span></dt>
+                        <dd>
+                            <a class="sr-current" href="javascript:void(0);" title="小炒,2">小炒</a>
+                            <a class="" href="javascript:void(0);" title="新品推荐,0">新品推荐</a>
+                            <a class="" href="javascript:void(0);" title="套餐,2">套餐</a>
+                            <a class="" href="javascript:void(0);" title="副食品,0">副食品</a>
+                            <a class="" href="javascript:void(0);" title="主食,0">主食</a>
+                            <a class="" href="javascript:void(0);" title="盖饭,0">盖饭</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
 
-                                             <a href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-6-28 0:00:00">明天(6-28)</a>
-
-                                             <a href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-6-29 0:00:00">后天(6-29)</a>
-
-                                             <a href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-6-30 0:00:00">2014-6-30</a>
-
-                                             <a href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-7-1 0:00:00">2014-7-1</a>
-
-                                             <a href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-7-2 0:00:00">2014-7-2</a>
-
-                                             <a href="javascript:void(0);"
-                                                onclick="setValue('div_date','a',this,'sr-current');tb_clear();getKongjian(go('dtime1').value,go('date').value,'dtime');"
-                                                id="2014-7-3 0:00:00">2014-7-3</a>
-                                        </span>
-                            </dd>
-                        </dl>
-                        <dl class="clear">
-                            <dt>餐次：</dt>
-                            <dd>
-                                         <span id="div_dtime1">
-                                           <a href="javascript:void(0);"
-                                              onclick="setValue('div_dtime1','a',this,'sr-current');tb_clear();getKongjian(this.id,go('date').value,'dtime')"
-                                              id="0">
-                                               预订午餐</a>
-                                           <a class="sr-current" href="javascript:void(0);"
-                                              onclick="setValue('div_dtime1','a',this,'sr-current');tb_clear();getKongjian(this.id,go('date').value,'dtime')"
-                                              id="1">
-                                               预订晚餐</a>
-                                           </span>
-                            </dd>
-                        </dl>
-                        <dl class="clear">
-                            <dt><span style=" color: Red;"> 分类：</span></dt>
-                            <dd id="ul_veglei">
-                                <a class="sr-current" href="javascript:void(0);" title="小炒,2" id="lei408"
-                                   onclick="setValue('ul_veglei','a',this,'sr-current')" lang="1">小炒</a>
-
-
-                                <a class="" href="javascript:void(0);" title="新品推荐,0" id="lei416"
-                                   onclick="setValue('ul_veglei','a',this,'sr-current')" lang="2">新品推荐</a>
-
-
-                                <a class="" href="javascript:void(0);" title="套餐,2" id="lei409"
-                                   onclick="setValue('ul_veglei','a',this,'sr-current')" lang="3">套餐</a>
-
-
-                                <a class="" href="javascript:void(0);" title="副食品,0" id="lei413"
-                                   onclick="setValue('ul_veglei','a',this,'sr-current')" lang="4">副食品</a>
-
-
-                                <a class="" href="javascript:void(0);" title="主食,0" id="lei414"
-                                   onclick="setValue('ul_veglei','a',this,'sr-current')" lang="5">主食</a>
-
-
-                                <a class="" href="javascript:void(0);" title="盖饭,0" id="lei415"
-                                   onclick="setValue('ul_veglei','a',this,'sr-current')" lang="6">盖饭</a>
-                            </dd>
-                        </dl>
-
-                    </div>
+            <div class="sort-type">
+                <div class="sort-t-lf">
+                    <span class="sort-f">排序：</span>
+                    <dl class="sort-t-in">
+                        <dd>
+                            <a href="javascript:;" id="order0" class="tolerate">默认</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" id="order1">价格</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" id="order2">销量</a>
+                        </dd>
+                    </dl>
                 </div>
 
-                <div class="sort-type">
-                    <div class="sort-t-lf">
-                        <span class="sort-f">排序：</span>
-                        <dl class="sort-t-in clear" id="dl_order">
-                            <dd class="st-default">
-                                <a href="javascript:void(0);" id="order0" onclick="setValue('dl_order','a',this,'tolerate');"
-                                   class="tolerate">默认</a>
-                            </dd>
-                            <dd class="st-price">
-                                <a href="javascript:void(0);" id="order1" onclick="setValue('dl_order','a',this,'active');">价格</a>
-                            </dd>
-                            <dd id="dd_price2" class="st-popularity">
-                                <a href="javascript:void(0);" id="order2"
-                                   onclick="setValue('dl_order','a',this,'active-down');">价格</a>
-                            </dd>
-                        </dl>
+                <div class="sort-t-rt">
+                    <div class="s-t-search">
+                        <input id="tb1_key" name="tb_key" maxlength="20" style="color:#999;" value="请输入关键字" type="text">
                     </div>
-
-                    <div class="sort-t-rt">
-                        <div class="search_l">
-                            <div class="s-t-search" id="subscribe">
-                                <label class="small-mag"></label>
-                                <input id="tb1_key" name="tb_key" maxlength="20" style="color:#999;" value="请输入关键字" type="text">
-                            </div>
-                            <div class="fl"><input name="" onclick="return setKey();" value="搜索"
-                                                   style=" color:#fff; width:45px; font-weight:normal;" class="button"
-                                                   type="button"></div>
-                        </div>
-
+                    <div class="fl">
+                        <input value="搜索" style="color:#fff; width:45px; font-weight:normal;" class="button" type="button">
                     </div>
-                    <a id="a_dc"></a>
                 </div>
             </div>
         </div>
 
-        <div class="center_34"></div>
-        <div id="div_veg">
+        <div class="menu">
             <div class="center_5">
-                <div class="center_5_1"><span class="nor1"></span> <span><img src="static/img/0_17271.jpg"
-                                                                              onclick="showVegsx('1639');"
-                                                                              alt="日式照烧鸡肉 点击查看菜品介绍"></span></div>
-                <div>
-                    <a id="a_veg_1639" onclick="showVegsx('1639');" href="javascript:void(0);"><b style="color:Black;">日式照烧鸡肉</b></a>
+                <div class="center_5_1">
+                    <span><img src="static/img/0_17271.jpg"></span>
                 </div>
                 <div>
-                    <span style="color:Red; font-weight:bold;">12</span> 元/份 <span id="span1639" title="该菜品在系统中仅剩余：20份"
-                                                                                   style="display:none;">20</span>
+                    <a href="javascript:;">
+                        <b style="color:black;">日式照烧鸡肉</b>
+                    </a>
+                </div>
+                <div>
+                    <span style="color:red; font-weight:bold;">12</span> 元/份
+                    <span title="该菜品在系统中仅剩余：20份" style="display:none;">20</span>
                 </div>
                 <div style="color:#808080;">
-                    我要<select name="hlsnum1639" id="count1639" style="height:19px;width:37px;">
-                    <option selected="selected" value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                    份 <a href="javascript:void(0)" onclick="return getveg(this,2);" title="日式照烧鸡肉" name="1639" id="1639"
-                         lang="12"><img src="static/img/buy.gif" style="border:0px;"></a>
+                    我要
+                    <select style="height:19px;width:37px;">
+                        <option selected="selected" value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    份
+                    <a href="javascript:;" title="日式照烧鸡肉">
+                        <img src="static/img/buy.gif" style="border:0px;">
+                    </a>
                 </div>
             </div>
-
             <div class="center_5">
-                <div class="center_5_1"><span class="nor1"></span> <span><img src="static/img/931_42844.jpg"
-                                                                              onclick="showVegsx('1640');"
-                                                                              alt="肉沫鱼香茄子 点击查看菜品介绍"></span></div>
-                <div>
-                    <a id="a_veg_1640" onclick="showVegsx('1640');" href="javascript:void(0);"><b style="color:Black;">肉沫鱼香茄子</b></a>
+                <div class="center_5_1">
+                    <span><img src="static/img/0_17271.jpg"></span>
                 </div>
                 <div>
-                    <span style="color:Red; font-weight:bold;">12</span> 元/份 <span id="span1640" title="该菜品在系统中仅剩余：20份"
-                                                                                   style="display:none;">20</span>
+                    <a href="javascript:;">
+                        <b style="color:Black;">日式照烧鸡肉</b>
+                    </a>
+                </div>
+                <div>
+                    <span style="color:Red; font-weight:bold;">12</span> 元/份
                 </div>
                 <div style="color:#808080;">
-                    我要<select name="hlsnum1640" id="count1640" style="height:19px;width:37px;">
-                    <option selected="selected" value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-                    份 <a href="javascript:void(0)" onclick="return getveg(this,2);" title="肉沫鱼香茄子" name="1640" id="1640"
-                         lang="12"><img src="static/img/buy.gif" style="border:0px;"></a>
+                    我要
+                    <select name="hlsnum1639" id="count1639" style="height:19px;width:37px;">
+                        <option selected="selected" value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    份
+                    <a href="javascript:;" title="日式照烧鸡肉">
+                        <img src="static/img/buy.gif" style="border:0px;">
+                    </a>
                 </div>
             </div>
         </div>
 
-        <div id="div_pager1" style="clear:both;" class="page-number"><span id="clickPagerJS" class="pager"><span
-                class="previous">&lt;</span><a class="current" href="javascript:void(0);"
-                                               onclick="javascript:pager_pageindex('?pageIndex=0');">1</a><a
-                href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">2</a><a class="next"
-                                                                                                         href="javascript:void(0);"
-                                                                                                         onclick="javascript:pager_pageindex('?pageIndex=1');">
-            &gt;</a></span>
-
+        <div id="div_pager1" style="clear:both;" class="page-number">
+            <span id="clickPagerJS" class="pager">
+                <span class="previous">&lt;</span>
+                <a class="current" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=0');">1</a>
+                <a href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">2</a>
+                <a class="next" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">&gt;</a>
+            </span>
         </div>
     </div>
 
-
-    <div id="div_pveg" style="position: absolute; left: 715px; top: 804px; display: none; z-index: 999; width: 400px; height: 199px;">
-        <iframe src="static/img/vegm.htm" scrolling="no" style="height: 199px;" id="if_pveg" frameborder="0" width="400"></iframe>
-    </div>
-    <div id="div_getyz" style="display:none;">
-        <iframe scrolling="no" id="if_getyz" frameborder="0" height="225" width="400"></iframe>
-    </div>
-</div>
-<div class="right2">
-
-    <div class="kefu">
-        <div class="imgLeft">
-
-        </div>
-    </div>
-    <div id="ctl00_ContentPlaceHolder1_UCstoreMsg_1_div_kefu">
-        <div class="hkefu_top"></div>
-        <div class="hkefu">
-            <p>订餐时间：<span class="phone">8:00~20:00</span></p>
+    <div class="right">
+        <div class="info">
+            <p>订餐时间：<span class="time">8:00~20:00</span></p>
 
             <p>服务热线：<span class="phone">010-51290021</span></p>
 
-            <p>外卖说明：<span class="gg">国贸</span></p>
+            <p>外卖说明：<span class="comment">国贸</span></p>
         </div>
-        <div class="index_right_bottom"></div>
-    </div>
-    <div id="ctl00_ContentPlaceHolder1_UCdcRight_2_3_div_dingcan">
-
-        <div id="shopCar">
-            <div class="Bg-cancheContent">
-                <div style="top: 0px;" class="Bg-cancheContent1">
-                    <table style="width:100%;height:13px;padding:0px;margin:0px;" id="tbVeg" cellpadding="1"
-                           cellspacing="1">
-                        <tbody>
-                        <tr style="height:25px" class="tr">
-                            <td width="52%"><a onclick="tb_clear()" id="a_clear" href="javascript:void(0)"><img
-                                    src="static/img/del.gif" style="vertical-align:middle;" alt="全部清除菜品"></a>菜名
-                            </td>
-                            <td width="16%">单价</td>
-                            <td width="16%">数量</td>
-                            <td width="16%">小计</td>
-                        </tr>
-                        </tbody>
-                        <tbody>
+        <div id="shopCart">
+            <div class="items">
+                    <table>
                         <tr>
-                            <td id="1631&amp;~三杯鸡~~14" class="td_click" title="点击取消选择！" onclick="td_delete(this)">三杯鸡</td>
+                            <th width="52%">
+                                <a onclick="tb_clear()" href="javascript:void(0)">
+                                    <img src="static/img/del.gif" style="vertical-align:middle;" alt="全部清除菜品">
+                                </a>
+                                菜名
+                            </th>
+                            <th width="16%">单价</th>
+                            <th width="16%">数量</th>
+                            <th width="16%">小计</th>
+                        </tr>
+                        <tr>
+                            <td class="removeBtn" title="点击取消选择！" onclick="td_delete(this)">三杯鸡</td>
                             <td>14</td>
-                            <td><select id="1631&amp;~三杯鸡~~14" onchange="selCreate(this)">
+                            <td>
+                                <select onchange="selCreate(this)">
                                 <option selected="selected" value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
-                            </select></td>
+                            </select>
+                            </td>
                             <td>14.00</td>
                         </tr>
-                        </tbody>
                     </table>
-                </div>
             </div>
-            <div class="Bg-cancheContent2" style="line-height:26px;text-align:center;padding-top:10px;">
-                <input id="hd_psf" value="0" type="hidden">
-                <input id="hd_psfType" value="0" type="hidden">
-                份数： ￥<span style="font-size:15px;margin-right:10px;" id="sp_sumCount">1</span>
-                <span style="font-size:16px;font-weight:bold;"> 总计 ￥</span><span style="font-size:19px;font-weight:bold;"
-                                                                                 id="sp_sumMoney">14.00</span>
+            <div class="total">
+                <span class="num">份数: ￥1</span>
+                <span class="price">总计: ￥14.00</span>
             </div>
-            <div class="Bg-cancheContent2" style="text-align:center;padding-top:8px;">
-                <div class="mycart_btn">
-                    <a onclick="getYZ();return false;" id="tjdc" href="javascript:void(0);"></a>
-                </div>
+            <div class="action">
+                <a class="submitBtn" onclick="getYZ();return false;" href="javascript:void(0);">下&nbsp;单</a>
             </div>
-            <div class="BgImg-cancheBottom"></div>
-            <div class="clr"></div>
         </div>
     </div>
-</div>
-
-
 <?php @include_once( dirname(__FILE__) ) . DS . 'footer.tpl.html'; ?>
 </div>
 </body>
