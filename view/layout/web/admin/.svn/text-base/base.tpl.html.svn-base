@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>366BTC 后台管理系统</title>
+<meta charset="utf-8">
+<meta name="keywords" content="<?=c('keywords')?>">
+<meta name="description" content="<?=c('description')?>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php @include_once( dirname(__FILE__) . DS . 'resource_head.tpl.html' ); ?>
+<?php @include_once( dirname(__FILE__) . DS . 'resource_bottom.tpl.html' ); ?>
+</head>
+<body class="navbar-fixed">
+<!--<body class="navbar-fixed breadcrumbs-fixed">-->
+<?php @include_once( dirname(__FILE__) . DS . 'header.tpl.html') ; ?>
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="#">
+            <span class="menu-text"></span>
+        </a>
+        <?php @include_once( dirname(__FILE__) . DS . 'sidebar.tpl.html' ); ?>
+        <div class="main-content">
+            <!--<div class="breadcrumbs breadcrumbs-fixed" id="breadcrumbs">
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+                </script>
+                <ul class="breadcrumb">
+                    <li>
+                        <i class="icon-home home-icon"></i>
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="active">控制台</li>
+                </ul>&lt;!&ndash; .breadcrumb &ndash;&gt;
+            </div>-->
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php
+                            $tfile = 'view' . DS . 'layout' . DS  . 'web' . DS . 'admin' . DS . g('component') . '.tpl.html';
+                            if( file_exists( AROOT . $tfile ) ) include( AROOT . $tfile );
+                            else @include( CROOT . $tfile );
+                        ?>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+        </div><!-- /.main-content -->
+    </div>
+</div>
+</body>
+</html>

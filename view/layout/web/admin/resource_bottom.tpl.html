@@ -1,0 +1,51 @@
+<!-- basic scripts -->
+<!--[if !IE]> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+<!--[if !IE]> -->
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='static/admin/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+</script>
+<!-- <![endif]-->
+
+<!--[if IE]>
+<script type="text/javascript">
+    window.jQuery || document.write("<script src='static/admin/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+<script type="text/javascript">
+    if("ontouchend" in document) document.write("<script src='static/admin/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+</script>
+<script src="static/admin/js/bootstrap.min.js"></script>
+<script src="static/admin/js/typeahead-bs2.min.js"></script>
+<script src="static/admin/js/jquery-ui-1.10.3.full.min.js"></script>
+<script src="static/admin/js/date-time/bootstrap-datepicker.min.js"></script>
+<script src="static/admin/js/date-time/bootstrap-timepicker.min.js"></script>
+<script src="static/admin/js/date-time/moment.min.js"></script>
+<script src="static/admin/js/date-time/daterangepicker.min.js"></script>
+<!-- ace scripts -->
+<script src="static/admin/js/ace-elements.min.js"></script>
+<script src="static/admin/js/ace.min.js"></script>
+<script>
+    $(document).ajaxError(function (event, jqxhr, settings, exception) {
+        switch (jqxhr.status) {
+            case 500:
+                try {
+                    var ret = $.parseJSON(jqxhr.responseText);
+                    if (ret.success === false) {
+                        alert(ret.code + ':' + ret.data);
+                        location.reload();
+                    }
+                } catch (exc) {
+
+                }
+                break;
+        }
+    });
+</script>

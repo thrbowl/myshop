@@ -102,7 +102,7 @@ a{color:#666666;text-decoration:none;}
 #shopCart .total .num {font-size: 14px;}
 #shopCart .total .price {font-weight: bold;margin-left: 10px;font-size: 19px;}
 #shopCart .action {text-align: center;padding: 10px;}
-#shopCart .action .submitBtn {border:2px solid #f1f1f1;display: block;background-color: #ff7d00;height: 35px;width: 100px;line-height: 35px;font-weight: bold;font-size: 20px;color: #FFFAE6;margin: auto;}
+#shopCart .action .submitBtn {border:2px solid #f1f1f1;display: block;background-color: #696969;height: 35px;width: 100px;line-height: 35px;font-weight: bold;font-size: 20px;color: #FFFAE6;margin: auto;}
 
 #bottom{text-align:center; margin-top:5px; margin-bottom:5px;color: #a2a2a2;font:12px/1.7 arial,"宋体"}
 #bottom a{color:#a2a2a2;}

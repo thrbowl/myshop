@@ -1,0 +1,189 @@
+<div>
+    <fieldset class="hide" id="newCoinForm">
+        <legend>添加新币种</legend>
+        <form class="form-horizontal" method="post" action="?c=admin&a=addNewCoin" onsubmit="return checkData();">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="coin_name" class="col-md-2 control-label text-info"><strong>名 称</strong></label>
+
+                    <div class="col-md-10">
+                        <input id="coin_name" class="form-control" type="text" name="coin_name" placeholder="美卡币">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="coin_code" class="col-md-2 control-label text-info"><strong>代 码</strong></label>
+
+                    <div class="col-md-10">
+                        <input id="coin_code" class="form-control" type="text" name="coin_code" placeholder="MEC">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="coin_initprice" class="col-md-2 control-label text-info"><strong>初始价格</strong></label>
+
+                    <div class="col-md-10">
+                        <input id="coin_initprice" class="form-control" type="text" name="coin_initprice"
+                               placeholder="999">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="withdrawal_min_amount" class="col-md-3 control-label text-info"><strong>提现最小金额/数目</strong></label>
+
+                    <div class="col-md-9">
+                        <input id="withdrawal_min_amount" class="form-control" type="text" name="withdrawal_min_amount" placeholder="200">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="withdrawal_audit_amount" class="col-md-3 control-label text-info"><strong>提现审核金额/数目</strong></label>
+
+                    <div class="col-md-9">
+                        <input id="withdrawal_audit_amount" class="form-control" type="text" name="withdrawal_audit_amount" placeholder="20000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="withdrawal_fee" class="col-md-3 control-label text-info"><strong>提现手续费</strong></label>
+
+                    <div class="col-md-9">
+                        <select id="withdrawal_fee" class="form-control" name="withdrawal_fee">
+                            <option value="0.001">0.1%</option>
+                            <option value="0.002">0.2%</option>
+                            <option value="0.003">0.3%</option>
+                            <option value="0.004">0.4%</option>
+                            <option value="0.005">0.5%</option>
+                            <option value="0.006">0.6%</option>
+                            <option value="0.007">0.7%</option>
+                            <option value="0.008">0.8%</option>
+                            <option value="0.009">0.9%</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success btn-xs">添 加</button>
+                    <button type="reset" class="btn btn-default btn-xs">重 置</button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>所有币种 <a href="javascript:;" class="icon-plus-sign-alt" id="addNewCoin"></a></legend>
+        <div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>名 称</th>
+                    <th>标 识</th>
+                    <th>当前价格</th>
+                    <th>开盘价</th>
+                    <th>收盘价</th>
+                    <th>总交易金额</th>
+                    <th>总交易数量</th>
+                    <th>状 态</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($coinList as $coinid => $coin)
+                {
+                ?>
+                <tr>
+                    <td><?=$coinid?></td>
+                    <td><?=$coin['coinname']?></td>
+                    <td><?=$coin['coincode']?></td>
+                    <td><?=$coin['currentprice']?></td>
+                    <td><?=$coin['openprice']?></td>
+                    <td><?=$coin['closeprice']?></td>
+                    <td><?=$coin['totalamount']?></td>
+                    <td><?=$coin['totalnumber']?></td>
+                    <td>
+                        <?php
+                            if ($coin['cantrade'])
+                            {
+                                if ($coin['tradeflag'])
+                                {
+                        ?>
+                        <div class="btn-group">
+                            <button class="btn btn-xs btn-success">可交易</button>
+                            <button class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown">
+                                <span class="icon-caret-down icon-only"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-danger">
+                                <li>
+                                    <a href="?c=admin&a=setTradeStatus&coin_id=<?=$coinid?>&trade_flag=0">不可交易</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <?php
+                                } else {
+                        ?>
+                        <div class="btn-group">
+                            <button class="btn btn-xs btn-warning">不可交易</button>
+                            <button class="btn btn-xs btn-warning dropdown-toggle" data-toggle="dropdown">
+                                <span class="icon-caret-down icon-only"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-danger">
+                                <li>
+                                    <a href="?c=admin&a=setTradeStatus&coin_id=<?=$coinid?>&trade_flag=1">可交易</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <?php
+                                }
+                            } else {
+                        ?>
+                        <span class="label label-info arrowed-in-right arrowed">需要配置钱包</span>
+                        <?php
+                            }
+                        ?>
+                    </td>
+                </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    function checkData() {
+        var coin_name = $.trim($("#coin_name").val());
+        var coin_code = $.trim($("#coin_code").val());
+        var coin_initprice = $.trim($("#coin_initprice").val());
+        var withdrawal_min_amount = $.trim($("#withdrawal_min_amount").val());
+        var withdrawal_audit_amount = $.trim($("#withdrawal_audit_amount").val());
+        var withdrawal_fee = $.trim($("#withdrawal_fee").val());
+
+        if (!(coin_name && coin_code && coin_initprice
+                && withdrawal_min_amount && withdrawal_audit_amount && withdrawal_fee)) {
+            alert("所有属性都是必须的，请正确填写");
+            return false;
+        }
+
+        coin_code = coin_code.toUpperCase();
+        coin_initprice = parseFloat(coin_initprice);
+        withdrawal_min_amount = parseFloat(withdrawal_min_amount);
+        withdrawal_audit_amount = parseFloat(withdrawal_audit_amount);
+        withdrawal_fee = parseFloat(withdrawal_fee);
+        if (confirm("你确认要添加如下新币么？\n币名：" + coin_name + "\n代码：" + coin_code + "\n初始价格：" + coin_initprice
+                + "\n最小提现金额/数目：" + withdrawal_min_amount + "\n提现审核金额/数目：" + withdrawal_audit_amount
+                + "\n手续费：" + withdrawal_fee * 100 + "%")) {
+            $("#coin_name").val(coin_name);
+            $("#coin_code").val(coin_code);
+            $("#coin_initprice").val(coin_initprice);
+            $("#withdrawal_min_amount").val(withdrawal_min_amount);
+            $("#withdrawal_audit_amount").val(withdrawal_audit_amount);
+            return true;
+        }
+        return false;
+    }
+    $(function () {
+        $("#addNewCoin").click(function () {
+            $("#newCoinForm").removeClass("hide");
+            $(this).addClass("hide");
+        })
+    })
+</script>
+

@@ -1,0 +1,68 @@
+<div>
+    <fieldset>
+        <legend>所有建议</legend>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>标题</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($data['page_info']['list'] as $articleid => $article)
+                    {
+                ?>
+                    <tr>
+                        <td><?=$articleid+1?></td>
+                        <td><?=$article['title']?></td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-success">操作</button>
+                                <button class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown">
+                                    <span class="icon-caret-down icon-only"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-danger">
+                                    <li>
+                                        <a href="?c=admin&a=viewSuggest&id=<?=$article['id']?>">查看</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+            </table>
+	<ul class="pagination">
+					<?php
+		             if($data['page_info']['page_num']!=1){
+					?>	
+						<li><a href="?c=admin&a=suggest&page_num=1">«</a></li>
+					 <?php
+					} 
+					?>		
+	<?php
+					for ($i=1;$i<=$data['page_info']['end'];$i++) {
+		             if($data['page_info']['page_num']==$i){
+					?>			
+						<li class="active"><a href="javascript:void(0)"><?=$i?></a></li>
+					<?php
+					}else{
+					?>	
+						<li><a href="?c=admin&a=suggest&page_num=<?=$i?>"><?=$i?></a></li>
+					<?php
+					} }
+					?>									
+					<?php
+		             if($data['page_info']['page_num']!=1 && $data['page_info']['page_num']!=$data['page_info']['end']){
+					?>
+        <li><a href="?c=admin&a=suggest&page_num=<?=$data['page_info']['end']?>">»</a></li>
+					 <?php
+					} 
+					?>	        
+     </ul>            
+        </div>
+    </fieldset>
+</div>

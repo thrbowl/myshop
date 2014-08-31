@@ -1,0 +1,77 @@
+<div>
+    <fieldset>
+        <legend>所有投票 <a href="?c=admin&a=editVote" class="icon-plus-sign-alt" id="addNewCoin"></a></legend>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>投票名称</th><th>总体票数</th><th>已投票数</th><th>状 态</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($data['list'] as $itemid => $item)
+                    {
+                ?>
+                    <tr>
+                        <td><?=$itemid+1?></td>
+                        <td><?=$item['name']?></td>
+                        <td><?=$item['total']?></td>
+                        <td><?=$item['current_total']?></td>
+  						<?php
+                            if ($item['status']==1)
+                            {
+                        ?> 
+                        <td>已发布</td>
+						<?php
+                          }else{
+                        ?>    
+                          <td>未发布</td>  
+                         <?php
+                          }
+                        ?>        
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-success">操作</button>
+                                <button class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown">
+                                    <span class="icon-caret-down icon-only"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-danger">
+                                    <li>
+                                        <a href="?c=admin&a=editVote&id=<?=$item['id']?>">修改</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"  onclick="del('<?=$item['id']?>')">删除</a>
+                                    </li>       
+                                    <li>
+                                        <a href="?c=admin&a=vote_item&vote_id=<?=$item['id']?>">维护投票项</a>
+                                    </li>                                                                                                      
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</div>
+<script type="text/javascript">
+   function  del(_id){
+		  if(confirm("确定删除投票？"))
+		  {	
+	   		$.post("?c=admin&a=delVote",
+			   {
+			     id:_id
+			   },
+			   function(data,status){
+				   if(status='success'){
+	    		    	window.location='?c=admin&a=vote';
+	    		    }				   
+			   });
+		  }
+   }
+</script>
+

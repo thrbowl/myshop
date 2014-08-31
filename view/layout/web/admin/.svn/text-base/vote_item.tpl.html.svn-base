@@ -1,0 +1,144 @@
+<div>
+    <fieldset class="hide" id="newCoinForm">
+        <legend>编辑投票项</legend>
+        <div class="col-md-6">
+            <form class="form-horizontal" method="post"  id="form-add"   action="?c=admin&a=vote_item_submit">
+            	<input id="vote_id"    type="hidden" name="vote_id"  value="<?=$data['info']['id']?>"/>
+            	<input id="_id"    type="hidden" name="id"  value=""/>
+                <div class="form-group">
+                    <label for="coin_name" class="col-md-2 control-label text-info"><strong>主题</strong></label>
+                    <div class="col-md-10">
+                        <input id="_subject" class="form-control date-picker" type="text"  name="subject" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="coin_name" class="col-md-2 control-label text-info"><strong>样式</strong></label>
+                    <div class="col-md-10">
+                        <input id="_css" class="form-control date-picker" type="text"  name="css" >
+                    </div>
+                </div>                
+                <div class="form-group">
+                    <label for="coin_name" class="col-md-2 control-label text-info"><strong>说明</strong></label>
+                    <div class="col-md-10">
+                       <textarea id="_memo"  rows="3" cols="2" name="memo"  class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="coin_name" class="col-md-2 control-label text-info"><strong>投票数目</strong></label>
+                    <div class="col-md-10">
+                        <input id="_score" class="form-control date-picker" type="text"  name="score" >
+                    </div>
+                </div>                                
+                <div class="text-right">
+                    <button type="button" class="btn btn-success btn-xs"  id="btn-add">保存</button>
+                    <button type="reset" class="btn btn-default btn-xs"   >重 置</button>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend><span style="font-size: 20px; color: red; font-weight:bold ;"><?=$data['info']['name']?>-</span>投票项<a href="javascript:;" class="icon-plus-sign-alt" id="addNewCoin"></a></legend>
+        <div>
+    <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>主题</th><th>说明</th><th>样式</th><th>已投票数</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($data['list'] as $itemid => $item)
+                    {
+                ?>
+                    <tr>
+                        <td><?=$itemid+1?></td>
+                        <td><?=$item['subject']?></td>
+                        <td><?=$item['memo']?></td>
+                        <td><?=$item['css']?></td>
+                        <td><?=$item['score']?></td>
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-success">操作</button>
+                                <button class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown">
+                                    <span class="icon-caret-down icon-only"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-danger">
+                                    <li>
+                                        <a href="javascript:;"  onclick="update('<?=$item['id']?>','<?=$item['subject']?>','<?=$item['memo']?>','<?=$item['score']?>','<?=$item['css']?>')">修改</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"  onclick="del('<?=$item['id']?>')">删除</a>
+                                    </li>       
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+            </table>           
+        </div>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $("#addNewCoin").click(function(){
+            $("#newCoinForm").removeClass("hide");
+            clear();
+        });
+        
+    })
+</script>
+<script type="text/javascript">
+$(function() {
+	$("#btn-add").click(function(){
+		  if(confirm("确定保存投票项？"))
+		  {
+	    		send_form("form-add",function(result,status){
+		    			var data = eval( "(" + result + ")" );
+						if (data.success)
+						{
+							window.location.reload();
+							return;
+						}
+						else
+						{
+							alert( data.error);
+							return;
+						}
+	    		  });
+		  }
+		  
+	});
+});
+function  del(_id){
+	  if(confirm("确定删除投票项？"))
+	  {	
+	   $.post("?c=admin&a=vote_item_del",
+			   {
+			     id:_id
+			   },
+			   function(data,status){
+				   if(status='success'){
+					   window.location.reload();
+	    		    }				   
+			   });
+	  }
+}
+function  update(_id,_subject,_memo,_score,_css){
+	$("#_id").val(_id);
+	$("#_subject").val(_subject);
+	$("#_memo").val(_memo);
+	$("#_score").val(_score);
+	$("#_css").val(_css);
+	 $("#newCoinForm").removeClass("hide");
+}
+function  clear(){
+	$("#_id").val("");
+	$("#_subject").val("");
+	$("#_memo").val("");
+	$("#_score").val("");
+	$("#_css").val("");
+}
+</script>

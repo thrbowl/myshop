@@ -1,0 +1,71 @@
+<?php
+    if ($entrustList) {
+?>
+<table class="table">
+    <tr>
+        <th>委单ID</th>
+        <th>用户ID</th>
+        <th>币种代码</th>
+        <th>挂单金额</th>
+        <th>挂单价格</th>
+        <th>挂单数目</th>
+        <th>挂单时间</th>
+        <th>挂单类型</th>
+        <th>挂单状态</th>
+    </tr>
+<?php
+    foreach ($entrustList as $entrust)
+    {
+?>
+    <tr>
+        <td><?=$entrust['id']?></td>
+        <td><?=$entrust['user_id']?></td>
+        <td><?=$entrust['coin_code']?></td>
+        <td><?=$entrust['entrust_amount']?></td>
+        <td><?=$entrust['entrust_price']?></td>
+        <td><?=$entrust['entrust_quantity']?></td>
+        <td><?=$entrust['create_time']?></td>
+        <td>
+<?php
+    if ($entrust['flag'] == 1)
+    {
+?>
+            买入
+<?php
+    }
+    else if ($entrust['flag'] == 2)
+    {
+?>
+            卖出
+<?php
+    }
+?>
+        </td>
+        <td>
+<?php
+    if ($entrust['status'] == 1)
+    {
+?>
+            <span class="label label-danger arrowed-in">撤单中</span>
+<?php
+    }
+    else if ($entrust['status'] == 2)
+    {
+?>
+            <span class="label label-success arrowed">正常</span>
+<?php
+    }
+?>
+        </td>
+    </tr>
+<?php
+    }
+?>
+</table>
+<?php
+    } else {
+?>
+<h4 class="text-danger">没有符合条件的订单！！！</h4>
+<?php
+    }
+?>

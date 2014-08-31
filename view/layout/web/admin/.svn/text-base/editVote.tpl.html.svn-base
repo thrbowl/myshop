@@ -1,0 +1,79 @@
+<div>	
+    <fieldset>
+        <legend><a href="javascript:;" class="icon-edit" >编辑投票</a></legend>
+            <form class="form-horizontal" method="post" action="?c=admin&a=submitVote"   id="articleForm"  name="articleForm">
+             	<input id="id"    type="hidden" name="id"  value="<?=$data['info']['id']?>"/>
+                 <div class="col-md-12">
+    			<div class="form-group">
+                    <label for="coin_name" class="col-md-1 control-label text-info"><strong>名称</strong></label>
+                    <div class="col-md-4">
+                        <input id="name" class="form-control"  type="text" name="name" placeholder="名称"   value="<?=$data['info']['name']?>">
+                    </div>
+                    <label for="coin_name" class="col-md-1 control-label text-info"><strong>名称</strong></label>
+                    <div class="col-md-4">
+                        <input id="code" class="form-control"  type="text" name="code" placeholder="编码"   value="<?=$data['info']['code']?>">
+                    </div>                    
+                </div>
+                <div class="form-group">
+                    <label for="coin_code" class="col-md-1 control-label text-info"><strong>总票数</strong></label>
+                    <div class="col-md-4">
+                        <input id="total" class="form-control" type="text" name="total" placeholder="总票数"  value="<?=$data['info']['total']?>">
+                    </div>
+                    <label for="coin_code" class="col-md-1 control-label text-info"><strong>已投票数</strong></label>
+                    <div class="col-md-4">
+                        <input id="current_total" class="form-control" type="text" name="current_total" placeholder="已投票数"  value="<?=$data['info']['current_total']?>">
+                    </div>
+                </div>
+                <div class="form-group">
+      			<label for="coin_code" class="col-md-1 control-label text-info"><strong>状态</strong></label>
+                    <div class="col-md-4">
+					<select id="type" name="status" >
+					<?php
+				       foreach ($data['statusList'] as $key=>$item) {
+		                if ($data['info']['status']==$key)
+                            {
+                     ?> 				
+                        <option value="<?=$key?>" selected="selected"><?=$item?></option>					
+ 						<?php
+                          }else{
+                        ?>
+                        <option value="<?=$key?>" ><?=$item?></option>		
+ 					<?php
+							}}
+                        ?>
+							</select>                    
+                    </div>  
+  <label for="coin_code" class="col-md-1 control-label text-info"><strong>排序字段</strong></label>
+                    <div class="col-md-2">
+                        <input id="orderflag" class="form-control" type="text" name="orderflag" placeholder="排序字段"  value="<?=$data['info']['orderflag']?>">
+                    </div>                                      
+                </div>   
+     			<div class="form-group">
+                    <label for="coin_code" class="col-md-1 control-label text-info">  </label>
+                    <div class="col-md-9">
+                <div class="text-left">
+                    <button type="button" class="btn btn-success btn-xs"   id="articleSave">编辑</button>
+                    <button type="reset" class="btn btn-default btn-xs">重 置</button>
+                </div>                     
+                    </div>
+                </div>                                                                
+                         </div>
+            </form>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    $(function() {
+    	$("#articleSave").click(function(){
+    		  if(confirm("确定编辑投票？"))
+    		  {
+		    		send_form("articleForm",function(data,status){
+			    		    if(status='success'){
+			    		    	window.location='?c=admin&a=vote';
+			    		    }
+		    		  });
+    		  }
+    		  
+    	});
+    })
+</script>
+

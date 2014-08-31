@@ -1,0 +1,59 @@
+<?php
+    if ($profitList) {
+?>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>币种</th>
+        <th>交易利润</th>
+        <th>提款利润</th>
+        <th>总返利</th>
+        <th>总分红</th>
+        <th>总利润</th>
+        <th>净利润</th>
+    </tr>
+    <?php
+	foreach ($profitList as $profit)
+    {
+	?>
+    <tr>
+        <td><?=$profit['coin_id']?></td>
+        <td><?=$profit['coin_code']?></td>
+        <td><?=$profit['trade_fee']?></td>
+        <td><?=$profit['withdraw_free']?></td>
+        <td><?=$profit['rebate']?></td>
+        <td>
+            <?php
+            if ($profit['coin_code'] == 'CNY') {
+                echo $earnings_total;
+            } else {
+                echo 0;
+            }
+            ?>
+        </td>
+        <td>
+            <?php
+            echo $profit['trade_fee']+$profit['withdraw_free'];
+            ?>
+        </td>
+        <td>
+            <?php
+            if ($profit['coin_code'] == 'CNY') {
+                echo $profit['trade_fee']+$profit['withdraw_free']-$profit['rebate']-$earnings_total;
+            } else {
+                echo $profit['trade_fee']+$profit['withdraw_free'];
+            }
+            ?>
+        </td>
+    </tr>
+    <?php
+    }
+	?>
+</table>
+<?php
+    } else {
+?>
+<h4 class="text-danger">没有数据</h4>
+<?php
+    }
+?>

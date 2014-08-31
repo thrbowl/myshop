@@ -1,0 +1,113 @@
+<link rel="stylesheet" href="<?=admin_static('css/bootstrap-timepicker.css')?>"/>
+<div>
+    <fieldset class="hide" id="newCoinForm">
+        <legend>添加分红</legend>
+        <div class="col-md-6">
+            <form class="form-horizontal" method="post"  id="form-add"   action="?c=admin&a=addNewScore">
+                <div class="form-group">
+                    <label for="coin_name" class="col-md-2 control-label text-info"><strong>开始时间</strong></label>
+
+                    <div class="col-md-10">
+                        <input id="start_time" class="form-control date-picker" type="text"  data-date-format="yyyy-mm-dd" name="start_time" >
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="coin_code" class="col-md-2 control-label text-info"><strong>结束时间</strong></label>
+
+                    <div class="col-md-10">
+                        <input id="end_time" class="form-control date-picker" type="text"  data-date-format="yyyy-mm-dd"  name="end_time" >
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="button" class="btn btn-success btn-xs"  id="btn-add">添 加</button>
+                    <button type="reset" class="btn btn-default btn-xs">重 置</button>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>所有分红任务<a href="javascript:;" class="icon-plus-sign-alt" id="addNewCoin"></a></legend>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>开始时间</th><th>结束时间</th><th>状 态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($data['logList'] as $logid => $log)
+                    {
+                ?>
+                    <tr>
+                        <td><?=$logid+1?></td>
+                        <td><?=$log['start_time']?></td>
+                        <td><?=$log['end_time']?></td>
+                   		 <td>
+                   		  		<?php
+		                if ($log['status']==0)
+                            {
+                     ?> 				
+                           后台计算中
+ 						<?php
+                          }else{
+                        ?>
+                        完成
+ 					<?php
+							}
+                        ?>
+                   		 </td>
+                    </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+</div>
+<script src="<?=admin_static('js/date-time/bootstrap-datepicker.min.js')?>"></script>
+<script type="text/javascript">
+    $(function() {
+        $("#addNewCoin").click(function(){
+            $("#newCoinForm").removeClass("hide");
+            $(this).addClass("hide");
+        });
+		$('.date-picker').datepicker({autoclose:true}).next().on(ace.click_event, function(){
+			$(this).prev().focus();
+		});
+    })
+</script>
+<script type="text/javascript">
+$(function() {
+	$("#btn-add").click(function(){
+	    var start_time= $("#start_time").val();
+	    var end_time= $("#end_time").val();	
+	    if(!((end_time !="") && (start_time!=""))) {
+	    	alert('开始时间和结束时间不能为空');
+	    	return;
+	    }		    
+	    if(end_time<=start_time) {
+	    	alert('结束时间必须大于开始时间');
+	    	return;
+	    }		
+		  if(confirm("确定增加分红任务？"))
+		  {
+	    		send_form("form-add",function(result,status){
+		    			var data = eval( "(" + result + ")" );
+						if (data.success)
+						{
+							window.location.reload();
+							return;
+						}
+						else
+						{
+							alert( data.error);
+							return;
+						}
+	    		  });
+		  }
+		  
+	});
+});
+</script>

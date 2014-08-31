@@ -1,0 +1,138 @@
+<div>
+    <fieldset>
+        <legend>所有文章 <a href="?c=admin&a=editArticle" class="icon-plus-sign-alt" id="addNewCoin"></a></legend>
+ <fieldset>
+            <form class="form-horizontal" method="post" action="?c=admin&a=article"   id="articleForm"  name="articleForm">
+             	<input id="page_num"    type="hidden" name="page_num"  value="<?=$data['page_info']['page_num']?>"/>
+                 <div class="col-md-12">
+    			<div class="form-group">
+                    <label for="coin_name" class="col-md-1 control-label text-info"><strong>标题</strong></label>
+                    <div class="col-md-3">
+                        <input id="keyword" class="form-control"  type="text" name="keyword" placeholder="标题"   value="<?=$data['info']['title']?>">
+                    </div>
+                    <label for="coin_name" class="col-md-1 control-label text-info"><strong>类型</strong></label>
+                    <div class="col-md-3">
+					<select id="type" name="type" >
+					 <option value="-1">所有</option>		
+					<?php
+				       foreach ($data['types'] as $key => $item) {
+		                if ($data['type']==$key)
+                            {
+                     ?> 				
+                        <option value="<?=$key?>" selected="selected"><?=$item?></option>					
+ 						<?php
+                          }else{
+                        ?>
+                        <option value="<?=$key?>"><?=$item?></option>		
+ 					<?php
+							}}
+                        ?>
+							</select>                                   
+                    </div>
+                    <div class="col-md-4" >
+							     <button class="btn btn-sm btn-success "   type="submit"><i class="icon-search"></i>查找文章</button>
+                    </div>                                        
+                </div>
+              </div>
+            </form>
+    </fieldset>        
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>标题</th><th>内码</th><th>分类</th><th>作者</th><th>发布时间</th><th>浏览量</th><th>logo</th><th>状 态</th><th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($data['page_info']['list'] as $articleid => $article)
+                    {
+                ?>
+                    <tr>
+                        <td><?=$articleid+1?></td>
+                        <td><?=$article['title']?></td>
+                        <td><?=$article['innercode']?></td>
+                        <td><?=$article['type']?></td>
+                        <td><?=$article['author']?></td>
+                        <td><?=$article['publishdate']?></td>
+                        <td><?=$article['hitcount']?></td>
+                        <td><?=$article['logo']?></td>
+  						<?php
+                            if ($article['status']==1)
+                            {
+                        ?> 
+                        <td>已发布</td>
+						<?php
+                          }else{
+                        ?>    
+                          <td>未发布</td>  
+                         <?php
+                          }
+                        ?>        
+                        <td>
+                            <div class="btn-group">
+                                <button class="btn btn-xs btn-success">操作</button>
+                                <button class="btn btn-xs btn-success dropdown-toggle" data-toggle="dropdown">
+                                    <span class="icon-caret-down icon-only"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-danger">
+                                    <li>
+                                        <a href="?c=admin&a=editArticle&id=<?=$article['id']?>">修改</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;"  onclick="del('<?=$article['id']?>')">删除</a>
+                                    </li>                                                                         
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                <?php
+                    }
+                ?>
+                </tbody>
+            </table>
+	<ul class="pagination">
+					<?php
+		             if($data['page_info']['page_num']!=1){
+					?>	
+						<li><a href="?c=admin&a=article&type=<?=$data['type']?>&keyword=<?=$data['keyword']?>&page_num=1">«</a></li>
+					 <?php
+					} 
+					?>		
+	<?php
+					for ($i=1;$i<=$data['page_info']['end'];$i++) {
+		             if($data['page_info']['page_num']==$i){
+					?>			
+						<li class="active"><a href="javascript:void(0)"><?=$i?></a></li>
+					<?php
+					}else{
+					?>	
+						<li><a href="?c=admin&a=article&type=<?=$data['type']?>&keyword=<?=$data['keyword']?>&page_num=<?=$i?>"><?=$i?></a></li>
+					<?php
+					} }
+					?>									
+					<?php
+		             if($data['page_info']['page_num']!=1 && $data['page_info']['page_num']!=$data['page_info']['end']){
+					?>
+        <li><a href="?c=admin&a=article&type=<?=$data['type']?>&keyword=<?=$data['keyword']?>&page_num=<?=$data['page_info']['end']?>">»</a></li>
+					 <?php
+					} 
+					?>	        
+     </ul>            
+        </div>
+    </fieldset>
+</div>
+<script type="text/javascript">
+   function  del(_id){
+	   $.post("?c=admin&a=delArticle",
+			   {
+			     id:_id
+			   },
+			   function(data,status){
+				   if(status='success'){
+	    		    	window.location='?c=admin&a=article';
+	    		    }				   
+			   });
+   }
+</script>
+

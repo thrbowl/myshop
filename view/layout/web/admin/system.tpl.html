@@ -1,0 +1,126 @@
+<div>
+    <fieldset>
+        <legend>餐馆设置</legend>
+        <form class="form-horizontal" method="post" action="?c=admin&a=updateSystem" id="updateSystemForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="name"> 餐馆名称 </label>
+
+                <div class="col-sm-4">
+                    <input type="text" id="name" class="form-control" value="<?=$name?>"/>
+                </div>
+            </div>
+
+            <div class="space-4"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="status0"> 状态 </label>
+
+                <div class="col-sm-9">
+                    <label>
+                        <input class="ace" type="radio" id="status0" name="status" value="0"
+                        <?php if($status==0): ?>checked<?php endif;?>>
+                        <span class="lbl"> 营业</span>
+                    </label>
+                    &nbsp;
+                    <label>
+                        <input class="ace" type="radio" name="status" value="1"
+                        <?php if($status==1): ?>checked<?php endif;?>>
+                        <span class="lbl"> 关闭</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="space-4"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="start_time"> 开张时间 </label>
+
+                <div class="col-sm-2">
+                    <div class="input-group bootstrap-timepicker">
+                        <input id="start_time" type="text" class="form-control" name="start_time"
+                               value="<?=$start_time?>" readonly/>
+						<span class="input-group-addon">
+						    <i class="icon-time bigger-110"></i>
+						</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-4"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="end_time"> 打烊时间 </label>
+
+                <div class="col-sm-2">
+                    <div class="input-group bootstrap-timepicker">
+                        <input id="end_time" type="text" class="form-control" name="end_time"
+                               value="<?=$end_time?>" readonly/>
+						<span class="input-group-addon">
+						    <i class="icon-time bigger-110"></i>
+						</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-4"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="phone"> 订餐电话 </label>
+
+                <div class="col-sm-3">
+                    <div class="input-group">
+						<span class="input-group-addon">
+						    <i class="icon-phone"></i>
+						</span>
+                        <input type="text" id="phone" class="form-control input-mask-phone"
+                               name="phone" value="<?=$phone?>"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-4"></div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label no-padding-right" for="introduce"> 外卖说明 </label>
+
+                <div class="col-sm-5">
+                    <textarea maxlength="50" rows="10" id="introduce" name="introduce"
+                              class="form-control limited"><?=$comments?></textarea>
+                </div>
+            </div>
+
+            <div class="clearfix form-actions">
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn btn-info">
+                        <i class="icon-ok bigger-110"></i>
+                        更新配置
+                    </button>
+
+                    &nbsp; &nbsp; &nbsp;
+                    <button type="reset" class="btn">
+                        <i class="icon-undo bigger-110"></i>
+                        重置
+                    </button>
+                </div>
+            </div>
+        </form>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#start_time,#end_time').timepicker({
+            minuteStep: 1,
+            showSeconds: true,
+            showMeridian: false
+        }).next().on(ace.click_event, function () {
+            $(this).prev().focus();
+        });
+    });
+
+    $("updateSystemForm").submit(function () {
+        var $form = $(this);
+        $.post($form.attr("action"), $form.serialize(), function () {
+
+        });
+    });
+</script>
