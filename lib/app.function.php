@@ -22,3 +22,30 @@ function jsforword($url)
 {
     return '<script>location="' . $url . '"</script>';
 }
+
+class AjaxMessage
+{
+    public static function __callStatic($name, $arguments)
+    {
+        self::info($name, $arguments[0], $arguments[1]);
+    }
+
+    public static function info($type, $content, $data)
+    {
+        $res = array();
+        $res['type'] = $type;
+        $res['content'] = $content;
+        $res['data'] = $data;
+
+        ajax_echo(json_encode($res), 'json');
+    }
+
+    public static function simple($flag)
+    {
+        if ($flag) {
+            self::success("操作成功");
+        } else {
+            self::error("操作失败");
+        }
+    }
+}

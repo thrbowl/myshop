@@ -153,8 +153,8 @@
             },
             submitHandler: function (form) {
                 var $form = $(form);
-                $.post($form.attr("action"), $form.serialize(), function () {
-
+                $.post($form.attr("action"), $form.serialize(), function (message) {
+                    $.message(message);
                 });
             },
             invalidHandler: function (form) {

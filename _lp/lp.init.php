@@ -10,7 +10,7 @@ define( 'ROOT' , dirname( __FILE__ ) . DS );
 define( 'CROOT' , ROOT . 'core' . DS  );
 
 // define 
-error_reporting(E_ALL^E_NOTICE);
+error_reporting(E_ALL^E_NOTICE^E_DEPRECATED);
 ini_set( 'display_errors' , true );
 
 include_once( CROOT . 'lib' . DS . 'core.function.php' );

@@ -1,62 +1,3 @@
-@charset "utf-8";
-/* CSS Document */
-
-body,html{width:100%;font-family:simsun;font-size:12px;background-color:#fff;}
-img {border: 0 none;}
-a{text-decoration:none;color:#0099cc;}
-/*清除浮动*/
-.clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
-.clearfix {zoom:1;}
-.fl{float:left;}
-.fr{float:right;}
-.mar-t20{margin-top:20px;}
-.mar-t25{margin-top:25px;}
-.mar-b14{margin-bottom:14px;}
-/*圆角*/
-.bor-radius{border-radius:2px;-webkit-border-radius:2px;-ms-border-radius:2px;-webkit-border-radius:2px;-o-border-radius:2px;}
-/**/
-.operate-btn{display:inline-block;width:84px;height:26px;background-color:#ffa00a;font-size:14px;line-height:26px; color:#fff;cursor:pointer;}
-.search-input-s{height:20px;padding:2px 5px;border:1px solid #bbbbbb;margin-left:10px;}
-.wid-180{width:180px;}
-.operate-l{width:310px;}
-.operate-r{width:560px;}
-
-/*页码*/
-
-.page li {height:26px;float:left;margin-left:4px;line-height:26px;text-align:center;}
-
-.page li a{display:inline-block;height:100%;padding:0 10px;color:#646464;background-color:#f0f0f0;}
-.page li.active a{color:#fff;background-color:#0099cc;}
-.page-txt{display:inline-block;width:22px;padding:2px;height:12px;line-height:12px;border:1px solid #e0e0e0;margin:4px 0;background-color:#fff;}
-
-.sidebar-title{font-size:14px;background:url(../../image/Shared/activityems.png) no-repeat 0 -238px;line-height:14px;height:14px;padding-left:10px;color:#646464;font-weight:bold;margin:20px 0 10px 0;}
-.otherDlList dd{font-size:12px;line-height:32px;}
-.otherDlList dd a{color:#0099cc;text-decoration:none;}
-
-.otherDlList-line dd{border-bottom:1px solid #e2e2e2;padding:8px 0;}
-.otherDlList-line dd a{font-size:12px;color:#0099cc;text-decoration:none;display:inline-block;line-height:18px;margin:4px 0;}
-.otherDlList-line dd p{line-height:18px;color:#646464;}
-
-.related-undergo dd{border-bottom:1px solid #e2e2e2;padding:8px 0;}
-.related-undergo dd a{font-size:12px;color:#0099cc;text-decoration:none;display:inline-block;line-height:18px;margin:4px 0;}
-
-
-.bg-ems{padding:4px 0;}
-.bg-ems span{float:left;line-height:18px;color:#676767;font-size:12px;}
-.ems{background-image:url(../../image/Shared/ems-mark.png);background-repeat:no-repeat;padding-left:22px;margin-right:10px;}
-.wid-118{width:118px;}
-.bg-ems1{background-position:0 -250px;}
-.bg-ems2{background-position:0 -268px;}
-.bg-ems3{background-position:0 -286px;}
-
-.contentWrap{width:1170px;margin:0 auto;overflow:hidden;}
-.wid880{width:880px;height: 100%;float: left;overflow: hidden;position: relative;}
-.wid-270{width:270px;overflow:hidden;}
-.mar-l20{margin-left:20px;}
-.padding-t10{padding-top:10px;}
-.disLine{display:inline;}
-.alertRed{color:#ff0000;}
-
 /* ---------- Message ---------- */
 
 div.xxMessage {
@@ -85,15 +26,15 @@ div.xxMessage .messageContent {
 }
 
 div.xxMessage .messagewarnIcon {
-    background: url(../../image/Shared/common.gif) -60px -330px no-repeat;
+    background: url(../img/common.gif) -60px -330px no-repeat;
 }
 
 div.xxMessage .messagesuccessIcon {
-    background: url(../../image/Shared/common.gif) -30px -360px no-repeat;
+    background: url(../img/common.gif) -30px -360px no-repeat;
 }
 
 div.xxMessage .messageerrorIcon {
-    background: url(../../image/Shared/common.gif) 0px -390px no-repeat;
+    background: url(../img/common.gif) 0px -390px no-repeat;
 }
 
 div.xxMessage .messageIframe {
@@ -104,26 +45,3 @@ div.xxMessage .messageIframe {
     top: -100px;
     z-index: -1;
 }
-
-/******外弹框 背景变暗******/
-.overloy {
-    width: 100%;
-    height: 100%;
-    z-index: 100000;
-    position: fixed;
-    _position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5) !important;
-    filter: alpha(opacity=50);
-    background: #000000;
-}
-
-.ui-autocomplete {
-    z-index: 99998;
-}
-
-/*20140731*/
-.position-re{position:relative;}
-.width-192{width:192px;}
-.searchBgImg{background:url(../../image/Shared/search.png) no-repeat 0 0;cursor:pointer;position:absolute;right:1px;top:1px;display:inline-block;width:24px;height:24px;}

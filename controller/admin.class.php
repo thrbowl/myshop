@@ -70,6 +70,6 @@ class adminController extends appController
         $comments = v('comments');
 
         $is_success = update_system(array($name, $status, $start_time, $end_time, $phone, $comments));
-        return ajax_echo($is_success);
+        AjaxMessage::simple($is_success);
     }
 }
