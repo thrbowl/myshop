@@ -44,22 +44,22 @@
                  </li>
             </ul>
         </li>-->
-        <li id="system" class="active">
+        <li id="system" <?php if(g('component')=='system'): ?>class="active"<?php endif;?>>
             <a href="?c=admin&a=system">
                 <i class="icon-cog"></i><span class="menu-text"> 餐馆设置 </span>
             </a>
         </li>
-        <li id="users">
+        <li id="users" <?php if(g('component')=='users'): ?>class="active"<?php endif;?>>
             <a href="?c=admin&a=users">
                 <i class="icon-user"></i><span class="menu-text"> 用户管理 </span>
             </a>
         </li>
-        <li id="menu">
+        <li id="menu" <?php if(g('component')=='menu'): ?>class="active"<?php endif;?>>
             <a href="?c=admin&a=menu">
                 <i class="icon-food"></i><span class="menu-text"> 菜单管理 </span>
             </a>
         </li>
-        <li id="orders">
+        <li id="orders" <?php if(g('component')=='orders'): ?>class="active"<?php endif;?>>
             <a href="?c=admin&a=orders">
                 <i class="icon-book"></i><span class="menu-text"> 订单管理 </span>
             </a>

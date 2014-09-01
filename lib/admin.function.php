@@ -18,7 +18,8 @@ function login_required()
 function perm_required($perm)
 {
     login_required();
-    if (!($_SESSION['_is_super'] or in_array($perm, $_SESSION['_perms']))) {
+    $admin = c('admin');
+    if (!($perm == $admin['index'] || $_SESSION['_is_super'] || in_array($perm, $_SESSION['_perms']))) {
         return ajax_echo("<script>alert('你没有访问该资源的权限');location.href='?c=admin'</script>");
     }
 }

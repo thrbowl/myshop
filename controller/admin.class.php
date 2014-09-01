@@ -16,7 +16,8 @@ class adminController extends appController
         if (!check_login()) {
             render_to_web('admin/login');
         } else {
-            forward('?c=admin&a=system');
+            $admin = c('admin');
+            forward('?c=admin&a=' . $admin['index']);
         }
     }
 
@@ -43,7 +44,7 @@ class adminController extends appController
         $_SESSION['_name'] = $user['name'];
         $_SESSION['_is_super'] = $user['is_super'];
         $_SESSION['_perms'] = $user['perms'];
-        forward('?c=admin&a=system');
+        forward('?c=admin&a=' . $admin['index']);
     }
 
     function logout()
@@ -55,13 +56,16 @@ class adminController extends appController
 
     function system()
     {
-        login_required();
+        perm_required('system');
+
         $data = get_system();
         render_to_web('admin/base', 'system', $data);
     }
 
     function updateSystem()
     {
+        perm_required('system');
+
         $name = v('name');
         $status = v('status');
         $start_time = v('start_time');
@@ -71,5 +75,13 @@ class adminController extends appController
 
         $is_success = update_system(array($name, $status, $start_time, $end_time, $phone, $comments));
         AjaxMessage::simple($is_success);
+    }
+
+    function menu()
+    {
+        perm_required('menu');
+
+        $data = get_system();
+        render_to_web('admin/base', 'system', $data);
     }
 }
