@@ -1,8 +1,16 @@
 <?php
 
+function check_login()
+{
+    if ($_SESSION['_id']) {
+        return true;
+    }
+    return false;
+}
+
 function login_required()
 {
-    if (!$_SESSION['_id']) {
+    if (!check_login()) {
         return ajax_echo("<script>alert('登陆验证失败,请重新登陆');location.href='?c=admin'</script>");
     }
 }

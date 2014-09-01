@@ -13,7 +13,11 @@ class adminController extends appController
 
     function index()
     {
-        render_to_web('admin/login');
+        if (!check_login()) {
+            render_to_web('admin/login');
+        } else {
+            forward('?c=admin&a=system');
+        }
     }
 
     function login()
@@ -23,7 +27,7 @@ class adminController extends appController
 
         if (!($username && $password)) {
             forward('?c=admin');
-            exit();
+            return;
         }
 
         $admin = c('admin');
@@ -32,7 +36,7 @@ class adminController extends appController
         $password = md5($password . $salt);
         if (!$user || $user['password'] != $password) {
             forward('?c=admin');
-            exit();
+            return;
         }
 
         $_SESSION['_id'] = $user['id'];
@@ -65,5 +69,7 @@ class adminController extends appController
         $phone = v('phone');
         $comments = v('comments');
 
+        $is_success = update_system(array($name, $status, $start_time, $end_time, $phone, $comments));
+        return ajax_echo($is_success);
     }
 }
