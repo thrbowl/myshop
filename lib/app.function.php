@@ -7,6 +7,11 @@ function get_uuid()
     return uniqid();
 }
 
+function getDBDate()
+{
+    return date('Y-m-d H:i:s');
+}
+
 function render_to_web($sharp, $component = NULL, $data = NULL)
 {
     $GLOBALS['component'] = $component;
@@ -49,3 +54,4 @@ class AjaxMessage
         }
     }
 }
+

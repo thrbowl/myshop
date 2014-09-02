@@ -1,0 +1,167 @@
+<div id="addMenuModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="blue bigger">新增菜品及主食</h4>
+            </div>
+            <form class="form-horizontal" method="post" action="?c=admin&a=addGoods" enctype="multipart/form-data" id="addGoodsForm">
+                <div class="modal-body overflow-visible">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5">
+                            <div class="space"></div>
+
+                            <input type="file" name="picture"/>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-7">
+                            <div class="form-group">
+                                <label for="name">名称</label>
+                                <div>
+                                    <input class="input-large" type="text" id="name" name="name"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">单价</label>
+                                <div>
+                                    <input class="input-mini" type="text" id="price" name="price"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status0">状态</label>
+                                <div>
+                                    <label>
+                                        <input class="ace" type="radio" id="status0" name="status" value="0"
+                                        <?php if($status==0): ?>checked<?php endif;?>>
+                                        <span class="lbl"> 上架</span>
+                                    </label>
+                                    &nbsp;
+                                    <label>
+                                        <input class="ace" type="radio" name="status" value="1"
+                                        <?php if($status==1): ?>checked<?php endif;?>>
+                                        <span class="lbl"> 下架</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">描述</label>
+                                <div>
+                                    <textarea rows="7" id="description" name="description"
+                                              class="form-control limited"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-sm" data-dismiss="modal">
+                        <i class="icon-remove"></i>
+                        取消
+                    </button>
+
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        <i class="icon-ok"></i>
+                        保存
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#addMenuModal").modal();
+
+        $("#addMenuModal input[type=file]").ace_file_input({
+            style:'well',
+            btn_choose:'菜品图片，点击选择或者拖动图片到此区域',
+            btn_change:null,
+            no_icon:'icon-picture',
+            droppable:true,
+            thumbnail:'large',
+            before_change: function(files, dropped) {
+                var allowed_files = [];
+                for(var i = 0 ; i < files.length; i++) {
+                    var file = files[i];
+                    if(typeof file === "string") {
+                        //IE8 and browsers that don't support File Object
+                        if(! (/\.(jpe?g|png|gif|bmp)$/i).test(file) ) return false;
+                    }
+                    else {
+                        var type = $.trim(file.type);
+                        if( ( type.length > 0 && ! (/^image\/(jpe?g|png|gif|bmp)$/i).test(type) )
+                                || ( type.length == 0 && ! (/\.(jpe?g|png|gif|bmp)$/i).test(file.name) )//for android's default browser which gives an empty string for file.type
+                                ) continue;//not an image so don't keep this file
+                    }
+
+                    allowed_files.push(file);
+                }
+                if(allowed_files.length == 0) return false;
+
+                return allowed_files;
+            }
+        });
+
+        $('#price').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 10000,
+            step: 1,
+            btn_up_class: 'btn-info',
+            btn_down_class: 'btn-info'
+        });
+
+        $('#addGoodsForm').validate({
+            errorElement: 'div',
+            errorClass: 'help-block',
+            focusInvalid: false,
+            rules: {
+                name: {
+                    required: true,
+                    remote: '?c=admin&a=checkGoodsName'
+                },
+                price: {
+                    required: true,
+                    number: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "请填写菜品名称",
+                    remote: "菜单中已经存在该菜品"
+                },
+                price: {
+                    required: "请填写菜品价格",
+                    number: "价格为数字类型"
+                }
+            },
+            highlight: function (e) {
+                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+            },
+            success: function (e) {
+                $(e).closest('.form-group').removeClass('has-error').addClass('has-info');
+                $(e).remove();
+            },
+            errorPlacement: function (error, element) {
+                if(element.is(':checkbox') || element.is(':radio')) {
+                    var controls = element.closest('div[class*="col-"]');
+                    if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                    else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                }
+                else if(element.is('.select2')) {
+                    error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
+                }
+                else if(element.is('.chosen-select')) {
+                    error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
+                }
+                else error.insertAfter(element.parent());
+            },
+            submitHandler: function (form) {
+                form.submit();
+            },
+            invalidHandler: function (form) {
+            }
+        });
+    });
+</script>

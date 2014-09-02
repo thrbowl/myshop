@@ -3,6 +3,7 @@ if (!defined('IN')) die('bad request');
 include_once(AROOT . 'controller' . DS . 'app.class.php');
 include_once(AROOT . 'config' . DS . 'admin.config.php');
 include_once(AROOT . 'lib' . DS . 'admin.function.php');
+include_once(AROOT . 'lib' . DS . 'upload.class.php');
 
 class adminController extends appController
 {
@@ -77,18 +78,57 @@ class adminController extends appController
         AjaxMessage::simple($is_success);
     }
 
-    function menuListPage()
+    function goodsListPage()
     {
         perm_required('menu');
 
-        $data['pager'] = get_menu(10, 5);
-        render_to_web('admin/base', 'menuList', $data);
+        $data['pager'] = get_menu(20, 9, "c=admin&a=goodsListPage");
+        render_to_web('admin/base', 'goodsList', $data);
     }
 
-    function addMenuPage()
+    function addGoodsPage()
     {
         perm_required('menu');
 
-        render_to_web('admin/addMenu');
+        render_to_web('admin/addGoods');
+    }
+
+    function checkGoodsName()
+    {
+        perm_required('menu');
+
+        $name = v('name');
+
+        $is_has = has_goods($name);
+        ajax_echo(json_encode(!$is_has), 'json');
+    }
+
+    function addGoods()
+    {
+        perm_required('menu');
+
+        $name = v('name');
+        $price = v('price');
+        $status = v('status');
+        $description = v('description');
+
+        $goods_id = save_goods(array($name, $price, $description, $status, getDBDate()));
+
+        /*$handle = new Upload($_FILES['picture'], 'zh_CN');
+        if (!$handle->uploaded) {
+            $handle = new Upload(c('default_goods_image'), 'zh_CN');
+        }
+
+        $handle->file_new_name_body = $goods_id;
+        $handle->Process(c('goods_image_dir'));
+        if ($handle->processed) {
+            echo 1;
+        } else {
+            echo 2;
+        }
+
+        $handle->Clean();*/
+
+        forward('?c=admin&a=goodsListPage');
     }
 }
