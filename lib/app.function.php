@@ -1,10 +1,10 @@
 <?php
-
+include_once(AROOT . 'lib' . DS . 'uuid.class.php');
 session_start();
 
 function get_uuid()
 {
-    return uniqid();
+    return UUID::v4();
 }
 
 function getDBDate()

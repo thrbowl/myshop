@@ -107,28 +107,47 @@ class adminController extends appController
     {
         perm_required('menu');
 
-        $name = v('name');
-        $price = v('price');
-        $status = v('status');
-        $description = v('description');
+        $uuid = get_uuid();
 
-        $goods_id = save_goods(array($name, $price, $description, $status, getDBDate()));
-
-        /*$handle = new Upload($_FILES['picture'], 'zh_CN');
+        $handle = new Upload($_FILES['picture'], 'zh_CN');
         if (!$handle->uploaded) {
             $handle = new Upload(c('default_goods_image'), 'zh_CN');
         }
 
-        $handle->file_new_name_body = $goods_id;
-        $handle->Process(c('goods_image_dir'));
-        if ($handle->processed) {
-            echo 1;
-        } else {
-            echo 2;
-        }
+        $handle->file_new_name_body = $uuid;
+        $handle->image_resize = true;
+        $handle->image_ratio = true;
+        $handle->image_ratio_fill = true;
 
-        $handle->Clean();*/
+        //original
+        $handle->Process(c('goods_image_dir'));
+        //150*120
+        $handle->image_x = 150;
+        $handle->image_y = 120;
+        $handle->Process(c('goods_image_dir') . '150x120/');
+
+        $handle->Clean();
+
+        $name = v('name');
+        $price = v('price');
+        $status = v('status');
+        $description = v('description');
+        save_goods(array($name, $handle->file_dst_name, $price, $description, $status, getDBDate()));
 
         forward('?c=admin&a=goodsListPage');
+    }
+
+    function delGoods()
+    {
+        perm_required('menu');
+
+        $ids = v('ids');
+        if (!$ids) {
+            AjaxMessage::simple(false);
+            return;
+        }
+
+        $is_success = delete_goods($ids);
+        AjaxMessage::simple($is_success);
     }
 }

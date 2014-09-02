@@ -22,17 +22,18 @@
                 <tbody>
                 <?php
                     $rs = $pager->paginate();
-                    if(!$rs) die(mysql_error());
-                    while($c = mysql_fetch_assoc($rs)):
+                    while($rs && $c = mysql_fetch_assoc($rs)):
                 ?>
-                    <tr>
+                    <tr id="goods<?=$c['id']?>">
                         <td class="center">
                             <label>
-                                <input type="checkbox" class="ace" value="<?=$c['id']?>"/>
+                                <input type="checkbox" class="ace" name="ids[]" value="<?=$c['id']?>"/>
                                 <span class="lbl"></span>
                             </label>
                         </td>
-                        <td><a href="#"><?=$c['name']?></a></td>
+                        <td>
+                            <a href="#"><?=$c['name']?></a>
+                        </td>
                         <td><?=$c['price']?></td>
                         <td><?=$c['createDate']?></td>
                         <td>
@@ -53,7 +54,7 @@
                                     <i class="icon-pencil bigger-130"></i>
                                 </a>
 
-                                <a class="red" href="#">
+                                <a class="red" href="javascript:;" onclick="delOneGoods(<?=$c['id']?>)">
                                     <i class="icon-trash bigger-130"></i>
                                 </a>
                             </div>
@@ -63,15 +64,27 @@
                 </tbody>
             </table>
         </div>
-        <div class="text-right">
-            <?php
-            echo $pager->renderFirst("首页") . '&nbsp;' . $pager->renderPrev("上一页") . '&nbsp;' . $pager->renderNav() . '&nbsp;' . $pager->renderNext("下一页") . '&nbsp;' . $pager->renderLast("尾页");
-            ?>
+        <div class="col-md-12">
+            <div class="col-md-2">
+                <span class="ui-pg-div">
+                    <span class="ui-icon icon-plus-sign purple" onclick="addGoods()"></span>
+                    <span>新增菜品</span>
+                </span>
+                <span class="ui-pg-div">
+                    <span class="ui-icon icon-trash red" onclick="delSelectedGoods()"></span>
+                    <span>删除选中</span>
+                </span>
+            </div>
+            <div class="col-md-10 text-right">
+                <?php
+                echo $pager->renderFirst("首页") . '&nbsp;' . $pager->renderPrev("上一页") . '&nbsp;' . $pager->renderNav() . '&nbsp;' . $pager->renderNext("下一页") . '&nbsp;' . $pager->renderLast("尾页");
+                ?>
+            </div>
         </div>
     </fieldset>
 </div>
 <script type="text/javascript">
-    function addMenu() {
+    function addGoods() {
         var $addMenuModal = $("#addMenuModal");
         if ($addMenuModal.length > 0) {
             $addMenuModal.modal();
@@ -79,6 +92,34 @@
             $.get("?c=admin&a=addGoodsPage", function(data) {
                 $("body").append(data);
             })
+        }
+    }
+    function _delGoods(ids) {
+        $.post("?c=admin&a=delGoods", {ids: ids}, function (message) {
+            $.message(message);
+            if (message.type == "success") {
+                $.each(ids, function(i, id) {
+                    $("#goods" + id).hide();
+                });
+            }
+        })
+    }
+    function delOneGoods(id) {
+        if (confirm("你确定要删除该菜品么？")) {
+            _delGoods([id]);
+        }
+    }
+    function delSelectedGoods() {
+        var $inputs = $("input[name='ids[]']:checked");
+        if ($inputs.length == 0) {
+            alert("请先选择要删除的菜品");
+            return;
+        }
+        if (confirm("你确定要删除所有选中的菜品么?")) {
+            var ids = $inputs.map(function () {
+                return this.value;
+            }).get();
+            _delGoods(ids);
         }
     }
     $(function(){
