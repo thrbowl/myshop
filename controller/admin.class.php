@@ -54,7 +54,7 @@ class adminController extends appController
         forward('?c=admin');
     }
 
-    function system()
+    function systemPage()
     {
         perm_required('system');
 
@@ -77,11 +77,18 @@ class adminController extends appController
         AjaxMessage::simple($is_success);
     }
 
-    function menu()
+    function menuListPage()
     {
         perm_required('menu');
 
-        $data = get_system();
-        render_to_web('admin/base', 'system', $data);
+        $data['pager'] = get_menu(10, 5);
+        render_to_web('admin/base', 'menuList', $data);
+    }
+
+    function addMenuPage()
+    {
+        perm_required('menu');
+
+        render_to_web('admin/addMenu');
     }
 }
