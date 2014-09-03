@@ -1,0 +1,110 @@
+<div id="addCategoryModal" class="modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="blue bigger">新增菜品分类</h4>
+            </div>
+            <form class="form-horizontal" method="post" action="?c=admin&a=addCategory" id="addCategoryForm">
+                <div class="modal-body overflow-visible">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-5">
+                            <div class="form-group">
+                                <label for="addCategoryForm_name">名称</label>
+                                <div>
+                                    <input class="input-large" type="text" id="addCategoryForm_name" name="name"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="addCategoryForm_order">排列顺序</label>
+                                <div>
+                                    <input class="input-mini" type="text" id="addCategoryForm_order" name="order"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-7 slimScrollBar" style="overflow: auto; max-height: 400px;">
+                            <?php foreach($all_goods as $c):?>
+                            <div class="checkbox">
+                                <label>
+                                    <input class="ace" type="checkbox" name="goods[]">
+                                    <span class="lbl">&nbsp;<?=$c['name']?></span>
+                                </label>
+                            </div>
+                            <?php endforeach;?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-sm" data-dismiss="modal">
+                        <i class="icon-remove"></i>
+                        取消
+                    </button>
+
+                    <button type="submit" class="btn btn-sm btn-primary">
+                        <i class="icon-ok"></i>
+                        保存
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#addCategoryModal").modal();
+
+        $('#addCategoryForm_order').ace_spinner({
+            value: 0,
+            min: 0,
+            max: 10000,
+            step: 1,
+            btn_up_class: 'btn-info',
+            btn_down_class: 'btn-info'
+        });
+
+        $('#addCategoryForm').validate({
+            errorElement: 'div',
+            errorClass: 'help-block',
+            focusInvalid: false,
+            rules: {
+                name: {
+                    required: true,
+                    remote: '?c=admin&a=checkCategoryName'
+                }
+            },
+            messages: {
+                name: {
+                    required: "请填写菜品分类名称",
+                    remote: "该菜品分类已存在"
+                }
+            },
+            highlight: function (e) {
+                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
+            },
+            success: function (e) {
+                $(e).closest('.form-group').removeClass('has-error').addClass('has-info');
+                $(e).remove();
+            },
+            errorPlacement: function (error, element) {
+                if(element.is(':checkbox') || element.is(':radio')) {
+                    var controls = element.closest('div[class*="col-"]');
+                    if(controls.find(':checkbox,:radio').length > 1) controls.append(error);
+                    else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
+                }
+                else if(element.is('.select2')) {
+                    error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
+                }
+                else if(element.is('.chosen-select')) {
+                    error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
+                }
+                else error.insertAfter(element.parent());
+            },
+            submitHandler: function (form) {
+                form.submit();
+            },
+            invalidHandler: function (form) {
+            }
+        });
+    });
+</script>

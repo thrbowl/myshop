@@ -15,12 +15,18 @@ function update_system($data)
     return (bool)run_sql($sql);
 }
 
-function get_menu($rows_per_page, $links_per_page, $append = "")
+function get_page_goods($rows_per_page, $links_per_page, $append = "")
 {
     $conn = db();
     $sql = "SELECT * FROM goods WHERE `status`!=-1 ORDER BY createDate DESC";
     $pager = new PS_Pagination($conn, $sql, $rows_per_page, $links_per_page, $append);
     return $pager;
+}
+
+function get_all_goods()
+{
+    $sql = "SELECT * FROM goods WHERE `status`!=-1 ORDER BY `createDate` DESC";
+    return get_data($sql);
 }
 
 function has_goods($name)
@@ -52,4 +58,30 @@ function update_goods($id, $data)
     $data[] = $id;
     $sql = prepare("UPDATE goods SET `name`=?s,`picture`=?s,`price`=?s,`description`=?s,`status`=?s WHERE `id`=?s", $data);
     return (bool)run_sql($sql);
+}
+
+function get_page_category($rows_per_page, $links_per_page, $append = "")
+{
+    $conn = db();
+    $sql = "SELECT * FROM category ORDER BY `order`,`createDate` DESC";
+    $pager = new PS_Pagination($conn, $sql, $rows_per_page, $links_per_page, $append);
+    return $pager;
+}
+
+function has_category($name)
+{
+    $sql = prepare("SELECT 1 FROM category WHERE `name`=?s", array($name));
+    return (bool)get_var($sql);
+}
+
+function save_category($data)
+{
+    $sql = prepare("INSERT INTO category(`name`,`order`,`createDate`) values(?s,?s,?s)", $data);
+    run_sql($sql);
+    return last_id($sql);
+}
+
+function add_goods_to_category($category_id, $goods_list)
+{
+
 }

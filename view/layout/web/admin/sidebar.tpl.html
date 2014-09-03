@@ -59,6 +59,11 @@
                 <i class="icon-food"></i><span class="menu-text"> 菜单管理 </span>
             </a>
         </li>
+        <li id="category" <?php if(g('component')=='categoryList'): ?>class="active"<?php endif;?>>
+        <a href="?c=admin&a=categoryListPage">
+            <i class="icon-inbox"></i><span class="menu-text"> 分类管理 </span>
+        </a>
+        </li>
         <li id="orders" <?php if(g('component')=='orderList'): ?>class="active"<?php endif;?>>
             <a href="?c=admin&a=orderListPage">
                 <i class="icon-book"></i><span class="menu-text"> 订单管理 </span>
