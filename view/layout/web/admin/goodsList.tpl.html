@@ -89,20 +89,19 @@
         if ($addMenuModal.length > 0) {
             $addMenuModal.modal();
         } else {
-            $.get("?c=admin&a=addGoodsPage", function(data) {
+            $.get("?c=admin&a=addGoodsPage", function (data) {
                 $("body").append(data);
-            })
+            });
         }
     }
     function updateGoods(id) {
         var $updateMenuModal = $("#updateMenuModal");
         if ($updateMenuModal.length > 0) {
-            $updateMenuModal.modal();
-        } else {
-            $.get("?c=admin&a=updateGoodsPage", {id: id}, function(data) {
-                $("body").append(data);
-            })
+            $updateMenuModal.remove();
         }
+        $.get("?c=admin&a=updateGoodsPage", {id: id}, function (data) {
+            $("body").append(data);
+        });
     }
     function _delGoods(ids) {
         $.post("?c=admin&a=delGoods", {ids: ids}, function (message) {
