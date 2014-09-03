@@ -98,6 +98,12 @@ class adminController extends appController
         perm_required('menu');
 
         $name = v('name');
+        $previous = v('previous');
+
+        if ($previous && $name == $previous) {
+            ajax_echo(json_encode(true), 'json');
+            return;
+        }
 
         $is_has = has_goods($name);
         ajax_echo(json_encode(!$is_has), 'json');
@@ -107,33 +113,43 @@ class adminController extends appController
     {
         perm_required('menu');
 
-        $uuid = get_uuid();
+        $name = v('name');
+        $price = v('price');
+        $status = v('status');
+        $description = v('description');
 
         $handle = new Upload($_FILES['picture'], 'zh_CN');
         if (!$handle->uploaded) {
             $handle = new Upload(c('default_goods_image'), 'zh_CN');
         }
 
+        $uuid = get_uuid();
+        //original
         $handle->file_new_name_body = $uuid;
         $handle->image_resize = true;
         $handle->image_ratio = true;
         $handle->image_ratio_fill = true;
-
-        //original
         $handle->Process(c('goods_image_dir'));
         //150*120
+        $handle->file_new_name_body = $uuid;
+        $handle->image_resize = true;
+        $handle->image_ratio = true;
+        $handle->image_ratio_fill = true;
         $handle->image_x = 150;
         $handle->image_y = 120;
         $handle->Process(c('goods_image_dir') . '150x120/');
+        //210*170
+        $handle->file_new_name_body = $uuid;
+        $handle->image_resize = true;
+        $handle->image_ratio = true;
+        $handle->image_ratio_fill = true;
+        $handle->image_x = 210;
+        $handle->image_y = 170;
+        $handle->Process(c('goods_image_dir') . '210x170/');
 
         $handle->Clean();
 
-        $name = v('name');
-        $price = v('price');
-        $status = v('status');
-        $description = v('description');
         save_goods(array($name, $handle->file_dst_name, $price, $description, $status, getDBDate()));
-
         forward('?c=admin&a=goodsListPage');
     }
 
@@ -149,5 +165,63 @@ class adminController extends appController
 
         $is_success = delete_goods($ids);
         AjaxMessage::simple($is_success);
+    }
+
+    function updateGoodsPage()
+    {
+        perm_required('menu');
+
+        $id = v('id');
+        $data = get_goods($id);
+
+        render_to_web('admin/updateGoods', null, $data);
+    }
+
+    function updateGoods()
+    {
+        perm_required('menu');
+
+        $id = v('id');
+        $name = v('name');
+        $price = v('price');
+        $status = v('status');
+        $description = v('description');
+
+        $handle = new Upload($_FILES['picture'], 'zh_CN');
+
+        if ($handle->uploaded) {
+            $uuid = get_uuid();
+            //original
+            $handle->file_new_name_body = $uuid;
+            $handle->image_resize = true;
+            $handle->image_ratio = true;
+            $handle->image_ratio_fill = true;
+            $handle->Process(c('goods_image_dir'));
+            //150*120
+            $handle->file_new_name_body = $uuid;
+            $handle->image_resize = true;
+            $handle->image_ratio = true;
+            $handle->image_ratio_fill = true;
+            $handle->image_x = 150;
+            $handle->image_y = 120;
+            $handle->Process(c('goods_image_dir') . '150x120/');
+            //210*170
+            $handle->file_new_name_body = $uuid;
+            $handle->image_resize = true;
+            $handle->image_ratio = true;
+            $handle->image_ratio_fill = true;
+            $handle->image_x = 210;
+            $handle->image_y = 170;
+            $handle->Process(c('goods_image_dir') . '210x170/');
+
+            $handle->Clean();
+            $picture = $handle->file_dst_name;
+        } else {
+            $goods = get_goods($id);
+            $picture = $goods['picture'];
+        }
+
+        update_goods($id, array($name, $picture, $price, $description, $status));
+        forward('?c=admin&a=goodsListPage');
     }
 }

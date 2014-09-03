@@ -37,10 +37,10 @@
                         <td><?=$c['price']?></td>
                         <td><?=$c['createDate']?></td>
                         <td>
-                            <?php if($c['name']==0):?>
+                            <?php if($c['status']==0):?>
                             <span class="label label-sm label-success">上架</span>
                             <?php endif;?>
-                            <?php if($c['name']==1):?>
+                            <?php if($c['status']==1):?>
                             <span class="label label-sm label-inverse arrowed-in">下架</span>
                             <?php endif;?>
                         </td>
@@ -50,7 +50,7 @@
                                     <i class="icon-zoom-in bigger-130"></i>
                                 </a>
 
-                                <a class="green" href="#">
+                                <a class="green" href="javascript:;" onclick="updateGoods(<?=$c['id']?>)">
                                     <i class="icon-pencil bigger-130"></i>
                                 </a>
 
@@ -67,12 +67,12 @@
         <div class="col-md-12">
             <div class="col-md-2">
                 <span class="ui-pg-div">
-                    <span class="ui-icon icon-plus-sign purple" onclick="addGoods()"></span>
-                    <span>新增菜品</span>
-                </span>
-                <span class="ui-pg-div">
                     <span class="ui-icon icon-trash red" onclick="delSelectedGoods()"></span>
                     <span>删除选中</span>
+                </span>
+                <span class="ui-pg-div">
+                    <span class="ui-icon icon-plus-sign purple" onclick="addGoods()"></span>
+                    <span>新增菜品</span>
                 </span>
             </div>
             <div class="col-md-10 text-right">
@@ -90,6 +90,16 @@
             $addMenuModal.modal();
         } else {
             $.get("?c=admin&a=addGoodsPage", function(data) {
+                $("body").append(data);
+            })
+        }
+    }
+    function updateGoods(id) {
+        var $updateMenuModal = $("#updateMenuModal");
+        if ($updateMenuModal.length > 0) {
+            $updateMenuModal.modal();
+        } else {
+            $.get("?c=admin&a=updateGoodsPage", {id: id}, function(data) {
                 $("body").append(data);
             })
         }

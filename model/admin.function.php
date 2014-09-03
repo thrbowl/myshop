@@ -37,6 +37,19 @@ function save_goods($data)
 
 function delete_goods($data)
 {
-    $sql = prepare("UPDATE goods SET `status`=-1 WHERE `id` IN (?s)", array(implode(',', $data)));
+    $sql = "UPDATE goods SET `status`=-1 WHERE `id` IN (" . implode(',', $data) . ")";
+    return (bool)run_sql($sql);
+}
+
+function get_goods($id)
+{
+    $sql = prepare("SELECT * FROM goods WHERE `status`!=-1 AND `id`=?s", array($id));
+    return get_line($sql);
+}
+
+function update_goods($id, $data)
+{
+    $data[] = $id;
+    $sql = prepare("UPDATE goods SET `name`=?s,`picture`=?s,`price`=?s,`description`=?s,`status`=?s WHERE `id`=?s", $data);
     return (bool)run_sql($sql);
 }

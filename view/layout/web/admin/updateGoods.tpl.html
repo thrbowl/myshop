@@ -1,51 +1,54 @@
-<div id="addMenuModal" class="modal" tabindex="-1">
+<div id="updateMenuModal" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="blue bigger">新增菜品及主食</h4>
+                <h4 class="blue bigger">更新菜品及主食</h4>
             </div>
-            <form class="form-horizontal" method="post" action="?c=admin&a=addGoods" enctype="multipart/form-data" id="addGoodsForm">
+            <form class="form-horizontal" method="post" action="?c=admin&a=updateGoods&id=<?=$id?>" enctype="multipart/form-data" id="updateGoodsForm">
                 <div class="modal-body overflow-visible">
                     <div class="row">
                         <div class="col-xs-12 col-sm-5">
                             <div class="space"></div>
-
-                            <input type="file" name="picture" id="addGoodsForm_picture"/>
+                            <img src="static/img/goods/210x170/<?=$picture?>" style="width: 210px;height: 170px;">
+                            <div class="space"></div>
+                            <input type="file" name="picture" id="updateGoodsForm_picture"/>
                         </div>
 
                         <div class="col-xs-12 col-sm-7">
                             <div class="form-group">
-                                <label for="addGoodsForm_name">名称</label>
+                                <label for="updateGoodsForm_name">名称</label>
                                 <div>
-                                    <input class="input-large" type="text" id="addGoodsForm_name" name="name"/>
+                                    <input class="input-large" type="text" id="updateGoodsForm_name" name="name" value="<?=$name?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="addGoodsForm_price">单价</label>
+                                <label for="updateGoodsForm_price">单价</label>
                                 <div>
-                                    <input class="input-mini" type="text" id="addGoodsForm_price" name="price"/>
+                                    <input class="input-mini" type="text" id="updateGoodsForm_price" name="price"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="addGoodsForm_status0">状态</label>
+                                <label for="updateGoodsForm_status0">状态</label>
                                 <div>
                                     <label>
-                                        <input class="ace" type="radio" id="addGoodsForm_status0" name="status" value="0" checked>
+                                        <input class="ace" type="radio" id="updateGoodsForm_status0" name="status" value="0"
+                                        <?php if($status==0): ?>checked<?php endif;?>>
                                         <span class="lbl"> 上架</span>
                                     </label>
                                     &nbsp;
                                     <label>
-                                        <input class="ace" type="radio" name="status" value="1">
+                                        <input class="ace" type="radio" name="status" value="1"
+                                        <?php if($status==1): ?>checked<?php endif;?>>
                                         <span class="lbl"> 下架</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="addGoodsForm_description">描述</label>
+                                <label for="updateGoodsForm_description">描述</label>
                                 <div>
-                                    <textarea rows="7" id="addGoodsForm_description" name="description"
-                                              class="form-control limited"></textarea>
+                                    <textarea rows="7" id="updateGoodsForm_description" name="description"
+                                              class="form-control limited"><?=$description?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -69,9 +72,9 @@
 </div>
 <script>
     $(function(){
-        $("#addMenuModal").modal();
+        $("#updateMenuModal").modal();
 
-        $("#addGoodsForm_picture").ace_file_input({
+        $("#updateGoodsForm_picture").ace_file_input({
             style:'well',
             btn_choose:'菜品图片，点击选择或者拖动图片到此区域',
             btn_change:null,
@@ -101,8 +104,8 @@
             }
         });
 
-        $('#addGoodsForm_price').ace_spinner({
-            value: 0,
+        $('#updateGoodsForm_price').ace_spinner({
+            value: <?=$price?>,
             min: 0,
             max: 10000,
             step: 1,
@@ -110,14 +113,14 @@
             btn_down_class: 'btn-info'
         });
 
-        $('#addGoodsForm').validate({
+        $('#updateGoodsForm').validate({
             errorElement: 'div',
             errorClass: 'help-block',
             focusInvalid: false,
             rules: {
                 name: {
                     required: true,
-                    remote: '?c=admin&a=checkGoodsName'
+                    remote: '?c=admin&a=checkGoodsName&previous=<?=$name?>'
                 },
                 price: {
                     required: true,
