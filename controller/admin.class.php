@@ -263,10 +263,51 @@ class adminController extends appController
 
         $name = v('name');
         $order = v('order');
-        $goods_list = v('goods[]');
+        $goods_list = v('goods');
 
-        $category_id = save_goods(array($name, $order, getDBDate()));
-        add_goods_to_category($category_id, $goods_list);
+        $category_id = save_category(array($name, $order, getDBDate()));
+        add_category_goods($category_id, $goods_list);
+
+        forward('?c=admin&a=categoryListPage');
+    }
+
+    function delCategory()
+    {
+        perm_required('category');
+
+        $ids = v('ids');
+        if (!$ids) {
+            AjaxMessage::simple(false);
+            return;
+        }
+
+        $is_success = delete_category($ids);
+        AjaxMessage::simple($is_success);
+    }
+
+    function updateCategoryPage()
+    {
+        perm_required('category');
+
+        $id = v('id');
+        $data['category'] = get_category($id);
+        $data['all_goods'] = get_all_goods();
+        $data['goods_ids'] = get_goods_ids_by_category($id);
+
+        render_to_web('admin/updateCategory', null, $data);
+    }
+
+    function updateCategory()
+    {
+        perm_required('category');
+
+        $id = v('id');
+        $name = v('name');
+        $order = v('order');
+        $goods_list = v('goods');
+
+        update_category($id, array($name, $order, getDBDate()));
+        update_category_goods($id, $goods_list);
 
         forward('?c=admin&a=categoryListPage');
     }

@@ -31,9 +31,7 @@
                                 <span class="lbl"></span>
                             </label>
                         </td>
-                        <td>
-                            <a href="#"><?=$c['name']?></a>
-                        </td>
+                        <td class="red"><?=$c['name']?></td>
                         <td><?=$c['order']?></td>
                         <td><a href="#">查看</a></td>
                         <td><?=$c['createDate']?></td>
@@ -43,11 +41,11 @@
                                     <i class="icon-zoom-in bigger-130"></i>
                                 </a>
 
-                                <a class="green" href="javascript:;" onclick="updateGoods(<?=$c['id']?>)">
+                                <a class="green" href="javascript:;" onclick="updateCategory(<?=$c['id']?>)">
                                     <i class="icon-pencil bigger-130"></i>
                                 </a>
 
-                                <a class="red" href="javascript:;" onclick="delOneGoods(<?=$c['id']?>)">
+                                <a class="red" href="javascript:;" onclick="delOneCategory(<?=$c['id']?>)">
                                     <i class="icon-trash bigger-130"></i>
                                 </a>
                             </div>
@@ -60,12 +58,12 @@
         <div class="col-md-12">
             <div class="col-md-2">
                 <span class="ui-pg-div">
-                    <span class="ui-icon icon-trash red" onclick="delSelectedGoods()"></span>
+                    <span class="ui-icon icon-trash red" onclick="delSelectedCategory()"></span>
                     <span>删除选中</span>
                 </span>
                 <span class="ui-pg-div">
                     <span class="ui-icon icon-plus-sign purple" onclick="addCategory()"></span>
-                    <span>新增菜品</span>
+                    <span>新增分类</span>
                 </span>
             </div>
             <div class="col-md-10 text-right">
@@ -87,17 +85,17 @@
             });
         }
     }
-    function updateGoods(id) {
-        var $updateMenuModal = $("#updateMenuModal");
-        if ($updateMenuModal.length > 0) {
-            $updateMenuModal.remove();
+    function updateCategory(id) {
+        var $updateCategoryModal = $("#updateCategoryModal");
+        if ($updateCategoryModal.length > 0) {
+            $updateCategoryModal.remove();
         }
-        $.get("?c=admin&a=updateGoodsPage", {id: id}, function (data) {
+        $.get("?c=admin&a=updateCategoryPage", {id: id}, function (data) {
             $("body").append(data);
         });
     }
-    function _delGoods(ids) {
-        $.post("?c=admin&a=delGoods", {ids: ids}, function (message) {
+    function _delCategory(ids) {
+        $.post("?c=admin&a=delCategory", {ids: ids}, function (message) {
             $.message(message);
             if (message.type == "success") {
                 $.each(ids, function(i, id) {
@@ -106,22 +104,22 @@
             }
         })
     }
-    function delOneGoods(id) {
-        if (confirm("你确定要删除该菜品么？")) {
-            _delGoods([id]);
+    function delOneCategory(id) {
+        if (confirm("你确定要删除该菜品分类么？")) {
+            _delCategory([id]);
         }
     }
-    function delSelectedGoods() {
+    function delSelectedCategory() {
         var $inputs = $("input[name='ids[]']:checked");
         if ($inputs.length == 0) {
-            alert("请先选择要删除的菜品");
+            alert("请先选择要删除的菜品分类");
             return;
         }
-        if (confirm("你确定要删除所有选中的菜品么?")) {
+        if (confirm("你确定要删除所有选中的菜品分类么?")) {
             var ids = $inputs.map(function () {
                 return this.value;
             }).get();
-            _delGoods(ids);
+            _delCategory(ids);
         }
     }
     $(function(){
