@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="static/css/home.css">
+</head>
+<body>
+<?php @include_once( dirname(__FILE__) ) . DS . 'header.tpl.html'; ?>
+<div class="main">
+    <div>
+        <table class="notice">
+            <tbody>
+            <tr>
+                <td width="20%">&nbsp;</td>
+                <td>
+                    <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="3">
+                        <a href="http://www.baidu.com" target="_blank">
+                            2014年6月23日起，11：00前网上点餐每笔定单满50元送一个两升装的大桶饮料，不满50元每份餐立减一元，本优惠活动两者不能同时享用,机会不多送完为止快来抢购吧！
+                        </a>
+                    </marquee>
+                </td>
+                <td width="20%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+        <a>
+            <img alt="订餐页面广告" src="static/img/766_36509.jpg">
+        </a>
+    </div>
+
+    <div class="left">
+        <div class="filters">
+            <div class="sequence-side">
+                <div class="seq-result">
+                    <dl class="clear">
+                        <dt><span> 分类：</span></dt>
+                        <dd>
+                            <a class="sr-current" href="javascript:void(0);" title="小炒,2">小炒</a>
+                            <a class="" href="javascript:void(0);" title="新品推荐,0">新品推荐</a>
+                            <a class="" href="javascript:void(0);" title="套餐,2">套餐</a>
+                            <a class="" href="javascript:void(0);" title="副食品,0">副食品</a>
+                            <a class="" href="javascript:void(0);" title="主食,0">主食</a>
+                            <a class="" href="javascript:void(0);" title="盖饭,0">盖饭</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="sort-type">
+                <div class="sort-t-lf">
+                    <span class="sort-f">排序：</span>
+                    <dl class="sort-t-in">
+                        <dd>
+                            <a href="javascript:;" id="order0" class="tolerate">默认</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" id="order1">价格</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" id="order2">销量</a>
+                        </dd>
+                    </dl>
+                </div>
+
+                <div class="sort-t-rt">
+                    <div class="s-t-search">
+                        <input id="tb1_key" name="tb_key" maxlength="20" style="color:#999;" value="请输入关键字" type="text">
+                    </div>
+                    <div class="fl">
+                        <input value="搜索" style="color:#fff; width:45px; font-weight:normal;" class="button" type="button">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu">
+            <div class="center_5">
+                <div class="center_5_1">
+                    <span><img src="static/img/0_17271.jpg"></span>
+                </div>
+                <div>
+                    <a href="javascript:;">
+                        <b style="color:black;">日式照烧鸡肉</b>
+                    </a>
+                </div>
+                <div>
+                    <span style="color:red; font-weight:bold;">12</span> 元/份
+                    <span title="该菜品在系统中仅剩余：20份" style="display:none;">20</span>
+                </div>
+                <div style="color:#808080;">
+                    我要
+                    <select style="height:19px;width:37px;">
+                        <option selected="selected" value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    份
+                    <a href="javascript:;" title="日式照烧鸡肉">
+                        <img src="static/img/buy.gif" style="border:0px;">
+                    </a>
+                </div>
+            </div>
+            <div class="center_5">
+                <div class="center_5_1">
+                    <span><img src="static/img/0_17271.jpg"></span>
+                </div>
+                <div>
+                    <a href="javascript:;">
+                        <b style="color:Black;">日式照烧鸡肉</b>
+                    </a>
+                </div>
+                <div>
+                    <span style="color:Red; font-weight:bold;">12</span> 元/份
+                </div>
+                <div style="color:#808080;">
+                    我要
+                    <select name="hlsnum1639" id="count1639" style="height:19px;width:37px;">
+                        <option selected="selected" value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                    份
+                    <a href="javascript:;" title="日式照烧鸡肉">
+                        <img src="static/img/buy.gif" style="border:0px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="div_pager1" style="clear:both;" class="page-number">
+            <span id="clickPagerJS" class="pager">
+                <span class="previous">&lt;</span>
+                <a class="current" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=0');">1</a>
+                <a href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">2</a>
+                <a class="next" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">&gt;</a>
+            </span>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="info">
+            <p>订餐时间：<span class="time">8:00~20:00</span></p>
+
+            <p>服务热线：<span class="phone">010-51290021</span></p>
+
+            <p>外卖说明：<span class="comment">国贸</span></p>
+        </div>
+        <div id="shopCart">
+            <div class="items">
+                    <table>
+                        <tr>
+                            <th width="52%">
+                                <a onclick="tb_clear()" href="javascript:void(0)">
+                                    <img src="static/img/del.gif" style="vertical-align:middle;" alt="全部清除菜品">
+                                </a>
+                                菜名
+                            </th>
+                            <th width="16%">单价</th>
+                            <th width="16%">数量</th>
+                            <th width="16%">小计</th>
+                        </tr>
+                        <tr>
+                            <td class="removeBtn" title="点击取消选择！" onclick="td_delete(this)">三杯鸡</td>
+                            <td>14</td>
+                            <td>
+                                <select onchange="selCreate(this)">
+                                <option selected="selected" value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            </td>
+                            <td>14.00</td>
+                        </tr>
+                    </table>
+            </div>
+            <div class="total">
+                <span class="num">份数: ￥1</span>
+                <span class="price">总计: ￥14.00</span>
+            </div>
+            <div class="action">
+                <a class="submitBtn" onclick="getYZ();return false;" href="javascript:void(0);">下&nbsp;单</a>
+            </div>
+        </div>
+    </div>
+<?php @include_once( dirname(__FILE__) ) . DS . 'footer.tpl.html'; ?>
+</div>
+</body>
+</html>

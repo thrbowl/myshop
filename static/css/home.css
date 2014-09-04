@@ -87,9 +87,9 @@ a{color:#666666;text-decoration:none;}
 .page-number .previous,.page-number .next{border:1px #ddd solid; padding:1px 5px 0; color:gray; margin:0 2px;}
 
 .info {-moz-border-bottom-colors: none;-moz-border-left-colors: none;-moz-border-right-colors: none;-moz-border-top-colors: none;border-color: #E9E9E9;border-image: none;border-style: solid;border-width: 0 1px;color: #666666;padding: 5px 5px 3px 10px;}
-.info p {font-size: 13px;line-height: 26px;height: 26px;margin-bottom: 3px;}
+.info p {font-size: 13px;line-height: 26px;margin-bottom: 3px;}
 .info p .time,.info p .phone{color: #FF4800;font-size: 18px;font-style: oblique;font-weight: bold;}
-.info p .comment {color: #FF4800;font-size: 12px;}
+.info p .comment {color: #a52a2a;font-size: 12px;line-height: 20px;}
 
 #shopCart {margin: auto;width: 235px;background: none repeat scroll 0 0 #FC8F29;}
 #shopCart .items {height: auto;overflow: visible;background: none repeat scroll 0 0 #FFFAE6;margin: 0 4px;min-height: 210px;_height: 210px;padding: 0 0 0 3px;position: relative;z-index: 1;}

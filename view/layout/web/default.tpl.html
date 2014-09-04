@@ -139,11 +139,11 @@
 
     <div class="right">
         <div class="info">
-            <p>订餐时间：<span class="time">8:00~20:00</span></p>
+            <p>订餐时间：<span class="time"><?=substr($system['start_time'],0,5)?>~<?=substr($system['end_time'],0,5)?></span></p>
 
-            <p>服务热线：<span class="phone">010-51290021</span></p>
+            <p>服务热线：<span class="phone"><?=$system['phone']?></span></p>
 
-            <p>外卖说明：<span class="comment">国贸</span></p>
+            <p>外卖说明：<span class="comment"><?=$system['comments']?></span></p>
         </div>
         <div id="shopCart">
             <div class="items">
