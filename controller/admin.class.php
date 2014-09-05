@@ -120,7 +120,7 @@ class adminController extends appController
 
         $handle = new Upload($_FILES['picture'], 'zh_CN');
         if (!$handle->uploaded) {
-            $handle = new Upload(c('default_goods_image'), 'zh_CN');
+            $handle = new Upload(c('no_image'), 'zh_CN');
         }
 
         $uuid = get_uuid();
