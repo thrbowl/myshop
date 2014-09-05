@@ -68,6 +68,12 @@ function get_page_category($rows_per_page, $links_per_page, $append = "")
     return $pager;
 }
 
+function get_all_category()
+{
+    $sql = "SELECT * FROM category ORDER BY `order`,`createDate` ASC";
+    return get_data($sql);
+}
+
 function has_category($name)
 {
     $sql = prepare("SELECT 1 FROM category WHERE `name`=?s", array($name));
@@ -79,25 +85,6 @@ function save_category($data)
     $sql = prepare("INSERT INTO category(`name`,`order`,`createDate`) values(?s,?s,?s)", $data);
     run_sql($sql);
     return last_id();
-}
-
-function add_category_goods($category_id, $goods_list)
-{
-    $v = "";
-    foreach ($goods_list as $goods_id) {
-        if ($v) {
-            $v .= ",";
-        }
-        $v .= "(" . $category_id . "," . $goods_id . ")";
-    }
-    $sql = "INSERT INTO goods_category(`category_id`,`goods_id`) values" . $v;
-    return (bool)run_sql($sql);
-}
-
-function delete_category_goods($category_id, $data)
-{
-    $sql = prepare("DELETE FROM goods_category WHERE `category_id`=%s AND `goods_id` IN (" . implode(',', $data) . ")", array($category_id));
-    return (bool)run_sql($sql);
 }
 
 function delete_category($data)
@@ -117,6 +104,13 @@ function get_category($id)
     return get_line($sql);
 }
 
+function update_category($id, $data)
+{
+    $data[] = $id;
+    $sql = prepare("UPDATE category SET `name`=?s,`order`=?s WHERE `id`=?s", $data);
+    return (bool)run_sql($sql);
+}
+
 function get_goods_ids_by_category($id)
 {
     $sql = prepare("SELECT goods_id FROM goods_category WHERE `category_id`=?s", array($id));
@@ -128,10 +122,28 @@ function get_goods_ids_by_category($id)
     return $goods_ids;
 }
 
-function update_category($id, $data)
+function get_goods_by_category($id)
 {
-    $data[] = $id;
-    $sql = prepare("UPDATE category SET `name`=?s,`order`=?s WHERE `id`=?s", $data);
+    $sql = prepare("SELECT A.* FROM goods AS A,goods_category AS B WHERE B.category_id=?s AND A.id=B.goods_id", array($id));
+    return get_data($sql);
+}
+
+function add_category_goods($category_id, $goods_list)
+{
+    $v = "";
+    foreach ($goods_list as $goods_id) {
+        if ($v) {
+            $v .= ",";
+        }
+        $v .= "(" . $category_id . "," . $goods_id . ")";
+    }
+    $sql = "INSERT INTO goods_category(`category_id`,`goods_id`) values" . $v;
+    return (bool)run_sql($sql);
+}
+
+function delete_category_goods($category_id, $data)
+{
+    $sql = prepare("DELETE FROM goods_category WHERE `category_id`=%s AND `goods_id` IN (" . implode(',', $data) . ")", array($category_id));
     return (bool)run_sql($sql);
 }
 
