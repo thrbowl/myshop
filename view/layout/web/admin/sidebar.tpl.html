@@ -44,8 +44,8 @@
                  </li>
             </ul>
         </li>-->
-        <li id="system" <?php if(g('component')=='system'): ?>class="active"<?php endif;?>>
-            <a href="?c=admin&a=systemPage">
+        <li id="sysconfig" <?php if(g('component')=='sysconfig'): ?>class="active"<?php endif;?>>
+            <a href="?c=admin&a=sysconfig">
                 <i class="icon-cog"></i><span class="menu-text"> 餐馆设置 </span>
             </a>
         </li>
@@ -54,18 +54,18 @@
                 <i class="icon-user"></i><span class="menu-text"> 用户管理 </span>
             </a>
         </li>
-        <li id="menu" <?php if(g('component')=='goodsList'): ?>class="active"<?php endif;?>>
-            <a href="?c=admin&a=goodsListPage">
+        <li id="goods" <?php if(g('component')=='goodsList'): ?>class="active"<?php endif;?>>
+            <a href="?c=admin&a=goodsList">
                 <i class="icon-food"></i><span class="menu-text"> 菜单管理 </span>
             </a>
         </li>
         <li id="category" <?php if(g('component')=='categoryList'): ?>class="active"<?php endif;?>>
-        <a href="?c=admin&a=categoryListPage">
+        <a href="?c=admin&a=categoryList">
             <i class="icon-inbox"></i><span class="menu-text"> 分类管理 </span>
         </a>
         </li>
         <li id="orders" <?php if(g('component')=='orderList'): ?>class="active"<?php endif;?>>
-            <a href="?c=admin&a=orderListPage">
+            <a href="?c=admin&a=orderList">
                 <i class="icon-book"></i><span class="menu-text"> 订单管理 </span>
             </a>
         </li>

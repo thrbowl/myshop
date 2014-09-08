@@ -1,54 +1,65 @@
-<div id="updateMenuModal" class="modal" tabindex="-1">
+<div id="editGoodsModal" class="modal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="blue bigger">更新菜品及主食</h4>
             </div>
-            <form class="form-horizontal" method="post" action="?c=admin&a=updateGoods&id=<?=$id?>" enctype="multipart/form-data" id="updateGoodsForm">
+            <form class="form-horizontal" method="post" action="?c=admin&a=updateGoods&id=<?=$id?>" enctype="multipart/form-data" id="editGoodsForm">
                 <div class="modal-body overflow-visible">
                     <div class="row">
                         <div class="col-xs-12 col-sm-5">
                             <div class="space"></div>
-                            <img src="static/img/goods/210x170/<?=$picture?>" style="width: 210px;height: 170px;">
+                            <img src="static/img/goods/210x170/<?=$goods['picture']?>" style="width: 210px;height: 170px;">
                             <div class="space"></div>
-                            <input type="file" name="picture" id="updateGoodsForm_picture"/>
+                            <input type="file" name="picture" id="editGoodsForm_picture"/>
                         </div>
 
                         <div class="col-xs-12 col-sm-7">
                             <div class="form-group">
-                                <label for="updateGoodsForm_name">名称</label>
+                                <label for="editGoodsForm_name">名称</label>
                                 <div>
-                                    <input class="input-large" type="text" id="updateGoodsForm_name" name="name" value="<?=$name?>"/>
+                                    <input class="input-large" type="text" id="editGoodsForm_name" name="name" value="<?=$goods['name']?>"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="updateGoodsForm_price">单价</label>
+                                <label for="editGoodsForm_price">单价</label>
                                 <div>
-                                    <input class="input-mini" type="text" id="updateGoodsForm_price" name="price"/>
+                                    <input class="input-mini" type="text" id="editGoodsForm_price" name="price"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="updateGoodsForm_status0">状态</label>
+                                <label>所属分类</label>
+                                <div>
+                                    <?php foreach($category_list as $c):?>
+                                        <label>
+                                            <input class="ace" type="checkbox" name="category[]" value="<?=$c['id']?>">
+                                            <span class="lbl">&nbsp;<?=$c['name']?></span>
+                                        </label>
+                                    <?php endforeach;?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="editGoodsForm_status0">状态</label>
                                 <div>
                                     <label>
-                                        <input class="ace" type="radio" id="updateGoodsForm_status0" name="status" value="0"
-                                        <?php if($status==0): ?>checked<?php endif;?>>
+                                        <input class="ace" type="radio" id="editGoodsForm_status0" name="status" value="0"
+                                        <?php if($goods['status']==0): ?>checked<?php endif;?>>
                                         <span class="lbl"> 上架</span>
                                     </label>
                                     &nbsp;
                                     <label>
                                         <input class="ace" type="radio" name="status" value="1"
-                                        <?php if($status==1): ?>checked<?php endif;?>>
+                                        <?php if($goods['status']==1): ?>checked<?php endif;?>>
                                         <span class="lbl"> 下架</span>
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="updateGoodsForm_description">描述</label>
+                                <label for="editGoodsForm_description">描述</label>
                                 <div>
-                                    <textarea rows="7" id="updateGoodsForm_description" name="description"
-                                              class="form-control limited"><?=$description?></textarea>
+                                    <textarea rows="7" id="editGoodsForm_description" name="description"
+                                              class="form-control limited"><?=$goods['description']?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -72,9 +83,9 @@
 </div>
 <script>
     $(function(){
-        $("#updateMenuModal").modal();
+        $("#editGoodsModal").modal();
 
-        $("#updateGoodsForm_picture").ace_file_input({
+        $("#editGoodsForm_picture").ace_file_input({
             style:'well',
             btn_choose:'菜品图片，点击选择或者拖动图片到此区域',
             btn_change:null,
@@ -104,8 +115,8 @@
             }
         });
 
-        $('#updateGoodsForm_price').ace_spinner({
-            value: <?=$price?>,
+        $('#editGoodsForm_price').ace_spinner({
+            value: <?=$goods['price']?>,
             min: 0,
             max: 10000,
             step: 1,
@@ -113,14 +124,14 @@
             btn_down_class: 'btn-info'
         });
 
-        $('#updateGoodsForm').validate({
+        $('#editGoodsForm').validate({
             errorElement: 'div',
             errorClass: 'help-block',
             focusInvalid: false,
             rules: {
                 name: {
                     required: true,
-                    remote: '?c=admin&a=checkGoodsName&previous=<?=$name?>'
+                    remote: "?c=admin&a=isExistGoods&previous=<?=$goods['name']?>"
                 },
                 price: {
                     required: true,

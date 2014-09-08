@@ -80,22 +80,22 @@
         if ($addCategoryModal.length > 0) {
             $addCategoryModal.modal();
         } else {
-            $.get("?c=admin&a=addCategoryPage", function (data) {
+            $.get("?c=admin&a=addCategory", function (data) {
                 $("body").append(data);
             });
         }
     }
     function updateCategory(id) {
-        var $updateCategoryModal = $("#updateCategoryModal");
-        if ($updateCategoryModal.length > 0) {
-            $updateCategoryModal.remove();
+        var $editCategoryModal = $("#editCategoryModal");
+        if ($editCategoryModal.length > 0) {
+            $editCategoryModal.remove();
         }
-        $.get("?c=admin&a=updateCategoryPage", {id: id}, function (data) {
+        $.get("?c=admin&a=editCategory", {id: id}, function (data) {
             $("body").append(data);
         });
     }
     function _delCategory(ids) {
-        $.post("?c=admin&a=delCategory", {ids: ids}, function (message) {
+        $.post("?c=admin&a=deleteCategory", {ids: ids}, function (message) {
             $.message(message);
             if (message.type == "success") {
                 $.each(ids, function(i, id) {

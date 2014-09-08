@@ -48,7 +48,7 @@
                                     <i class="icon-zoom-in bigger-130"></i>
                                 </a>
 
-                                <a class="green" href="javascript:;" onclick="updateGoods(<?=$c['id']?>)">
+                                <a class="green" href="javascript:;" onclick="editGoods(<?=$c['id']?>)">
                                     <i class="icon-pencil bigger-130"></i>
                                 </a>
 
@@ -83,26 +83,26 @@
 </div>
 <script type="text/javascript">
     function addGoods() {
-        var $addMenuModal = $("#addMenuModal");
-        if ($addMenuModal.length > 0) {
-            $addMenuModal.modal();
+        var $addGoodsModal = $("#addGoodsModal");
+        if ($addGoodsModal.length > 0) {
+            $addGoodsModal.modal();
         } else {
-            $.get("?c=admin&a=addGoodsPage", function (data) {
+            $.get("?c=admin&a=addGoods", function (data) {
                 $("body").append(data);
             });
         }
     }
-    function updateGoods(id) {
-        var $updateMenuModal = $("#updateMenuModal");
-        if ($updateMenuModal.length > 0) {
-            $updateMenuModal.remove();
+    function editGoods(id) {
+        var $editGoodsModal = $("#editGoodsModal");
+        if ($editGoodsModal.length > 0) {
+            $editGoodsModal.remove();
         }
-        $.get("?c=admin&a=updateGoodsPage", {id: id}, function (data) {
+        $.get("?c=admin&a=editGoods", {id: id}, function (data) {
             $("body").append(data);
         });
     }
     function _delGoods(ids) {
-        $.post("?c=admin&a=delGoods", {ids: ids}, function (message) {
+        $.post("?c=admin&a=deleteGoods", {ids: ids}, function (message) {
             $.message(message);
             if (message.type == "success") {
                 $.each(ids, function(i, id) {

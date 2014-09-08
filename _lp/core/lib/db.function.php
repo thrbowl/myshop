@@ -99,10 +99,11 @@ function get_data( $sql , $db = NULL )
 	
 	mysql_free_result($result); 
 
-	if( count( $data ) > 0 )
-		return $data;
-	else
-		return false;
+    return $data;
+//	if( count( $data ) > 0 )
+//		return $data;
+//	else
+//		return false;
 }
 
 function get_line( $sql , $db = NULL )

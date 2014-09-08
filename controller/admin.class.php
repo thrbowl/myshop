@@ -2,8 +2,14 @@
 if (!defined('IN')) die('bad request');
 include_once(AROOT . 'controller' . DS . 'app.class.php');
 include_once(AROOT . 'config' . DS . 'admin.config.php');
-include_once(AROOT . 'lib' . DS . 'admin.function.php');
 include_once(AROOT . 'lib' . DS . 'upload.class.php');
+include_once(AROOT . 'lib' . DS . 'admin.function.php');
+include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
+include_once(AROOT . 'model' . DS . 'goods.function.php');
+include_once(AROOT . 'model' . DS . 'category.function.php');
+include_once(AROOT . 'model' . DS . 'order.function.php');
+include_once(AROOT . 'model' . DS . 'user.function.php');
+include_once(AROOT . 'model' . DS . 'notice.function.php');
 
 class adminController extends appController
 {
@@ -55,17 +61,17 @@ class adminController extends appController
         forward('?c=admin');
     }
 
-    function systemPage()
+    function sysconfig()
     {
-        perm_required('system');
+        login_required();
 
-        $data = get_system();
-        render_to_web('admin/base', 'system', $data);
+        $data = get_sysconfig();
+        render_to_web('admin/base', 'sysconfig', $data);
     }
 
-    function updateSystem()
+    function updateSysconfig()
     {
-        perm_required('system');
+        perm_required('sysconfig');
 
         $name = v('name');
         $status = v('status');
@@ -74,28 +80,30 @@ class adminController extends appController
         $phone = v('phone');
         $comments = v('comments');
 
-        $is_success = update_system(array($name, $status, $start_time, $end_time, $phone, $comments));
-        AjaxMessage::simple($is_success);
+        $data = array($name, $status, $start_time, $end_time, $phone, $comments);
+        update_sysconfig($data);
+        AjaxMessage::simple(true);
     }
 
-    function goodsListPage()
+    function goodsList()
     {
-        perm_required('menu');
+        perm_required('goods');
 
-        $data['pager'] = get_page_goods(20, 9, "c=admin&a=goodsListPage");
+        $data['pager'] = get_goods_page(20, 9, "c=admin&a=goodsList");
         render_to_web('admin/base', 'goodsList', $data);
     }
 
-    function addGoodsPage()
+    function addGoods()
     {
-        perm_required('menu');
+        perm_required('goods');
 
-        render_to_web('admin/addGoods');
+        $data['category_list'] = get_category_list();
+        render_to_web('admin/addGoods', null, $data);
     }
 
-    function checkGoodsName()
+    function isExistGoods()
     {
-        perm_required('menu');
+        perm_required('goods');
 
         $name = v('name');
         $previous = v('previous');
@@ -109,9 +117,9 @@ class adminController extends appController
         ajax_echo(json_encode(!$is_has), 'json');
     }
 
-    function addGoods()
+    function saveGoods()
     {
-        perm_required('menu');
+        perm_required('goods');
 
         $name = v('name');
         $price = v('price');
@@ -149,13 +157,14 @@ class adminController extends appController
 
         $handle->Clean();
 
-        save_goods(array($name, $handle->file_dst_name, $price, $description, $status, getDBDate()));
-        forward('?c=admin&a=goodsListPage');
+        $data = array($name, $handle->file_dst_name, $price, $description, $status, getDBDate());
+        save_goods($data);
+        forward('?c=admin&a=goodsList');
     }
 
-    function delGoods()
+    function deleteGoods()
     {
-        perm_required('menu');
+        perm_required('goods');
 
         $ids = v('ids');
         if (!$ids) {
@@ -163,18 +172,20 @@ class adminController extends appController
             return;
         }
 
-        $is_success = delete_goods($ids);
-        AjaxMessage::simple($is_success);
+        delete_goods($ids);
+        AjaxMessage::simple(true);
     }
 
-    function updateGoodsPage()
+    function editGoods()
     {
-        perm_required('menu');
+        perm_required('goods');
 
         $id = v('id');
-        $data = get_goods($id);
+        $data['goods'] = get_goods($id);
+        $data['category_list'] = get_category_list();
+        $data['goods_category_ids'] = get_category_ids_by_goods($id);
 
-        render_to_web('admin/updateGoods', null, $data);
+        render_to_web('admin/editGoods', null, $data);
     }
 
     function updateGoods()
@@ -222,26 +233,26 @@ class adminController extends appController
         }
 
         update_goods($id, array($name, $picture, $price, $description, $status));
-        forward('?c=admin&a=goodsListPage');
+        forward('?c=admin&a=goodsList');
     }
 
-    function categoryListPage()
+    function categoryList()
     {
         perm_required('category');
 
-        $data['pager'] = get_page_category(20, 9, "c=admin&a=categoryListPage");
+        $data['pager'] = get_category_page(20, 9, "c=admin&a=categoryList");
         render_to_web('admin/base', 'categoryList', $data);
     }
 
-    function addCategoryPage()
+    function addCategory()
     {
         perm_required('category');
 
-        $data['all_goods'] = get_all_goods();
+        $data['goods_list'] = get_goods_list();
         render_to_web('admin/addCategory', null, $data);
     }
 
-    function checkCategoryName()
+    function isExistCategory()
     {
         perm_required('category');
 
@@ -254,24 +265,25 @@ class adminController extends appController
         }
 
         $is_has = has_category($name);
+
         ajax_echo(json_encode(!$is_has), 'json');
     }
 
-    function addCategory()
+    function saveCategory()
     {
         perm_required('category');
 
         $name = v('name');
         $order = v('order');
-        $goods_list = v('goods');
+        $goods_ids = v('goods');
 
         $category_id = save_category(array($name, $order, getDBDate()));
-        add_category_goods($category_id, $goods_list);
+        add_category_goods($category_id, $goods_ids);
 
-        forward('?c=admin&a=categoryListPage');
+        forward('?c=admin&a=categoryList');
     }
 
-    function delCategory()
+    function deleteCategory()
     {
         perm_required('category');
 
@@ -281,20 +293,20 @@ class adminController extends appController
             return;
         }
 
-        $is_success = delete_category($ids);
-        AjaxMessage::simple($is_success);
+        delete_category($ids);
+        AjaxMessage::simple(true);
     }
 
-    function updateCategoryPage()
+    function editCategory()
     {
         perm_required('category');
 
         $id = v('id');
         $data['category'] = get_category($id);
-        $data['all_goods'] = get_all_goods();
+        $data['goods_list'] = get_goods_list();
         $data['goods_ids'] = get_goods_ids_by_category($id);
 
-        render_to_web('admin/updateCategory', null, $data);
+        render_to_web('admin/editCategory', null, $data);
     }
 
     function updateCategory()
@@ -304,11 +316,12 @@ class adminController extends appController
         $id = v('id');
         $name = v('name');
         $order = v('order');
-        $goods_list = v('goods');
+        $goods_ids = v('goods');
 
-        update_category($id, array($name, $order, getDBDate()));
-        update_category_goods($id, $goods_list);
+        $data = array($name, $order);
+        update_category($id, $data);
+        update_category_goods($id, $goods_ids);
 
-        forward('?c=admin&a=categoryListPage');
+        forward('?c=admin&a=categoryList');
     }
 }

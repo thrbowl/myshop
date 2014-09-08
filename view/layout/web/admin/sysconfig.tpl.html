@@ -1,7 +1,7 @@
 <div>
     <fieldset>
         <legend>餐馆设置</legend>
-        <form class="form-horizontal" method="post" action="?c=admin&a=updateSystem" id="updateSystemForm">
+        <form class="form-horizontal" method="post" action="?c=admin&a=updateSysconfig" id="updateSysconfigForm">
             <div class="form-group">
                 <label class="col-sm-3 control-label no-padding-right" for="name"> 餐馆名称 </label>
 
@@ -118,7 +118,7 @@
             $(this).prev().focus();
         });
 
-        $('#updateSystemForm').validate({
+        $('#updateSysconfigForm').validate({
             errorElement: 'div',
             errorClass: 'help-block',
             focusInvalid: false,
