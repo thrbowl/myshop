@@ -29,7 +29,7 @@
                                     <?php foreach($goods_list as $c):?>
                                     <label>
                                         <input class="ace" type="checkbox" name="goods[]" value="<?=$c['id']?>"
-                                            <?php if(in_array($c['id'], $goods_ids)):?>checked<?php endif;?>>
+                                            <?php if(in_array($c['id'], $category_goods_ids)):?>checked<?php endif;?>>
                                         <span class="lbl">&nbsp;<?=$c['name']?></span>
                                     </label>
                                     <?php endforeach;?>

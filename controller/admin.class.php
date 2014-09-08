@@ -125,6 +125,7 @@ class adminController extends appController
         $price = v('price');
         $status = v('status');
         $description = v('description');
+        $category_ids = v('category');
 
         $handle = new Upload($_FILES['picture'], 'zh_CN');
         if (!$handle->uploaded) {
@@ -158,7 +159,8 @@ class adminController extends appController
         $handle->Clean();
 
         $data = array($name, $handle->file_dst_name, $price, $description, $status, getDBDate());
-        save_goods($data);
+        $goods_id = save_goods($data);
+        add_goods_category($goods_id, $category_ids);
         forward('?c=admin&a=goodsList');
     }
 
@@ -197,6 +199,7 @@ class adminController extends appController
         $price = v('price');
         $status = v('status');
         $description = v('description');
+        $category_ids = v('category');
 
         $handle = new Upload($_FILES['picture'], 'zh_CN');
 
@@ -233,6 +236,7 @@ class adminController extends appController
         }
 
         update_goods($id, array($name, $picture, $price, $description, $status));
+        update_goods_category($id, $category_ids);
         forward('?c=admin&a=goodsList');
     }
 
@@ -304,7 +308,7 @@ class adminController extends appController
         $id = v('id');
         $data['category'] = get_category($id);
         $data['goods_list'] = get_goods_list();
-        $data['goods_ids'] = get_goods_ids_by_category($id);
+        $data['category_goods_ids'] = get_goods_ids_by_category($id);
 
         render_to_web('admin/editCategory', null, $data);
     }

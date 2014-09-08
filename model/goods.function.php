@@ -27,6 +27,7 @@ function save_goods($data)
     $sql = prepare("INSERT INTO goods(`name`,`picture`,`price`,`description`,`status`,`createDate`)
                     values(?s,?s,?s,?s,?s,?s)", $data);
     run_sql($sql);
+    return last_id();
 }
 
 function delete_goods($data)
@@ -61,4 +62,37 @@ function get_category_ids_by_goods($goods_id)
         $category_ids[] = $r['category_id'];
     }
     return $category_ids;
+}
+
+function add_goods_category($goods_id, $category_ids)
+{
+    $v = "";
+    foreach ($category_ids as $category_id) {
+        if ($v) {
+            $v .= ",";
+        }
+        $v .= "(" . $category_id . "," . $goods_id . ")";
+    }
+    $sql = "INSERT INTO goods_category(`category_id`,`goods_id`) values" . $v;
+    run_sql($sql);
+}
+
+function delete_goods_category($goods_id, $category_ids)
+{
+    $sql = prepare("DELETE FROM goods_category WHERE `goods_id`=%s AND `category_id` IN ("
+        . implode(',', $category_ids) . ")", array($goods_id));
+    run_sql($sql);
+}
+
+function update_goods_category($goods_id, $category_ids)
+{
+    $old_category_ids = get_category_ids_by_goods($goods_id);
+    $add_ids = array_diff($category_ids, $old_category_ids);
+    $delete_ids = array_diff($old_category_ids, $category_ids);
+    if ($delete_ids) {
+        delete_goods_category($goods_id, $delete_ids);
+    }
+    if ($add_ids) {
+        add_goods_category($goods_id, $add_ids);
+    }
 }

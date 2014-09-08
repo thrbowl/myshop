@@ -94,7 +94,6 @@ function update_category_goods($category_id, $goods_ids)
     $old_good_ids = get_goods_ids_by_category($category_id);
     $add_ids = array_diff($goods_ids, $old_good_ids);
     $delete_ids = array_diff($old_good_ids, $goods_ids);
-
     if ($delete_ids) {
         delete_category_goods($category_id, $delete_ids);
     }
