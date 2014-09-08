@@ -62,10 +62,10 @@ function get_goods_ids_by_category($category_id)
     return $goods_ids;
 }
 
-function get_goods_by_category($id)
+function get_category_goods($category_id)
 {
     $sql = prepare("SELECT A.* FROM goods AS A,goods_category AS B WHERE B.category_id=?s
-                    AND A.id=B.goods_id", array($id));
+                    AND A.id=B.goods_id", array($category_id));
     return get_data($sql);
 }
 

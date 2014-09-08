@@ -73,7 +73,7 @@
         </div>
 
         <div class="menu">
-            <?php foreach($goods_list as $c):?>
+            <?php foreach($category_goods_list as $c):?>
             <div class="center_5">
                 <div class="center_5_1">
                     <span>
@@ -126,11 +126,11 @@
 
     <div class="right">
         <div class="info">
-            <?php if($system['start_time']||$system['end_time']):?>
-            <p>订餐时间：<span class="time"><?=substr($system['start_time'],0,5)?>~<?=substr($system['end_time'],0,5)?></span></p>
+            <?php if($sysconfig['start_time']||$sysconfig['end_time']):?>
+            <p>订餐时间：<span class="time"><?=substr($sysconfig['start_time'],0,5)?>~<?=substr($sysconfig['end_time'],0,5)?></span></p>
             <?php endif;?>
-            <p>服务热线：<span class="phone"><?=$system['phone']?></span></p>
-            <p>外卖说明：<span class="comment"><?=$system['comments']?></span></p>
+            <p>服务热线：<span class="phone"><?=$sysconfig['phone']?></span></p>
+            <p>外卖说明：<span class="comment"><?=$sysconfig['comments']?></span></p>
         </div>
         <div id="shopCart">
             <div class="items">

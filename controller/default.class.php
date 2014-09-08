@@ -1,7 +1,12 @@
 <?php
 if( !defined('IN') ) die('bad request');
 include_once( AROOT . 'controller'.DS.'app.class.php' );
-include_once( AROOT . 'model'.DS.'admin.function.php' );
+include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
+include_once(AROOT . 'model' . DS . 'goods.function.php');
+include_once(AROOT . 'model' . DS . 'category.function.php');
+include_once(AROOT . 'model' . DS . 'order.function.php');
+include_once(AROOT . 'model' . DS . 'user.function.php');
+include_once(AROOT . 'model' . DS . 'notice.function.php');
 
 class defaultController extends appController
 {
@@ -14,13 +19,13 @@ class defaultController extends appController
 	{
         $category_id = v('cid');
 
-		$data['system'] = get_system();
-        $data['category_list'] = get_all_category();
-        if (!$category_id) {
+		$data['sysconfig'] = get_sysconfig();
+        $data['category_list'] = get_category_list();
+        if (!$category_id && $data['category_list']) {
             $category_id = $data['category_list'][0]['id'];
         }
         $data['category_id'] = $category_id;
-        $data['goods_list'] = get_goods_by_category($category_id);
+        $data['category_goods_list'] = get_category_goods($category_id);
 		render( $data );
 	}
 }
