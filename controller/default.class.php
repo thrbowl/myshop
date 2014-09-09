@@ -6,7 +6,7 @@ include_once(AROOT . 'model' . DS . 'goods.function.php');
 include_once(AROOT . 'model' . DS . 'category.function.php');
 include_once(AROOT . 'model' . DS . 'order.function.php');
 include_once(AROOT . 'model' . DS . 'user.function.php');
-include_once(AROOT . 'model' . DS . 'notice.function.php');
+include_once(AROOT . 'model' . DS . 'article.function.php');
 
 class defaultController extends appController
 {
