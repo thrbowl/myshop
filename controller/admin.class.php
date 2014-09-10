@@ -158,7 +158,7 @@ class adminController extends appController
 
         $handle->Clean();
 
-        $data = array($name, $handle->file_dst_name, $price, $description, $status, getDBDate());
+        $data = array($name, $handle->file_dst_name, $price, $description, $status);
         $goods_id = save_goods($data);
         add_goods_category($goods_id, $category_ids);
         forward('?c=admin&a=goodsList');
@@ -235,7 +235,8 @@ class adminController extends appController
             $picture = $goods['picture'];
         }
 
-        update_goods($id, array($name, $picture, $price, $description, $status));
+        $data = array($name, $picture, $price, $description, $status);
+        update_goods($id, $data);
         update_goods_category($id, $category_ids);
         forward('?c=admin&a=goodsList');
     }
@@ -281,7 +282,8 @@ class adminController extends appController
         $order = v('order');
         $goods_ids = v('goods');
 
-        $category_id = save_category(array($name, $order, getDBDate()));
+        $data = array($name, $order);
+        $category_id = save_category($data);
         add_category_goods($category_id, $goods_ids);
 
         forward('?c=admin&a=categoryList');
@@ -327,5 +329,77 @@ class adminController extends appController
         update_category_goods($id, $goods_ids);
 
         forward('?c=admin&a=categoryList');
+    }
+
+    function articleList()
+    {
+        perm_required('article');
+
+        $data['pager'] = get_article_page(20, 9, "c=admin&a=articleList");
+        render_to_web('admin/base', 'articleList', $data);
+    }
+
+    function addArticle()
+    {
+        perm_required('article');
+
+        render_to_web('admin/addArticle');
+    }
+
+    function saveArticle()
+    {
+        perm_required('article');
+
+        $type = v('type');
+        $flag = v('flag');
+        $status = v('status');
+        $title = v('title');
+        $content = v('content');
+
+        $data = array($type, $flag, $status, $title, $content);
+        save_article($data);
+
+        forward('?c=admin&a=articleList');
+    }
+
+    function deleteArticle()
+    {
+        perm_required('article');
+
+        $ids = v('ids');
+        if (!$ids) {
+            AjaxMessage::simple(false);
+            return;
+        }
+
+        delete_article($ids);
+        AjaxMessage::simple(true);
+    }
+
+    function editArticle()
+    {
+        perm_required('article');
+
+        $id = v('id');
+
+        $data = get_article($id);
+        render_to_web('admin/editArticle', null, $data);
+    }
+
+    function updateArticle()
+    {
+        perm_required('article');
+
+        $id = v('id');
+        $type = v('type');
+        $flag = v('flag');
+        $status = v('status');
+        $title = v('title');
+        $content = v('content');
+
+        $data = array($type, $flag, $status, $title, $content);
+        update_article($id, $data);
+
+        forward('?c=admin&a=articleList');
     }
 }

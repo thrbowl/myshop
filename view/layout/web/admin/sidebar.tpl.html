@@ -66,8 +66,13 @@
         </li>
         <li id="orders" <?php if(g('component')=='orderList'): ?>class="active"<?php endif;?>>
             <a href="?c=admin&a=orderList">
-                <i class="icon-book"></i><span class="menu-text"> 订单管理 </span>
+                <i class="icon-credit-card"></i><span class="menu-text"> 订单管理 </span>
             </a>
+        </li>
+        <li id="article" <?php if(g('component')=='articleList'): ?>class="active"<?php endif;?>>
+        <a href="?c=admin&a=articleList">
+            <i class="icon-book"></i><span class="menu-text"> 文章管理 </span>
+        </a>
         </li>
     </ul><!-- /.nav-list -->
 

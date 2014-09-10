@@ -24,7 +24,7 @@ function has_category($category_name)
 
 function save_category($data)
 {
-    $sql = prepare("INSERT INTO category(`name`,`order`,`createDate`) values(?s,?s,?s)", $data);
+    $sql = prepare("INSERT INTO category(`name`,`order`,`createDate`) values(?s,?s,now())", $data);
     run_sql($sql);
     return last_id();
 }

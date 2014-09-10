@@ -25,7 +25,7 @@ function has_goods($goods_name)
 function save_goods($data)
 {
     $sql = prepare("INSERT INTO goods(`name`,`picture`,`price`,`description`,`status`,`createDate`)
-                    values(?s,?s,?s,?s,?s,?s)", $data);
+                    values(?s,?s,?s,?s,?s,now())", $data);
     run_sql($sql);
     return last_id();
 }
