@@ -372,6 +372,10 @@ class adminController extends appController
         $title = v('title');
         $content = v('content');
 
+        if (!$flag) {
+            $flag = 0;
+        }
+
         $data = array($type, $flag, $alias, $title, $content);
         save_article($data);
 
