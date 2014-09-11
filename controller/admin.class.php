@@ -346,17 +346,33 @@ class adminController extends appController
         render_to_web('admin/addArticle');
     }
 
+    function isExistArticle()
+    {
+        perm_required('article');
+
+        $alias = v('alias');
+        $previous = v('previous');
+
+        if ($previous && $alias == $previous) {
+            ajax_echo(json_encode(true), 'json');
+            return;
+        }
+
+        $is_has = has_article($alias);
+        ajax_echo(json_encode(!$is_has), 'json');
+    }
+
     function saveArticle()
     {
         perm_required('article');
 
         $type = v('type');
         $flag = v('flag');
-        $status = v('status');
+        $alias = v('alias');
         $title = v('title');
         $content = v('content');
 
-        $data = array($type, $flag, $status, $title, $content);
+        $data = array($type, $flag, $alias, $title, $content);
         save_article($data);
 
         forward('?c=admin&a=articleList');
@@ -393,7 +409,6 @@ class adminController extends appController
         $id = v('id');
         $type = v('type');
         $flag = v('flag');
-        $status = v('status');
         $title = v('title');
         $content = v('content');
 
