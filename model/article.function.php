@@ -30,9 +30,15 @@ function delete_article($data)
     run_sql($sql);
 }
 
-function get_article($article_id)
+function get_article_by_id($article_id)
 {
     $sql = prepare("SELECT * FROM article WHERE `id`=?s", array($article_id));
+    return get_line($sql);
+}
+
+function get_article_by_alias($article_alias)
+{
+    $sql = prepare("SELECT * FROM article WHERE `alias`=?s", array($article_alias));
     return get_line($sql);
 }
 

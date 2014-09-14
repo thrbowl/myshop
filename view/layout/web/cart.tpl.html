@@ -23,9 +23,9 @@
             </tr>
             </tbody>
         </table>
-        <a>
-            <img alt="订餐页面广告" src="static/img/766_36509.jpg">
-        </a>
+        <!--<a>
+            <img alt="订餐页面广告" src="static/img/ad1.jpg">
+        </a>-->
     </div>
 
     <div class="left">
@@ -35,12 +35,11 @@
                     <dl class="clear">
                         <dt><span> 分类：</span></dt>
                         <dd>
-                            <a class="sr-current" href="javascript:void(0);" title="小炒,2">小炒</a>
-                            <a class="" href="javascript:void(0);" title="新品推荐,0">新品推荐</a>
-                            <a class="" href="javascript:void(0);" title="套餐,2">套餐</a>
-                            <a class="" href="javascript:void(0);" title="副食品,0">副食品</a>
-                            <a class="" href="javascript:void(0);" title="主食,0">主食</a>
-                            <a class="" href="javascript:void(0);" title="盖饭,0">盖饭</a>
+                            <?php foreach($category_list as $c):?>
+                            <a href="?cid=<?=$c['id']?>"<?php if($category_id==$c['id']):?> class="sr-current"<?php endif;?>>
+                                <?=$c['name']?>
+                            </a>
+                            <?php endforeach;?>
                         </dd>
                     </dl>
                 </div>
@@ -51,13 +50,13 @@
                     <span class="sort-f">排序：</span>
                     <dl class="sort-t-in">
                         <dd>
-                            <a href="javascript:;" id="order0" class="tolerate">默认</a>
+                            <a href="javascript:;" class="tolerate">默认</a>
                         </dd>
                         <dd>
-                            <a href="javascript:;" id="order1">价格</a>
+                            <a href="javascript:;">价格</a>
                         </dd>
                         <dd>
-                            <a href="javascript:;" id="order2">销量</a>
+                            <a href="javascript:;">销量</a>
                         </dd>
                     </dl>
                 </div>
@@ -74,57 +73,45 @@
         </div>
 
         <div class="menu">
+            <?php foreach($category_goods_list as $c):?>
             <div class="center_5">
                 <div class="center_5_1">
-                    <span><img src="static/img/0_17271.jpg"></span>
+                    <span>
+                        <a href="">
+                            <img src="static/img/goods/210x170/<?=$c['picture']?>">
+                        </a>
+                    </span>
                 </div>
                 <div>
                     <a href="javascript:;">
-                        <b style="color:black;">日式照烧鸡肉</b>
+                        <a href="">
+                            <b style="color:black;"><?=$c['name']?></b>
+                        </a>
                     </a>
                 </div>
                 <div>
-                    <span style="color:red; font-weight:bold;">12</span> 元/份
-                    <span title="该菜品在系统中仅剩余：20份" style="display:none;">20</span>
+                    <span style="color:red; font-weight:bold;"><?=$c['price']?></span> 元/份
                 </div>
                 <div style="color:#808080;">
                     我要
                     <select style="height:19px;width:37px;">
-                        <option selected="selected" value="1">1</option>
+                        <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
                     </select>
                     份
-                    <a href="javascript:;" title="日式照烧鸡肉">
+                    <a href="javascript:;" title="<?=$c['name']?>">
                         <img src="static/img/buy.gif" style="border:0px;">
                     </a>
                 </div>
             </div>
-            <div class="center_5">
-                <div class="center_5_1">
-                    <span><img src="static/img/0_17271.jpg"></span>
-                </div>
-                <div>
-                    <a href="javascript:;">
-                        <b style="color:Black;">日式照烧鸡肉</b>
-                    </a>
-                </div>
-                <div>
-                    <span style="color:Red; font-weight:bold;">12</span> 元/份
-                </div>
-                <div style="color:#808080;">
-                    我要
-                    <select name="hlsnum1639" id="count1639" style="height:19px;width:37px;">
-                        <option selected="selected" value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                    份
-                    <a href="javascript:;" title="日式照烧鸡肉">
-                        <img src="static/img/buy.gif" style="border:0px;">
-                    </a>
-                </div>
-            </div>
+            <?php endforeach;?>
         </div>
 
         <div id="div_pager1" style="clear:both;" class="page-number">
@@ -139,11 +126,11 @@
 
     <div class="right">
         <div class="info">
-            <p>订餐时间：<span class="time">8:00~20:00</span></p>
-
-            <p>服务热线：<span class="phone">010-51290021</span></p>
-
-            <p>外卖说明：<span class="comment">国贸</span></p>
+            <?php if($sysconfig['start_time']||$sysconfig['end_time']):?>
+            <p>订餐时间：<span class="time"><?=substr($sysconfig['start_time'],0,5)?>~<?=substr($sysconfig['end_time'],0,5)?></span></p>
+            <?php endif;?>
+            <p>服务热线：<span class="phone"><?=$sysconfig['phone']?></span></p>
+            <p>外卖说明：<span class="comment"><?=$sysconfig['comments']?></span></p>
         </div>
         <div id="shopCart">
             <div class="items">

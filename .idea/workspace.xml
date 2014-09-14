@@ -2,11 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b79c2079-dd26-48c1-b202-a3cdf45c29bb" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/board.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controller/article.class.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/layout/web/base.tpl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/footer.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/header.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/layout/web/resource_bottom.tpl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/layout/web/resource_head.tpl.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/view/layout/web/sidebar.tpl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/view/layout/web/default.tpl.bak.html" afterPath="$PROJECT_DIR$/view/layout/web/home.tpl.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/view/layout/web/default.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/cart.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/admin.class.php" afterPath="$PROJECT_DIR$/controller/admin.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/article.function.php" afterPath="$PROJECT_DIR$/model/article.function.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/article.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/article.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/common.css" afterPath="$PROJECT_DIR$/static/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/default.class.php" afterPath="$PROJECT_DIR$/controller/default.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/admin/editArticle.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/admin/editArticle.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/footer.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/footer.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/header.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/header.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/home.css" afterPath="$PROJECT_DIR$/static/css/home.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myshop.sql" afterPath="$PROJECT_DIR$/myshop.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/admin/resource_bottom.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/admin/resource_bottom.tpl.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/admin/resource_head.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/admin/resource_head.tpl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="myshop.iws" />
@@ -30,60 +49,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="admin.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/admin.class.php">
+      <file leaf-file-name="article.tpl.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/layout/web/article.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="377" column="0" selection-start="9900" selection-end="9900" vertical-scroll-proportion="-14.807693" vertical-offset="6024" max-vertical-offset="7310">
+            <state line="11" column="111" selection-start="342" selection-end="342" vertical-scroll-proportion="0.57012194" vertical-offset="0" max-vertical-offset="578">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="article.function.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/article.function.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="52" selection-start="607" selection-end="611" vertical-scroll-proportion="-9.615385" vertical-offset="90" max-vertical-offset="867">
-              <folding>
-                <marker date="1410477057000" expanded="true" signature="211:257" placeholder="SELECT * FRO..article..." />
-                <marker date="1410477057000" expanded="true" signature="428:466" placeholder="SELECT 1 FRO..article..." />
-                <marker date="1410477057000" expanded="true" signature="579:720" placeholder="INSERT INTO ..." />
-                <marker date="1410477057000" expanded="true" signature="964:999" placeholder="SELECT * FRO..article..." />
-                <marker date="1410477057000" expanded="true" signature="1146:1273" placeholder="UPDATE artic..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addArticle.tpl.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="21" selection-start="0" selection-end="6038" vertical-scroll-proportion="-7.1923075" vertical-offset="544" max-vertical-offset="2431">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editArticle.tpl.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/layout/web/admin/editArticle.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="114" selection-start="3014" selection-end="3014" vertical-scroll-proportion="-0.27642277" vertical-offset="901" max-vertical-offset="2431">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="articleList.tpl.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="30" selection-start="2915" selection-end="2915" vertical-scroll-proportion="-37.26923" vertical-offset="136" max-vertical-offset="2397">
-              <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -117,17 +87,33 @@
         <option value="$PROJECT_DIR$/view/layout/web/admin/editGoods.tpl.html" />
         <option value="$PROJECT_DIR$/view/layout/web/goods.tpl.html" />
         <option value="$PROJECT_DIR$/config/admin.config.php" />
-        <option value="$PROJECT_DIR$/controller/default.class.php" />
         <option value="$PROJECT_DIR$/view/layout/web/default.tpl.html" />
-        <option value="$PROJECT_DIR$/view/layout/web/header.tpl.html" />
         <option value="$PROJECT_DIR$/view/layout/web/admin/sidebar.tpl.html" />
         <option value="$PROJECT_DIR$/model/category.function.php" />
         <option value="$PROJECT_DIR$/model/goods.function.php" />
+        <option value="$PROJECT_DIR$/lib/app.function.php" />
+        <option value="$PROJECT_DIR$/view/layout/web/admin/resource_head.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/admin/resource_bottom.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/admin/base.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/admin/editArticle.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/resource_bottom.tpl.html" />
+        <option value="$PROJECT_DIR$/controller/default.class.php" />
+        <option value="$PROJECT_DIR$/view/layout/web/sidebar.tpl.html" />
         <option value="$PROJECT_DIR$/model/article.function.php" />
         <option value="$PROJECT_DIR$/controller/admin.class.php" />
-        <option value="$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html" />
-        <option value="$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html" />
-        <option value="$PROJECT_DIR$/view/layout/web/admin/editArticle.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/header.tpl.html" />
+        <option value="$PROJECT_DIR$/controller/article.class.php" />
+        <option value="$PROJECT_DIR$/view/layout/web/base.tpl.html" />
+        <option value="$PROJECT_DIR$/static/css/bottom.css" />
+        <option value="$PROJECT_DIR$/static/css/home.css" />
+        <option value="$PROJECT_DIR$/view/layout/web/home.tpl.html" />
+        <option value="$PROJECT_DIR$/static/css/header.css" />
+        <option value="$PROJECT_DIR$/static/css/common.css" />
+        <option value="$PROJECT_DIR$/view/layout/web/resource_head.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/footer.tpl.html" />
+        <option value="$PROJECT_DIR$/view/layout/web/article.tpl.html" />
       </list>
     </option>
   </component>
@@ -221,32 +207,6 @@
               <option name="myItemId" value="layout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="myshop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -272,7 +232,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -286,7 +250,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -299,11 +263,29 @@
     <property name="LayoutCode.rearrangeEntriesPHP" value="false" />
     <property name="SearchEverywhereHistory" value="" />
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="129" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="149" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="944" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="140" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="142" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="940" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/view/layout/web/admin" />
+      <recent name="$PROJECT_DIR$/static/img" />
       <recent name="$PROJECT_DIR$/view/layout/web" />
+      <recent name="$PROJECT_DIR$/controller" />
+      <recent name="$PROJECT_DIR$/view/layout/web/admin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/admin/js" />
@@ -345,28 +327,32 @@
       <created>1410446931311</created>
       <updated>1410446931311</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add edit article page">
+      <created>1410477929233</created>
+      <updated>1410477929233</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="793" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.74822193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43812233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77240396" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26680973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2739628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77240396" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -375,22 +361,22 @@
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.74822193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43812233" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77240396" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.77240396" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26680973" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2739628" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -414,7 +400,8 @@
     <MESSAGE value="add category for goods" />
     <MESSAGE value="update front variable name" />
     <MESSAGE value="add article page&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="add article page&#10;" />
+    <MESSAGE value="add edit article page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add edit article page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -431,23 +418,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="65" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0" vertical-offset="697" max-vertical-offset="867">
           <folding>
-            <marker date="1410477057000" expanded="true" signature="211:257" placeholder="SELECT * FRO..article..." />
-            <marker date="1410477057000" expanded="true" signature="428:466" placeholder="SELECT 1 FRO..article..." />
-            <marker date="1410477057000" expanded="true" signature="579:720" placeholder="INSERT INTO ..." />
-            <marker date="1410477057000" expanded="true" signature="964:999" placeholder="SELECT * FRO..article..." />
-            <marker date="1410477057000" expanded="true" signature="1146:1273" placeholder="UPDATE artic..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT 1 FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="UPDATE artic..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="103" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="2431">
-          <folding />
-        </state>
+        <state line="51" column="103" selection-start="2912" selection-end="2912" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="2431" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/default.tpl.html">
+    <entry file="file://$PROJECT_DIR$/view/layout/web/home.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="45" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="3077" />
       </provider>
@@ -482,16 +468,6 @@
         <state line="99" column="35" selection-start="4203" selection-end="4212" vertical-scroll-proportion="0.4591195" vertical-offset="1391" max-vertical-offset="2516" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_lp/core/lib/core.function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="9" selection-start="647" selection-end="647" vertical-scroll-proportion="3.8990827" vertical-offset="0" max-vertical-offset="4743" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/article.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/goods.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675" />
@@ -500,16 +476,6 @@
     <entry file="file://$PROJECT_DIR$/config/admin.config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="106" selection-start="230" selection-end="237" vertical-scroll-proportion="0.24401914" vertical-offset="0" max-vertical-offset="418" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/default.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="44" selection-start="449" selection-end="449" vertical-scroll-proportion="0.20955315" vertical-offset="0" max-vertical-offset="649" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/footer.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.config.php">
@@ -522,16 +488,6 @@
         <state line="3" column="34" selection-start="81" selection-end="95" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="221" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/header.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="79" selection-start="181" selection-end="181" vertical-scroll-proportion="0.09672831" vertical-offset="0" max-vertical-offset="765" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/default.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="35" selection-start="3109" selection-end="3109" vertical-scroll-proportion="1.910384" vertical-offset="0" max-vertical-offset="3077" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/admin/sidebar.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="13" selection-start="3136" selection-end="3136" vertical-scroll-proportion="0.70554763" vertical-offset="779" max-vertical-offset="1598" />
@@ -542,16 +498,6 @@
         <state line="33" column="4" selection-start="888" selection-end="981" vertical-scroll-proportion="0.15220484" vertical-offset="454" max-vertical-offset="1853" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/categoryList.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="33" selection-start="0" selection-end="5127" vertical-scroll-proportion="0.7" vertical-offset="1166" max-vertical-offset="2397" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/addCategory.tpl.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="63" selection-start="0" selection-end="4687" vertical-scroll-proportion="0.19772404" vertical-offset="167" max-vertical-offset="2006" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/admin/addGoods.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="86" selection-start="3274" selection-end="3428" vertical-scroll-proportion="0.8130435" vertical-offset="425" max-vertical-offset="3077" />
@@ -559,23 +505,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/admin/css/ace-rtl.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="520" column="4" selection-start="7790" selection-end="7790" vertical-scroll-proportion="0.3277311" vertical-offset="8801" max-vertical-offset="44795">
-          <folding />
-        </state>
+        <state line="520" column="4" selection-start="7790" selection-end="7790" vertical-scroll-proportion="0.3277311" vertical-offset="8801" max-vertical-offset="44795" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/web-forms2.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="522" column="16" selection-start="11760" selection-end="11760" vertical-scroll-proportion="4.1362963" vertical-offset="6082" max-vertical-offset="13838">
-          <folding />
-        </state>
+        <state line="522" column="16" selection-start="11760" selection-end="11760" vertical-scroll-proportion="4.1362963" vertical-offset="6082" max-vertical-offset="13838" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/admin/sysconfig.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="52" selection-start="241" selection-end="254" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="2890">
-          <folding />
-        </state>
+        <state line="5" column="52" selection-start="241" selection-end="254" vertical-scroll-proportion="-3.2692308" vertical-offset="0" max-vertical-offset="2890" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/myshop.sql">
@@ -590,50 +530,225 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/article.function.php">
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/editCategory.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="52" selection-start="607" selection-end="611" vertical-scroll-proportion="-9.615385" vertical-offset="90" max-vertical-offset="867">
-          <folding>
-            <marker date="1410477057000" expanded="true" signature="211:257" placeholder="SELECT * FRO..article..." />
-            <marker date="1410477057000" expanded="true" signature="428:466" placeholder="SELECT 1 FRO..article..." />
-            <marker date="1410477057000" expanded="true" signature="579:720" placeholder="INSERT INTO ..." />
-            <marker date="1410477057000" expanded="true" signature="964:999" placeholder="SELECT * FRO..article..." />
-            <marker date="1410477057000" expanded="true" signature="1146:1273" placeholder="UPDATE artic..." />
-          </folding>
-        </state>
+        <state line="76" column="87" selection-start="3402" selection-end="3434" vertical-scroll-proportion="-14.0" vertical-offset="928" max-vertical-offset="2023" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/admin.class.php">
+    <entry file="file://$PROJECT_DIR$/lib/app.function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="0" selection-start="9900" selection-end="9900" vertical-scroll-proportion="-14.807693" vertical-offset="6024" max-vertical-offset="7310">
+        <state line="14" column="29" selection-start="212" selection-end="212" vertical-scroll-proportion="0.0" vertical-offset="13" max-vertical-offset="1071">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html">
+    <entry file="file://$PROJECT_DIR$/view/layout/web/cart.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="30" selection-start="2915" selection-end="2915" vertical-scroll-proportion="-37.26923" vertical-offset="136" max-vertical-offset="2397">
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#5;n#tr#0;n#thead#0;n#table#0;n#div#0;n#fieldset#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3077" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/addCategory.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="62" selection-start="1398" selection-end="1398" vertical-scroll-proportion="-9.269231" vertical-offset="167" max-vertical-offset="2006">
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/js/umeditor/umeditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9687" column="25" selection-start="331952" selection-end="331958" vertical-scroll-proportion="0.40936556" vertical-offset="164340" max-vertical-offset="185708" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/admin/addArticle.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="21" selection-start="0" selection-end="6038" vertical-scroll-proportion="-7.1923075" vertical-offset="544" max-vertical-offset="2431">
+        <state line="135" column="25" selection-start="5866" selection-end="5866" vertical-scroll-proportion="0.6792453" vertical-offset="1863" max-vertical-offset="2499">
+          <folding>
+            <element signature="n#style#0;n#script#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_lp/core/lib/core.function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="9" selection-start="647" selection-end="647" vertical-scroll-proportion="0.34591195" vertical-offset="205" max-vertical-offset="4743">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/resource_head.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="54" selection-start="51" selection-end="76" vertical-scroll-proportion="0.026194144" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/categoryList.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="44" selection-start="1446" selection-end="1446" vertical-scroll-proportion="0.4544025" vertical-offset="289" max-vertical-offset="2397">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/admin/editArticle.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="114" selection-start="3014" selection-end="3014" vertical-scroll-proportion="-0.27642277" vertical-offset="901" max-vertical-offset="2431">
+        <state line="38" column="121" selection-start="2292" selection-end="2296" vertical-scroll-proportion="0.6792453" vertical-offset="214" max-vertical-offset="2516">
+          <folding>
+            <element signature="n#style#0;n#script#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/articleList.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="35" selection-start="1549" selection-end="1549" vertical-scroll-proportion="0.9355346" vertical-offset="0" max-vertical-offset="2465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/resource_bottom.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="37" selection-start="977" selection-end="977" vertical-scroll-proportion="0.6949686" vertical-offset="0" max-vertical-offset="1105">
+          <folding>
+            <marker date="1410576074000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/admin/base.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="78" selection-start="917" selection-end="987" vertical-scroll-proportion="-8.115385" vertical-offset="163" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/sidebar.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="0" selection-start="1904" selection-end="1904" vertical-scroll-proportion="1.2295598" vertical-offset="0" max-vertical-offset="884">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#th#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/admin.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="413" column="26" selection-start="10629" selection-end="10629" vertical-scroll-proportion="0.42372882" vertical-offset="6746" max-vertical-offset="7395">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/resource_bottom.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/footer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="25" selection-start="127" selection-end="127" vertical-scroll-proportion="0.025185185" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/article.function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="1" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.7642527" vertical-offset="218" max-vertical-offset="969">
+          <folding>
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT 1 FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..article..." />
+            <marker date="1410701107000" expanded="true" signature="-1:-1" placeholder="UPDATE artic..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="41" selection-start="4555" selection-end="4555" vertical-scroll-proportion="1.3096677" vertical-offset="0" max-vertical-offset="969">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/article.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="27" selection-start="900" selection-end="900" vertical-scroll-proportion="0.78582436" vertical-offset="0" max-vertical-offset="663">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/default.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="0" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.8120185" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/base.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="16" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.38522014" vertical-offset="163" max-vertical-offset="799">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/home.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="60" selection-start="60" selection-end="60" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1768">
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#b#0;n#a#0;n#a#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/header.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="2" selection-start="202" selection-end="243" vertical-scroll-proportion="0.07703927" vertical-offset="0" max-vertical-offset="662">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="18" selection-end="148" vertical-scroll-proportion="0.025679758" vertical-offset="0" max-vertical-offset="1207">
+          <folding>
+            <marker date="1410703483000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/resource_head.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="62" selection-start="200" selection-end="200" vertical-scroll-proportion="0.052388288" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/header.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="59" selection-start="1437" selection-end="1475" vertical-scroll-proportion="0.6666667" vertical-offset="103" max-vertical-offset="765">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/footer.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="62" selection-start="263" selection-end="263" vertical-scroll-proportion="0.104776576" vertical-offset="0" max-vertical-offset="649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/layout/web/article.tpl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="111" selection-start="342" selection-end="342" vertical-scroll-proportion="0.57012194" vertical-offset="0" max-vertical-offset="578">
           <folding />
         </state>
       </provider>

@@ -1,0 +1,98 @@
+<link rel="stylesheet" type="text/css" href="static/css/home.css">
+<div class="left">
+    <div class="filters">
+        <div class="sequence-side">
+            <div class="seq-result">
+                <dl class="clear">
+                    <dt><span> 分类：</span></dt>
+                    <dd>
+                        <?php foreach($category_list as $c):?>
+                        <a href="?cid=<?=$c['id']?>"<?php if($category_id==$c['id']):?> class="sr-current"<?php endif;?>>
+                        <?=$c['name']?>
+                        </a>
+                        <?php endforeach;?>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="sort-type">
+            <div class="sort-t-lf">
+                <span class="sort-f">排序：</span>
+                <dl class="sort-t-in">
+                    <dd>
+                        <a href="javascript:;" class="tolerate">默认</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">价格</a>
+                    </dd>
+                    <dd>
+                        <a href="javascript:;">销量</a>
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="sort-t-rt">
+                <div class="s-t-search">
+                    <input id="tb1_key" name="tb_key" maxlength="20" style="color:#999;" value="请输入关键字" type="text">
+                </div>
+                <div class="fl">
+                    <input value="搜索" style="color:#fff; width:45px; font-weight:normal;" class="button" type="button">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <?php foreach($category_goods_list as $c):?>
+        <div class="center_5">
+            <div class="center_5_1">
+                    <span>
+                        <a href="">
+                            <img src="static/img/goods/210x170/<?=$c['picture']?>">
+                        </a>
+                    </span>
+            </div>
+            <div>
+                <a href="javascript:;">
+                    <a href="">
+                        <b style="color:black;"><?=$c['name']?></b>
+                    </a>
+                </a>
+            </div>
+            <div>
+                <span style="color:red; font-weight:bold;"><?=$c['price']?></span> 元/份
+            </div>
+            <div style="color:#808080;">
+                我要
+                <select style="height:19px;width:37px;">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                </select>
+                份
+                <a href="javascript:;" title="<?=$c['name']?>">
+                    <img src="static/img/buy.gif" style="border:0px;">
+                </a>
+            </div>
+        </div>
+        <?php endforeach;?>
+    </div>
+
+    <div id="div_pager1" style="clear:both;" class="page-number">
+            <span id="clickPagerJS" class="pager">
+                <span class="previous">&lt;</span>
+                <a class="current" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=0');">1</a>
+                <a href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">2</a>
+                <a class="next" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">&gt;</a>
+            </span>
+    </div>
+</div>
+
+<?php @include_once( dirname(__FILE__) . DS . 'sidebar.tpl.html' ); ?>

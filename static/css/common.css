@@ -1,3 +1,21 @@
+@charset "utf-8";
+body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0;}
+body{font:12px/1 arial,tahoma,"宋体";text-align:center;padding:0px;margin:0px;background-color:#f0f0f0;overflow-x: hidden;}
+img{ border:0px;}
+select{border:1px #7f9db9 solid;}
+input{border:1px #7f9db9 solid;height: 21px;outline:none;}
+table { padding:1px 0px 1px 0px;  width:100%;height: 50px;}
+a{color:#666666;text-decoration:none;}
+.clearfix {clear: both}
+.clear:after{ content:"."; display:block; clear:both; height:0; visibility:hidden;}
+
+.main {text-align: center; margin: 0 auto; width: 993px; background-color: #fefefe; padding: 0;}
+.main .notice {width: 100%; height: 28px; line-height: 28px;}
+.main .left {float: left;width: 735px;margin: 5px 0 8px 8px;padding: 0;display: inline;color: #333;background: none repeat scroll 0 0 #ffffff;text-align: left;overflow: visible;border: 1px solid #eee;border-top: 2px solid #FE8502;}
+.main .left .filters {margin-bottom:10px;font-size:13px;}
+.main .left .menu {padding-top: 10px}
+.main .right{float:left; width:240px; text-align:left;margin-left: 8px; padding:0; overflow:hidden;display:inline;}
+
 /* ---------- Message ---------- */
 
 div.xxMessage {

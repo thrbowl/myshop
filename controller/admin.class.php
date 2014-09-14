@@ -402,7 +402,7 @@ class adminController extends appController
 
         $id = v('id');
 
-        $data = get_article($id);
+        $data['article'] = get_article_by_id($id);
         render_to_web('admin/editArticle', null, $data);
     }
 
@@ -413,10 +413,15 @@ class adminController extends appController
         $id = v('id');
         $type = v('type');
         $flag = v('flag');
+        $alias = v('alias');
         $title = v('title');
         $content = v('content');
 
-        $data = array($type, $flag, $status, $title, $content);
+        if (!$flag) {
+            $flag = 0;
+        }
+
+        $data = array($type, $flag, $alias, $title, $content);
         update_article($id, $data);
 
         forward('?c=admin&a=articleList');

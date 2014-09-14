@@ -43,18 +43,14 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-xs-12 col-sm-12">
-                                    <label for="addArticleForm_content">内容</label>
-                                    <label class="pull-right">
-                                        <input class="ace" type="checkbox" id="text_flag">
-                                        <span class="lbl grey"> 使用富文本</span>
-                                    </label>
+                                    <label for="addArticleForm_content_UM">内容</label>
                                     <label class="pull-right">
                                         <input class="ace" type="checkbox" id="comment_flag" name="flag" value="1">
                                         <span class="lbl grey"> 可以评论</span>
                                     </label>
                                     <div>
-                                        <textarea rows="9" id="addArticleForm_content" name="content"
-                                                  class="form-control"></textarea>
+                                        <script id="addArticleForm_content_UM" name="content" type="text/plain"
+                                                style="height:300px;width:100%;"></script>
                                     </div>
                                 </div>
                             </div>
@@ -133,6 +129,14 @@
             },
             invalidHandler: function (form) {
             }
+        });
+
+        UM.getEditor('addArticleForm_content_UM', {
+            toolbar:[
+                'emotion | bold italic underline link unlink | forecolor backcolor |',
+                'insertorderedlist insertunorderedlist | fontfamily fontsize' ,
+                '| justifyleft justifycenter justifyright justifyjustify'
+            ]
         });
     });
 </script>

@@ -2,23 +2,22 @@
     <div class="hdt-wrap">
         <div class="hdt">
             <div class="logo">
-                <a href="?c=<?=c('default_controller')?>&a=<?=c('default_action')?>"><img src="static/img/logo.jpg"></a>
+                <a href="?"><img src="static/img/logo.jpg"></a>
             </div>
             <div class="hdc geyou">
                 <div class="hdi">
                     <div id="ctl00_top1_top41_ul_outLogin" class="login">
-                        <span class="left"></span>
-                        <span>欢迎登陆！</span>
-                        <a class="loga" id="li_login">[登录]</a>
-                        <a class="loga" id="li_reg">[注册]</a>
-                        <a class="loga" id="li_forgetpwd">找回密码</a>
+                        <!--<span class="left"></span>
+                        <span>欢迎登陆！</span>-->
+                        <a class="loga">[收藏]</a>
+                        <a class="loga">[登录]</a>
                     </div>
-                    <ul>
+                    <!--<ul>
                         <li id="Li1"><a onclick="addToFavorite('http://mslms.net','米嗖辣米嗖官方网上订餐外卖,东四十条外卖、呼家楼外卖、国贸外卖网上订餐，米搜拉米搜送餐,');return false;">我要收藏</a><span></span></li>
                         <li><a id="pop02" href="http://mslms.net/msg/user_jfgw.aspx">积分商城</a><span></span></li>
                         <li><a href="http://mslms.net/msg/zhinan.aspx">订餐指南</a><span></span></li>
                         <li><a href="http://mslms.net/usercenter/user_dangan.aspx" style="color:#FF6900;">订单查询</a></li>
-                    </ul>
+                    </ul>-->
                 </div>
 
                 <!--<div>
@@ -29,8 +28,9 @@
     </div>
     <div class="nav-wrap">
         <div id="nav" class="nav">
-            <a class="current" id="a_100" href="http://mslms.net/Default.aspx"><span>我要订餐</span></a>
-            <a id="a_109" href="http://mslms.net/msg/message.aspx"><span>我要留言</span></a>
+            <a href="?"><span>我要订餐</span></a>
+            <a href="?c=article&a=view2&alias=message_board"><span>我要留言</span></a>
+            <a href="?c=article&a=view2&&alias=order_guide"><span>订餐指南</span></a>
             <a class="cart" href="javascript:;">
                 <span>我的餐车（<b>3</b>）</span>
             </a>

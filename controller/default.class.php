@@ -26,6 +26,6 @@ class defaultController extends appController
         }
         $data['category_id'] = $category_id;
         $data['category_goods_list'] = get_category_goods($category_id);
-		render( $data );
+        render_to_web('base', 'home', $data);
 	}
 }

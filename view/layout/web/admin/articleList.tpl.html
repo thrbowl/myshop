@@ -31,7 +31,10 @@
                             <span class="lbl"></span>
                         </label>
                     </td>
-                    <td><?=$c['type']?></td>
+                    <td>
+                        <?php if($c['type']==1):?>系统公告<?php endif;?>
+                        <?php if($c['type']==2):?>网站页面<?php endif;?>
+                    </td>
                     <td><?=$c['title']?></td>
                     <td><?=$c['createDate']?></td>
                     <td><?=$c['updateDate']?></td>
@@ -89,6 +92,7 @@
         var $editArticleModal = $("#editArticleModal");
         if ($editArticleModal.length > 0) {
             $editArticleModal.remove();
+            UM.getEditor('editArticleForm_content_UM').destroy();
         }
         $.get("?c=admin&a=editArticle", {id: id}, function (data) {
             $("body").append(data);

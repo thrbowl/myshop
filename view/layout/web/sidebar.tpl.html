@@ -1,0 +1,46 @@
+<div class="right">
+    <div class="info">
+        <?php if($sysconfig['start_time']||$sysconfig['end_time']):?>
+        <p>订餐时间：<span class="time"><?=substr($sysconfig['start_time'],0,5)?>~<?=substr($sysconfig['end_time'],0,5)?></span></p>
+        <?php endif;?>
+        <p>服务热线：<span class="phone"><?=$sysconfig['phone']?></span></p>
+        <p>外卖说明：<span class="comment"><?=$sysconfig['comments']?></span></p>
+    </div>
+    <div id="shopCart">
+        <div class="items">
+            <table>
+                <tr>
+                    <th width="52%">
+                        <a onclick="tb_clear()" href="javascript:void(0)">
+                            <img src="static/img/del.gif" style="vertical-align:middle;" alt="全部清除菜品">
+                        </a>
+                        菜名
+                    </th>
+                    <th width="16%">单价</th>
+                    <th width="16%">数量</th>
+                    <th width="16%">小计</th>
+                </tr>
+                <tr>
+                    <td class="removeBtn" title="点击取消选择！" onclick="td_delete(this)">三杯鸡</td>
+                    <td>14</td>
+                    <td>
+                        <select onchange="selCreate(this)">
+                            <option selected="selected" value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                    <td>14.00</td>
+                </tr>
+            </table>
+        </div>
+        <div class="total">
+            <span class="num">份数: ￥1</span>
+            <span class="price">总计: ￥14.00</span>
+        </div>
+        <div class="action">
+            <a class="submitBtn" onclick="getYZ();return false;" href="javascript:void(0);">下&nbsp;单</a>
+        </div>
+    </div>
+</div>
