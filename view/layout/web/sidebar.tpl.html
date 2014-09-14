@@ -1,10 +1,10 @@
 <div class="right">
     <div class="info">
         <?php if($sysconfig['start_time']||$sysconfig['end_time']):?>
-        <p>订餐时间：<span class="time"><?=substr($sysconfig['start_time'],0,5)?>~<?=substr($sysconfig['end_time'],0,5)?></span></p>
+        <p>营业时间：<span class="time"><?=substr($sysconfig['start_time'],0,5)?>~<?=substr($sysconfig['end_time'],0,5)?></span></p>
         <?php endif;?>
         <p>服务热线：<span class="phone"><?=$sysconfig['phone']?></span></p>
-        <p>外卖说明：<span class="comment"><?=$sysconfig['comments']?></span></p>
+        <p>说 明：<span class="comment"><?=$sysconfig['comments']?></span></p>
     </div>
     <div id="shopCart">
         <div class="items">
@@ -14,13 +14,16 @@
                         <a onclick="tb_clear()" href="javascript:void(0)">
                             <img src="static/img/del.gif" style="vertical-align:middle;" alt="全部清除菜品">
                         </a>
-                        菜名
+                        商品名
                     </th>
                     <th width="16%">单价</th>
                     <th width="16%">数量</th>
                     <th width="16%">小计</th>
                 </tr>
                 <tr>
+                    <td colspan="4">暂无商品</td>
+                </tr>
+                <!--<tr>
                     <td class="removeBtn" title="点击取消选择！" onclick="td_delete(this)">三杯鸡</td>
                     <td>14</td>
                     <td>
@@ -32,7 +35,7 @@
                         </select>
                     </td>
                     <td>14.00</td>
-                </tr>
+                </tr>-->
             </table>
         </div>
         <div class="total">
