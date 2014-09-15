@@ -62,10 +62,16 @@ function get_goods_ids_by_category($category_id)
     return $goods_ids;
 }
 
-function get_category_goods($category_id)
+function get_category_goods($category_id, $order_by = NULL)
 {
+    $order_sql = "";
+    if ($order_by == 'price') {
+        $order_sql = " ORDER BY price ASC";
+    } elseif ($order_by == 'sale') {
+        $order_sql = " ORDER BY sale DESC";
+    }
     $sql = prepare("SELECT A.* FROM goods AS A,goods_category AS B WHERE B.category_id=?s
-                    AND A.id=B.goods_id", array($category_id));
+                    AND A.id=B.goods_id" . $order_sql, array($category_id));
     return get_data($sql);
 }
 

@@ -13,7 +13,7 @@
     <?php if($article['flag']==1):?>
     <div>
         <!-- 多说评论框 start -->
-        <div class="ds-thread" data-thread-key="<?=$article['id']?>" data-title="<?=$article['title']?>" data-url=""></div>
+        <div class="ds-thread" data-thread-key="<?=$article['id']?>" data-title="<?=$article['title']?>" data-url="http://<?=$_SERVER['HTTP_HOST'].'?'.$_SERVER['QUERY_STRING']?>"></div>
         <!-- 多说评论框 end -->
         <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
         <script type="text/javascript">

@@ -25,7 +25,7 @@
 .center_5 div{margin-bottom:3px;}
 .center_5_1{ width:150px; height:122px; border:1px solid #f1f1f1; overflow:hidden; display:table-cell; position:relative;text-align:center;vertical-align:middle; margin-bottom:2px;}
 .center_5_1 span {position:static;+position:absolute;top:50%; display:block;}
-.center_5_1 img{position:static;+position:relative;top:-51%;left:-50%; max-height:122px; max-width:150px;cursor:pointer;}
+.center_5_1 img{position:static;+position:relative;top:-51%;left:-50%; max-height:122px; max-width:150px;}
 
 .page-number{text-align:center; height:27px; line-height:27px; }
 .page-number a:link,.page-number a:visited{border:1px #ddd solid; text-decoration:none; padding:1px 5px 0; color:#f60; margin:0 2px;}

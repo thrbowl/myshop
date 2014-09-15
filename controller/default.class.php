@@ -18,13 +18,15 @@ class defaultController extends appController
 	function index()
 	{
         $category_id = v('cid');
+        $order_by = v('order');
 
         $data['category_list'] = get_category_list();
         if (!$category_id && $data['category_list']) {
             $category_id = $data['category_list'][0]['id'];
         }
         $data['category_id'] = $category_id;
-        $data['category_goods_list'] = get_category_goods($category_id);
+        $data['order_by'] = $order_by;
+        $data['category_goods_list'] = get_category_goods($category_id, $order_by);
         $this->render_to_web('base', 'home', $data);
 	}
 }

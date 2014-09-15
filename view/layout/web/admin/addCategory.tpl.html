@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="blue bigger">新增菜品分类</h4>
+                <h4 class="blue bigger">新增分类</h4>
             </div>
             <form class="form-horizontal" method="post" action="?c=admin&a=saveCategory" id="addCategoryForm">
                 <div class="modal-body overflow-visible">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-xs-12 col-sm-7 slimScrollBar" style="overflow: auto; height: 380px;">
                             <div>
-                                <label>包含菜品</label>
+                                <label>包含商品</label>
                                 <div>
                                     <?php foreach($goods_list as $c):?>
                                     <label>
@@ -78,8 +78,8 @@
             },
             messages: {
                 name: {
-                    required: "请填写菜品分类名称",
-                    remote: "该菜品分类已存在"
+                    required: "请填写分类名称",
+                    remote: "该分类已存在"
                 }
             },
             highlight: function (e) {

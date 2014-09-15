@@ -5,7 +5,7 @@ include_once(AROOT . 'lib' . DS . 'pagination.class.php');
 function get_article_page($rows_per_page, $links_per_page, $append = "")
 {
     $conn = db();
-    $sql = "SELECT * FROM article ORDER BY createDate DESC";
+    $sql = "SELECT * FROM article ORDER BY updateDate DESC";
     $pager = new PS_Pagination($conn, $sql, $rows_per_page, $links_per_page, $append);
     return $pager;
 }

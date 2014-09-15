@@ -21,25 +21,25 @@
                 <span class="sort-f">排序：</span>
                 <dl class="sort-t-in">
                     <dd>
-                        <a href="javascript:;" class="tolerate">默认</a>
+                        <a href="?" <?php if(!$order_by):?>class="tolerate"<?php endif;?>>默认</a>
                     </dd>
                     <dd>
-                        <a href="javascript:;">价格</a>
+                        <a href="?order=price" <?php if($order_by=='price'):?>class="tolerate"<?php endif;?>>价格</a>
                     </dd>
                     <dd>
-                        <a href="javascript:;">销量</a>
+                        <a href="?order=sale" <?php if($order_by=='sale'):?>class="tolerate"<?php endif;?>>销量</a>
                     </dd>
                 </dl>
             </div>
 
-            <div class="sort-t-rt">
+            <!--<div class="sort-t-rt">
                 <div class="s-t-search">
-                    <input id="tb1_key" name="tb_key" maxlength="20" style="color:#999;" value="请输入关键字" type="text">
+                    <input name="kw" maxlength="20" style="color:#999;" type="text">
                 </div>
                 <div class="fl">
                     <input value="搜索" style="color:#fff; width:45px; font-weight:normal;" class="button" type="button">
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -47,21 +47,15 @@
         <?php foreach($category_goods_list as $c):?>
         <div class="center_5">
             <div class="center_5_1">
-                    <span>
-                        <a href="">
-                            <img src="static/img/goods/210x170/<?=$c['picture']?>">
-                        </a>
-                    </span>
+                <span>
+                    <img src="static/img/goods/210x170/<?=$c['picture']?>">
+                </span>
             </div>
             <div>
-                <a href="javascript:;">
-                    <a href="">
-                        <b style="color:black;"><?=$c['name']?></b>
-                    </a>
-                </a>
+                <b style="color:black;"><?=$c['name']?></b>
             </div>
             <div>
-                <span style="color:red; font-weight:bold;"><?=$c['price']?></span> 元/份
+                <span style="color:red; font-weight:bold;"><?=$c['price']?></span> 元/件
             </div>
             <div style="color:#808080;">
                 我要
@@ -76,7 +70,7 @@
                     <option value="8">8</option>
                     <option value="9">9</option>
                 </select>
-                份
+                件
                 <a href="javascript:;" title="<?=$c['name']?>">
                     <img src="static/img/buy.gif" style="border:0px;">
                 </a>
@@ -85,14 +79,14 @@
         <?php endforeach;?>
     </div>
 
-    <div id="div_pager1" style="clear:both;" class="page-number">
+    <!--<div id="div_pager1" style="clear:both;" class="page-number">
             <span id="clickPagerJS" class="pager">
                 <span class="previous">&lt;</span>
                 <a class="current" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=0');">1</a>
                 <a href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">2</a>
                 <a class="next" href="javascript:void(0);" onclick="javascript:pager_pageindex('?pageIndex=1');">&gt;</a>
             </span>
-    </div>
+    </div>-->
 </div>
 
 <?php @include_once( dirname(__FILE__) . DS . 'sidebar.tpl.html' ); ?>

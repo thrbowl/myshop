@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="blue bigger">新增菜品及主食</h4>
+                <h4 class="blue bigger">新增商品</h4>
             </div>
             <form class="form-horizontal" method="post" action="?c=admin&a=saveGoods" enctype="multipart/form-data" id="addGoodsForm">
                 <div class="modal-body overflow-visible">
@@ -84,7 +84,7 @@
 
         $("#addGoodsForm_picture").ace_file_input({
             style:'well',
-            btn_choose:'菜品图片，点击选择或者拖动图片到此区域',
+            btn_choose:'商品图片，点击选择或者拖动图片到此区域',
             btn_change:null,
             no_icon:'icon-picture',
             droppable:true,
@@ -137,11 +137,11 @@
             },
             messages: {
                 name: {
-                    required: "请填写菜品名称",
-                    remote: "菜单中已经存在该菜品"
+                    required: "请填写商品名称",
+                    remote: "已经存在该商品"
                 },
                 price: {
-                    required: "请填写菜品价格",
+                    required: "请填写商品价格",
                     number: "价格为数字类型"
                 }
             },

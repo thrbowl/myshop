@@ -13,7 +13,7 @@
                         </th>
                         <th>名称</th>
                         <th>排列顺序</th>
-                        <th>拥有菜品</th>
+                        <th>拥有商品</th>
                         <th><i class="icon-time bigger-110 hidden-480"></i>添加时间</th>
                         <th></th>
                     </tr>
@@ -105,17 +105,17 @@
         })
     }
     function delOneCategory(id) {
-        if (confirm("你确定要删除该菜品分类么？")) {
+        if (confirm("你确定要删除该分类么？")) {
             _delCategory([id]);
         }
     }
     function delSelectedCategory() {
         var $inputs = $("input[name='ids[]']:checked");
         if ($inputs.length == 0) {
-            alert("请先选择要删除的菜品分类");
+            alert("请先选择要删除的分类");
             return;
         }
-        if (confirm("你确定要删除所有选中的菜品分类么?")) {
+        if (confirm("你确定要删除所有选中的分类么?")) {
             var ids = $inputs.map(function () {
                 return this.value;
             }).get();
