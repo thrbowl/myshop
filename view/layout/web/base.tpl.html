@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <title><?=$sysconfig['name']?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <?php @include_once( dirname(__FILE__) ) . DS . 'resource_head.tpl.html'; ?>
 </head>
@@ -14,8 +15,8 @@
                 <td width="20%">&nbsp;</td>
                 <td>
                     <marquee direction="left" onmouseout="this.start()" onmouseover="this.stop()" scrollamount="3">
-                        <a href="http://www.baidu.com" target="_blank">
-                            2014年6月23日起，11：00前网上点餐每笔定单满50元送一个两升装的大桶饮料，不满50元每份餐立减一元，本优惠活动两者不能同时享用,机会不多送完为止快来抢购吧！
+                        <a href="?c=article&a=view2&alias=notice" target="_blank">
+                            <?=$notice['title']?>
                         </a>
                     </marquee>
                 </td>

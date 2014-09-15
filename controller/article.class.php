@@ -20,7 +20,7 @@ class articleController extends appController
         $article_id = v('id');
 
         $data['article'] = get_article_by_id($article_id);
-        render_to_web('base', 'article', $data);
+        $this->render_to_web('base', 'article', $data);
     }
 
     function view2()
@@ -28,6 +28,6 @@ class articleController extends appController
         $article_alias = v('alias');
 
         $data['article'] = get_article_by_alias($article_alias);
-        render_to_web('base', 'article', $data);
+        $this->render_to_web('base', 'article', $data);
     }
 }

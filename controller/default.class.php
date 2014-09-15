@@ -19,13 +19,12 @@ class defaultController extends appController
 	{
         $category_id = v('cid');
 
-		$data['sysconfig'] = get_sysconfig();
         $data['category_list'] = get_category_list();
         if (!$category_id && $data['category_list']) {
             $category_id = $data['category_list'][0]['id'];
         }
         $data['category_id'] = $category_id;
         $data['category_goods_list'] = get_category_goods($category_id);
-        render_to_web('base', 'home', $data);
+        $this->render_to_web('base', 'home', $data);
 	}
 }
