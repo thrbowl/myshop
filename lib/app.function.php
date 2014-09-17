@@ -28,6 +28,14 @@ function jsforword($url)
     return '<script>location="' . $url . '"</script>';
 }
 
+function check_login()
+{
+    if(!$_SESSION["userid"]) {
+        return false;
+    }
+    return true;
+}
+
 class AjaxMessage
 {
     public static function __callStatic($name, $arguments)

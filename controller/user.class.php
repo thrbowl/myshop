@@ -1,6 +1,6 @@
 <?php
-if( !defined('IN') ) die('bad request');
-include_once( AROOT . 'controller'.DS.'app.class.php' );
+if (!defined('IN')) die('bad request');
+include_once(AROOT . 'controller' . DS . 'app.class.php');
 include_once(AROOT . 'lib' . DS . 'qq.class.php');
 include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
 include_once(AROOT . 'model' . DS . 'goods.function.php');
@@ -24,10 +24,26 @@ class userController extends appController
         if ($from == 'qq') {
             $qq = new QQ($code, c('qq_app_id'), c('qq_app_key'), c('qq_redirect_uri'));
             $user_info = $qq->get_user_info();
-            var_dump($user_info);
-            exit();
+            if ($user_info->nickname) {
+                $tuser = get_tuser_by_openid($qq->openid, 1);
+                if ($tuser) {
+                    $userid = $tuser['userid'];
+                } else {
+                    $data = array($qq->openid, $user_info->nickname, 1);
+                    $userid = save_user($data);
+                }
+                $_SESSION['userid'] = $userid;
+                $_SESSION['nickname'] = $user_info->nickname;
+            }
         }
 
-        $this->render_to_web('base', 'article', null);
+        forward("?");
+    }
+
+    function logout()
+    {
+        session_unset();
+        session_destroy();
+        forward("?");
     }
 }
