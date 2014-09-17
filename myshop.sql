@@ -279,7 +279,9 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nickname` varchar(30) NOT NULL,
+  `name` varchar(30),
+  `mobile` varchar(11),
+  `address` varchar(100),
   `createDate` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -293,6 +295,31 @@ CREATE TABLE `users` (
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `third_connect`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `third_connect` (
+  `userid` int(11) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `nickname` varchar(30) NOT NULL,
+  `flag` int(11) NOT NULL,
+  `createDate` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `third_connect`
+--
+
+LOCK TABLES `third_connect` WRITE;
+/*!40000 ALTER TABLE `third_connect` DISABLE KEYS */;
+/*!40000 ALTER TABLE `third_connect` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

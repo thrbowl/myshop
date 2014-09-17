@@ -10,7 +10,9 @@
                         <!--<span class="left"></span>
                         <span>欢迎登陆！</span>-->
                         <a class="loga">[收藏]</a>
-                        <a class="loga"><img src="static/img/auth/Connect_logo_7.png" alt="QQ登录"></a>
+                        <a class="loga" href="https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=<?=c('qq_app_id')?>&redirect_uri=<?=urlencode(c('qq_redirect_uri'))?>&state=">
+                            <img src="static/img/auth/Connect_logo_7.png" alt="QQ登录">
+                        </a>
                     </div>
                     <!--<ul>
                         <li id="Li1"><a onclick="addToFavorite('http://mslms.net','米嗖辣米嗖官方网上订餐外卖,东四十条外卖、呼家楼外卖、国贸外卖网上订餐，米搜拉米搜送餐,');return false;">我要收藏</a><span></span></li>
