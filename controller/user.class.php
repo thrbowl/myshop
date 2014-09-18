@@ -37,6 +37,8 @@ class userController extends appController
                 }
                 $_SESSION['userid'] = $userid;
                 $_SESSION['nickname'] = $user_info->nickname;
+
+                sync_cart();
             }
         }
 

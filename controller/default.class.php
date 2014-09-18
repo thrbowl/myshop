@@ -21,13 +21,7 @@ class defaultController extends appController
         $category_id = v('cid');
         $order_by = v('order');
 
-        $cart_id = $_COOKIE['cart_id'];
-        if (!$cart_id) {
-            $cart_id = get_uuid();
-            $data = array($cart_id, null);
-            save_cart($data);
-            setcookie('cart_id', $cart_id, time() + 31536000);
-        }
+        $cart_id = init_cart();
         if (check_login()) {
             $data['cart_id'] = get_cart_id($_SESSION['userid']);
         } else {

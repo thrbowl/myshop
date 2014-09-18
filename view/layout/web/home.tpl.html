@@ -1,4 +1,7 @@
 <link rel="stylesheet" type="text/css" href="static/css/home.css">
+<script>
+    var cart_id = "<?=$cart_id?>";
+</script>
 <div class="left">
     <div class="filters">
         <div class="sequence-side">
@@ -7,9 +10,7 @@
                     <dt><span> 分类：</span></dt>
                     <dd>
                         <?php foreach($category_list as $c):?>
-                        <a href="?cid=<?=$c['id']?>"<?php if($category_id==$c['id']):?> class="sr-current"<?php endif;?>>
-                        <?=$c['name']?>
-                        </a>
+                        <a href="?cid=<?=$c['id']?>"<?php if($category_id==$c['id']):?> class="sr-current"<?php endif;?>><?=$c['name']?></a>
                         <?php endforeach;?>
                     </dd>
                 </dl>
