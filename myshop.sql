@@ -84,7 +84,6 @@ CREATE TABLE `cart_goods` (
   `cart_id` int(11) NOT NULL,
   `goods_id` int(11) NOT NULL,
   `num` int(11) NOT NULL,
-  `price` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

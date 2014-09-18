@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b79c2079-dd26-48c1-b202-a3cdf45c29bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/cart.function.php" afterPath="$PROJECT_DIR$/model/cart.function.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/default.class.php" afterPath="$PROJECT_DIR$/controller/default.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/layout/web/home.tpl.html" afterPath="$PROJECT_DIR$/view/layout/web/home.tpl.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controller/user.class.php" afterPath="$PROJECT_DIR$/controller/user.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/user.function.php" afterPath="$PROJECT_DIR$/model/user.function.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/myshop.sql" afterPath="$PROJECT_DIR$/myshop.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="myshop.iws" />
@@ -42,36 +39,32 @@
       <file leaf-file-name="home.tpl.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/layout/web/home.tpl.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="12" selection-start="654" selection-end="654" vertical-scroll-proportion="13.5" vertical-offset="623" max-vertical-offset="1683">
-              <folding>
-                <element signature="n#style#0;n#b#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#select#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.class.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/user.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="-18.307692" vertical-offset="255" max-vertical-offset="1020">
+            <state line="16" column="12" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="623" max-vertical-offset="1683">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cart.function.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user.class.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/user.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="1.2625995" vertical-offset="255" max-vertical-offset="1020">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cart.function.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/cart.function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="14" selection-start="1242" selection-end="1242" vertical-scroll-proportion="1.0106384" vertical-offset="453" max-vertical-offset="1343">
+            <state line="59" column="0" selection-start="1572" selection-end="1572" vertical-scroll-proportion="-30.461538" vertical-offset="211" max-vertical-offset="1377">
               <folding>
-                <marker date="1411034068168" expanded="true" signature="551:594" placeholder="SELECT * FRO..cart_goods..." />
-                <marker date="1411034068168" expanded="true" signature="715:758" placeholder="SELECT * FRO..cart_goods..." />
-                <marker date="1411034068168" expanded="true" signature="1399:1464" placeholder="INSERT INTO ..." />
-                <marker date="1411034068168" expanded="true" signature="1547:1566" placeholder="INSERT INTO ..." />
+                <marker date="1411035642304" expanded="true" signature="551:594" placeholder="SELECT * FRO..cart_goods..." />
+                <marker date="1411035642304" expanded="true" signature="729:772" placeholder="SELECT * FRO..cart_goods..." />
+                <marker date="1411035642304" expanded="true" signature="1420:1438" placeholder="UPDATE cart_..." />
+                <marker date="1411035642304" expanded="true" signature="1420:1468" placeholder="UPDATE cart_..." />
+                <marker date="1411035642304" expanded="true" signature="1621:1686" placeholder="INSERT INTO ..." />
+                <marker date="1411035642304" expanded="true" signature="1769:1788" placeholder="INSERT INTO ..." />
               </folding>
             </state>
           </provider>
@@ -134,12 +127,12 @@
         <option value="$PROJECT_DIR$/view/layout/web/header.tpl.html" />
         <option value="$PROJECT_DIR$/config/app.config.php" />
         <option value="$PROJECT_DIR$/controller/cart.class.php" />
-        <option value="$PROJECT_DIR$/myshop.sql" />
         <option value="$PROJECT_DIR$/view/layout/web/base.tpl.html" />
         <option value="$PROJECT_DIR$/controller/default.class.php" />
         <option value="$PROJECT_DIR$/model/user.function.php" />
         <option value="$PROJECT_DIR$/view/layout/web/home.tpl.html" />
         <option value="$PROJECT_DIR$/controller/user.class.php" />
+        <option value="$PROJECT_DIR$/myshop.sql" />
         <option value="$PROJECT_DIR$/model/cart.function.php" />
       </list>
     </option>
@@ -176,6 +169,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -210,7 +204,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -343,7 +336,11 @@
       <created>1411012396795</created>
       <updated>1411012396795</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="merge cart">
+      <created>1411034079211</created>
+      <updated>1411034079211</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="1">
@@ -370,32 +367,32 @@
     <frame x="0" y="31" width="1600" height="869" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43253967" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43121693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.771164" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30102697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30102697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.771164" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43253967" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43139842" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -403,16 +400,16 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30102697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
@@ -439,27 +436,13 @@
     <MESSAGE value="shared variables" />
     <MESSAGE value="complete the qq login code" />
     <MESSAGE value="add cart logic code" />
-    <option name="LAST_COMMIT_MESSAGE" value="add cart logic code" />
+    <MESSAGE value="merge cart" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge cart" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/user.function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="58" selection-end="58" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="170">
-          <folding>
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..third_connect..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..third_connect..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="UPDATE third..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..third_connect..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..users..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/app.function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="1" selection-start="350" selection-end="350" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1071">
@@ -599,9 +582,7 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="210" column="9" selection-start="5864" selection-end="5864" vertical-scroll-proportion="0.34566146" vertical-offset="3327" max-vertical-offset="18003">
-          <folding />
-        </state>
+        <state line="210" column="9" selection-start="5864" selection-end="5864" vertical-scroll-proportion="0.34566146" vertical-offset="3327" max-vertical-offset="18003" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/qq.class.php">
@@ -652,37 +633,19 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/myshop.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="33" selection-start="7180" selection-end="7180" vertical-scroll-proportion="0.46599132" vertical-offset="681" max-vertical-offset="5763" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/app.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="530" selection-end="530" vertical-scroll-proportion="0.53200567" vertical-offset="0" max-vertical-offset="703">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="530" selection-end="530" vertical-scroll-proportion="0.53200567" vertical-offset="0" max-vertical-offset="703" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/goods.function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="98" selection-start="802" selection-end="814" vertical-scroll-proportion="-3.2692308" vertical-offset="357" max-vertical-offset="1751">
-          <folding />
-        </state>
+        <state line="26" column="98" selection-start="802" selection-end="814" vertical-scroll-proportion="-3.2692308" vertical-offset="357" max-vertical-offset="1751" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/sysconfig.function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/article.function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="27" selection-start="550" selection-end="555" vertical-scroll-proportion="0.056899004" vertical-offset="266" max-vertical-offset="969">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="729" />
       </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
@@ -699,46 +662,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/base.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.14224751" vertical-offset="104" max-vertical-offset="833">
-          <folding />
-        </state>
+        <state line="12" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.14224751" vertical-offset="104" max-vertical-offset="833" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/category.function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="13" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.4" vertical-offset="938" max-vertical-offset="1955">
-          <folding>
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..category..." />
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..category..." />
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="SELECT 1 FRO..category..." />
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..category..." />
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="UPDATE categ..." />
-            <marker date="1410770930061" expanded="true" signature="-1:-1" placeholder="SELECT goods..goods_category..." />
-          </folding>
-        </state>
+        <state line="58" column="13" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.4" vertical-offset="938" max-vertical-offset="1955" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/user.function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="585" selection-end="585" vertical-scroll-proportion="0.48364154" vertical-offset="0" max-vertical-offset="748">
-          <folding>
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..third_connect..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..third_connect..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="UPDATE third..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..third_connect..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..users..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1411020131061" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/user.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="-18.307692" vertical-offset="255" max-vertical-offset="1020">
-          <folding />
-        </state>
+        <state line="20" column="0" selection-start="585" selection-end="585" vertical-scroll-proportion="0.48364154" vertical-offset="0" max-vertical-offset="748" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/default.class.php">
@@ -750,26 +684,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/layout/web/home.tpl.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="12" selection-start="654" selection-end="654" vertical-scroll-proportion="13.5" vertical-offset="623" max-vertical-offset="1683">
-          <folding>
-            <element signature="n#style#0;n#b#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#3;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="16" column="12" selection-start="654" selection-end="654" vertical-scroll-proportion="0.0" vertical-offset="623" max-vertical-offset="1683">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.rst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1139">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/myshop.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="31" selection-start="7902" selection-end="7902" vertical-scroll-proportion="0.7120116" vertical-offset="987" max-vertical-offset="5746">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/article.function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="4" selection-start="812" selection-end="904" vertical-scroll-proportion="0.33570412" vertical-offset="240" max-vertical-offset="969">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/model/cart.function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="14" selection-start="1242" selection-end="1242" vertical-scroll-proportion="1.0106384" vertical-offset="453" max-vertical-offset="1343">
+        <state line="59" column="0" selection-start="1572" selection-end="1572" vertical-scroll-proportion="-30.461538" vertical-offset="211" max-vertical-offset="1377">
           <folding>
-            <marker date="1411034068168" expanded="true" signature="551:594" placeholder="SELECT * FRO..cart_goods..." />
-            <marker date="1411034068168" expanded="true" signature="715:758" placeholder="SELECT * FRO..cart_goods..." />
-            <marker date="1411034068168" expanded="true" signature="1399:1464" placeholder="INSERT INTO ..." />
-            <marker date="1411034068168" expanded="true" signature="1547:1566" placeholder="INSERT INTO ..." />
+            <marker date="1411035642304" expanded="true" signature="551:594" placeholder="SELECT * FRO..cart_goods..." />
+            <marker date="1411035642304" expanded="true" signature="729:772" placeholder="SELECT * FRO..cart_goods..." />
+            <marker date="1411035642304" expanded="true" signature="1420:1438" placeholder="UPDATE cart_..." />
+            <marker date="1411035642304" expanded="true" signature="1420:1468" placeholder="UPDATE cart_..." />
+            <marker date="1411035642304" expanded="true" signature="1621:1686" placeholder="INSERT INTO ..." />
+            <marker date="1411035642304" expanded="true" signature="1769:1788" placeholder="INSERT INTO ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/user.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="0" selection-start="1481" selection-end="1481" vertical-scroll-proportion="1.2625995" vertical-offset="255" max-vertical-offset="1020">
+          <folding />
         </state>
       </provider>
     </entry>

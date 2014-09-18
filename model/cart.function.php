@@ -25,35 +25,37 @@ function sync_cart()
     }
 
     $sql = prepare("SELECT * FROM cart_goods WHERE `cart_id`=?s", array($source_cart_id));
-    $result = get_data($sql);
-    if (!$result) {
+    $result_source = get_data($sql);
+    if (!$result_source) {
         return;
     }
 
     $sql = prepare("SELECT * FROM cart_goods WHERE `cart_id`=?s", array($target_cart_id));
-    $result = get_data($sql);
+    $result_target = get_data($sql);
 
     $target_goods_ids = array();
     $target_data = array();
-    foreach ($result as $r) {
+    foreach ($result_target as $r) {
         $target_goods_ids[] = $r['id'];
         $target_data[$r['goods_id']] = $r;
     }
 
-    $source_goods_ids = array();
     $add_goods = array();
     $update_goods = array();
-    foreach ($result as $r) {
-        $source_goods_ids[] = $r['id'];
-        if (array_key_exists($r['id'], $target_data)) {
-            //$
-            //$update_goods[$r['id']] = $r['num'] + ;
+    foreach ($result_source as $r) {
+        if (array_key_exists($r['goods_id'], $target_data)) {
+            $update_goods[] = $r['id'];
         } else {
-            $add_goods[] = $r;
+            $add_goods[] = $r['id'];
         }
     }
 
+    $sql = "DELETE FROM cart_goods WHERE `id` IN (" . implode(',', $update_goods) . ")";
+    run_sql($sql);
 
+    $sql = prepare("UPDATE cart_goods SET `cart_id`=?s WHERE `id` IN (" . implode(',', $add_goods) . ")",
+                    array($target_cart_id));
+    run_sql($sql);
 }
 
 function save_cart($data)
