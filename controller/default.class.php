@@ -7,6 +7,7 @@ include_once(AROOT . 'model' . DS . 'category.function.php');
 include_once(AROOT . 'model' . DS . 'order.function.php');
 include_once(AROOT . 'model' . DS . 'user.function.php');
 include_once(AROOT . 'model' . DS . 'article.function.php');
+include_once(AROOT . 'model' . DS . 'cart.function.php');
 
 class defaultController extends appController
 {
@@ -19,6 +20,19 @@ class defaultController extends appController
 	{
         $category_id = v('cid');
         $order_by = v('order');
+
+        $cart_id = $_COOKIE['cart_id'];
+        if (!$cart_id) {
+            $cart_id = get_uuid();
+            $data = array($cart_id, null);
+            save_cart($data);
+            setcookie('cart_id', $cart_id, time() + 31536000);
+        }
+        if (check_login()) {
+            $data['cart_id'] = get_cart_id($_SESSION['userid']);
+        } else {
+            $data['cart_id'] = $cart_id;
+        }
 
         $data['category_list'] = get_category_list();
         if (!$category_id && $data['category_list']) {

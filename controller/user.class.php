@@ -2,12 +2,11 @@
 if (!defined('IN')) die('bad request');
 include_once(AROOT . 'controller' . DS . 'app.class.php');
 include_once(AROOT . 'lib' . DS . 'qq.class.php');
-include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
 include_once(AROOT . 'model' . DS . 'goods.function.php');
 include_once(AROOT . 'model' . DS . 'category.function.php');
 include_once(AROOT . 'model' . DS . 'order.function.php');
 include_once(AROOT . 'model' . DS . 'user.function.php');
-include_once(AROOT . 'model' . DS . 'article.function.php');
+include_once(AROOT . 'model' . DS . 'cart.function.php');
 
 
 class userController extends appController
@@ -28,9 +27,13 @@ class userController extends appController
                 $tuser = get_tuser_by_openid($qq->openid, 1);
                 if ($tuser) {
                     $userid = $tuser['userid'];
+                    update_tuser($userid, $user_info->nickname);
                 } else {
                     $data = array($qq->openid, $user_info->nickname, 1);
                     $userid = save_user($data);
+
+                    $data = array(get_uuid(), $userid);
+                    save_cart($data);
                 }
                 $_SESSION['userid'] = $userid;
                 $_SESSION['nickname'] = $user_info->nickname;

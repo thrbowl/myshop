@@ -55,10 +55,9 @@ DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cart` (
-  `id` varchar(23) NOT NULL,
+  `id` varchar(100) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `createDate` datetime NOT NULL,
-  `updateDate` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
