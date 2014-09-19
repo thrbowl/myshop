@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `cart_goods`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cart_goods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `cart_id` int(11) NOT NULL,
+  `cart_id` varchar(100) NOT NULL,
   `goods_id` int(11) NOT NULL,
   `num` int(11) NOT NULL,
   PRIMARY KEY (`id`),

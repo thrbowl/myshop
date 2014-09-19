@@ -13,17 +13,8 @@ function init_cart()
     return $cart_id;
 }
 
-function sync_cart()
+function sync_cart($source_cart_id, $target_cart_id)
 {
-    $source_cart_id = $_COOKIE['cart_id'];
-
-    $userid = $_SESSION['userid'];
-    $target_cart_id = get_cart_id($userid);
-
-    if (!($source_cart_id && $target_cart_id)) {
-        return;
-    }
-
     $sql = prepare("SELECT * FROM cart_goods WHERE `cart_id`=?s", array($source_cart_id));
     $result_source = get_data($sql);
     if (!$result_source) {
@@ -70,7 +61,13 @@ function get_cart_id($userid)
     return get_var($sql);
 }
 
-function add_goods($data)
+function add_cart_goods($data)
 {
 
+}
+
+function get_cart_goods($cart_id)
+{
+    $sql = prepare("SELECT * FROM cart_goods WHERE `cart_id`=?s", array($cart_id));
+    return get_data($sql);
 }

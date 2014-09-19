@@ -38,7 +38,12 @@ class userController extends appController
                 $_SESSION['userid'] = $userid;
                 $_SESSION['nickname'] = $user_info->nickname;
 
-                sync_cart();
+                $source_cart_id = $_COOKIE['cart_id'];
+                $target_cart_id = get_cart_id($userid);
+
+                if ($source_cart_id && $target_cart_id) {
+                    sync_cart($source_cart_id, $target_cart_id);
+                }
             }
         }
 

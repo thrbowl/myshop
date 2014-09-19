@@ -1,6 +1,10 @@
 <link rel="stylesheet" type="text/css" href="static/css/home.css">
 <script>
     var cart_id = "<?=$cart_id?>";
+
+    function add_cart(goods_id) {
+        var goods_num = $("#num" + goods_id).val();
+    }
 </script>
 <div class="left">
     <div class="filters">
@@ -60,7 +64,7 @@
             </div>
             <div style="color:#808080;">
                 我要
-                <select style="height:19px;width:37px;">
+                <select style="height:19px;width:37px;" name="num<?=$c['id']?>">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -72,7 +76,7 @@
                     <option value="9">9</option>
                 </select>
                 件
-                <a href="javascript:;" title="<?=$c['name']?>">
+                <a href="javascript:;" title="<?=$c['name']?>" onclick="add_cart(<?=$c['id']?>);">
                     <img src="static/img/buy.gif" style="border:0px;">
                 </a>
             </div>
