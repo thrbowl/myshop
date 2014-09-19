@@ -58,6 +58,7 @@ CREATE TABLE `cart` (
   `id` varchar(100) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `createDate` datetime NOT NULL,
+  `updateDate` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

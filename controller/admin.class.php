@@ -20,7 +20,7 @@ class adminController extends appController
 
     function index()
     {
-        if (!check_login()) {
+        if (!admin_check_login()) {
             render_to_web('admin/login');
         } else {
             $admin = c('admin');
@@ -63,7 +63,7 @@ class adminController extends appController
 
     function sysconfig()
     {
-        login_required();
+        admin_login_required();
 
         $data = get_sysconfig();
         render_to_web('admin/base', 'sysconfig', $data);
@@ -71,7 +71,7 @@ class adminController extends appController
 
     function updateSysconfig()
     {
-        perm_required('sysconfig');
+        admin_perm_required('sysconfig');
 
         $name = v('name');
         $status = v('status');
@@ -87,7 +87,7 @@ class adminController extends appController
 
     function goodsList()
     {
-        perm_required('goods');
+        admin_perm_required('goods');
 
         $data['pager'] = get_goods_page(20, 9, "c=admin&a=goodsList");
         render_to_web('admin/base', 'goodsList', $data);
@@ -95,7 +95,7 @@ class adminController extends appController
 
     function addGoods()
     {
-        perm_required('goods');
+        admin_perm_required('goods');
 
         $data['category_list'] = get_category_list();
         render_to_web('admin/addGoods', null, $data);
@@ -103,7 +103,7 @@ class adminController extends appController
 
     function isExistGoods()
     {
-        perm_required('goods');
+        admin_perm_required('goods');
 
         $name = v('name');
         $previous = v('previous');
@@ -119,7 +119,7 @@ class adminController extends appController
 
     function saveGoods()
     {
-        perm_required('goods');
+        admin_perm_required('goods');
 
         $name = v('name');
         $price = v('price');
@@ -166,7 +166,7 @@ class adminController extends appController
 
     function deleteGoods()
     {
-        perm_required('goods');
+        admin_perm_required('goods');
 
         $ids = v('ids');
         if (!$ids) {
@@ -180,7 +180,7 @@ class adminController extends appController
 
     function editGoods()
     {
-        perm_required('goods');
+        admin_perm_required('goods');
 
         $id = v('id');
         $data['goods'] = get_goods($id);
@@ -192,7 +192,7 @@ class adminController extends appController
 
     function updateGoods()
     {
-        perm_required('menu');
+        admin_perm_required('menu');
 
         $id = v('id');
         $name = v('name');
@@ -243,7 +243,7 @@ class adminController extends appController
 
     function categoryList()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $data['pager'] = get_category_page(20, 9, "c=admin&a=categoryList");
         render_to_web('admin/base', 'categoryList', $data);
@@ -251,7 +251,7 @@ class adminController extends appController
 
     function addCategory()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $data['goods_list'] = get_goods_list();
         render_to_web('admin/addCategory', null, $data);
@@ -259,7 +259,7 @@ class adminController extends appController
 
     function isExistCategory()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $name = v('name');
         $previous = v('previous');
@@ -276,7 +276,7 @@ class adminController extends appController
 
     function saveCategory()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $name = v('name');
         $order = v('order');
@@ -291,7 +291,7 @@ class adminController extends appController
 
     function deleteCategory()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $ids = v('ids');
         if (!$ids) {
@@ -305,7 +305,7 @@ class adminController extends appController
 
     function editCategory()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $id = v('id');
         $data['category'] = get_category($id);
@@ -317,7 +317,7 @@ class adminController extends appController
 
     function updateCategory()
     {
-        perm_required('category');
+        admin_perm_required('category');
 
         $id = v('id');
         $name = v('name');
@@ -333,7 +333,7 @@ class adminController extends appController
 
     function articleList()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         $data['pager'] = get_article_page(20, 9, "c=admin&a=articleList");
         render_to_web('admin/base', 'articleList', $data);
@@ -341,14 +341,14 @@ class adminController extends appController
 
     function addArticle()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         render_to_web('admin/addArticle');
     }
 
     function isExistArticle()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         $alias = v('alias');
         $previous = v('previous');
@@ -364,7 +364,7 @@ class adminController extends appController
 
     function saveArticle()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         $type = v('type');
         $flag = v('flag');
@@ -384,7 +384,7 @@ class adminController extends appController
 
     function deleteArticle()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         $ids = v('ids');
         if (!$ids) {
@@ -398,7 +398,7 @@ class adminController extends appController
 
     function editArticle()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         $id = v('id');
 
@@ -408,7 +408,7 @@ class adminController extends appController
 
     function updateArticle()
     {
-        perm_required('article');
+        admin_perm_required('article');
 
         $id = v('id');
         $type = v('type');

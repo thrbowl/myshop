@@ -11,8 +11,8 @@
             <table>
                 <tr>
                     <th width="52%">
-                        <a onclick="tb_clear()" href="javascript:void(0)">
-                            <img src="static/img/del.gif" style="vertical-align:middle;" alt="全部清除菜品">
+                        <a onclick="cart.clear();" href="javascript:;">
+                            <img src="static/img/del.gif" style="vertical-align:middle;" alt="清空">
                         </a>
                         商品名
                     </th>
@@ -20,27 +20,22 @@
                     <th width="16%">数量</th>
                     <th width="16%">小计</th>
                 </tr>
-                <?php if(!$cart_goods):?>
-                    <tr>
-                        <td colspan="4">暂无商品</td>
-                    </tr>
-                <?php else:?>
-                    <?php foreach($cart_goods as $c):?>
-                        <tr>
-                            <td class="removeBtn" title="点击取消选择！" onclick="td_delete(this)">三杯鸡</td>
-                            <td>14</td>
-                            <td>
-                                <select onchange="selCreate(this)">
-                                    <option selected="selected" value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
-                            </td>
-                            <td>14.00</td>
-                        </tr>
-                    <?php endforeach;?>
-                <?php endif?>
+                <tr id="emptyTip" style="display: none">
+                    <td colspan="4">暂无商品</td>
+                </tr>
+                <!--<tr class="goods">
+                    <td class="removeBtn" title="移除[三杯鸡]" onclick="remove_goods(this)">三杯鸡</td>
+                    <td>14</td>
+                    <td>
+                        <select onchange="(this)">
+                            <option selected="selected" value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </td>
+                    <td>14.00</td>
+                </tr>-->
             </table>
         </div>
         <div class="total">

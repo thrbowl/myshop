@@ -1,6 +1,6 @@
 <?php
 
-function check_login()
+function admin_check_login()
 {
     if ($_SESSION['_id']) {
         return true;
@@ -8,14 +8,14 @@ function check_login()
     return false;
 }
 
-function login_required()
+function admin_login_required()
 {
-    if (!check_login()) {
+    if (!admin_check_login()) {
         return ajax_echo("<script>alert('登陆验证失败,请重新登陆');location.href='?c=admin'</script>");
     }
 }
 
-function perm_required($perm)
+function admin_perm_required($perm)
 {
     login_required();
     if (!($_SESSION['_is_super'] || in_array($perm, $_SESSION['_perms']))) {
