@@ -3,8 +3,8 @@
     var cart;
 
     $(function () {
-        cart = new Cart("<?=$cart_id?>", <?=json_encode($cart_goods)?>);
-        cart.init();
+        cart = new Cart("<?=$cart_id?>", "shopCart");
+        cart.reload();
     });
 </script>
 <div class="left">
@@ -51,14 +51,14 @@
 
     <div class="menu">
         <?php foreach($category_goods_list as $c):?>
-        <div class="center_5" id="goods<?=$c['id']?>">
+        <div class="center_5">
             <div class="center_5_1">
                 <span>
                     <img src="static/img/goods/210x170/<?=$c['picture']?>">
                 </span>
             </div>
             <div>
-                <b style="color:black;" id="name<?=$c['id']?>"><?=$c['name']?></b>
+                <b style="color:black;"><?=$c['name']?></b>
             </div>
             <div>
                 <span style="color:red; font-weight:bold;"><?=$c['price']?></span> 元/件
@@ -66,18 +66,13 @@
             <div style="color:#808080;">
                 我要
                 <select style="height:19px;width:37px;" id="num<?=$c['id']?>">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
+                    <?php for($i=1; $i<100; $i++):?>
+                    <option value="<?=$i?>"><?=$i?></option>
+                    <?php endfor;?>
                 </select>
                 件
-                <a href="javascript:;" title="<?=$c['name']?>" onclick="add_goods(<?=$c['id']?>);">
+                <a href="javascript:;" title="<?=$c['name']?>"
+                   onclick="cart.add_goods(<?=$c['id']?>,$('#num<?=$c['id']?>').val())">
                     <img src="static/img/buy.gif" style="border:0px;">
                 </a>
             </div>

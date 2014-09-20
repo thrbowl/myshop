@@ -68,11 +68,18 @@ function add_cart_goods($data)
     touch_cart($data[0]);
 }
 
-function get_cart_goods($cart_id)
+function get_cart_goods_list($cart_id)
 {
     $sql = prepare("SELECT A.id,A.name,A.price,B.num FROM goods AS A,cart_goods AS B WHERE `cart_id`=?s
                     AND A.id=B.goods_id", array($cart_id));
     return get_data($sql);
+}
+
+function has_cart_goods($cart_id, $goods_id)
+{
+    $sql = prepare("SELECT 1 FROM cart_goods WHERE `cart_id`=?s AND `goods_id`=?s",
+        array($cart_id, $goods_id));
+    return (bool)get_var($sql);
 }
 
 function delete_cart_goods_by_cart_id($cart_id)
@@ -85,7 +92,7 @@ function delete_cart_goods_by_cart_id($cart_id)
 
 function delete_cart_goods_by_ids($cart_id, $goods_ids)
 {
-    $sql = prepare("DELETE FROM cart_goods WHERE `cart_id_id`=%s AND `goods_id` IN ("
+    $sql = prepare("DELETE FROM cart_goods WHERE `cart_id`=?s AND `goods_id` IN ("
         . implode(',', $goods_ids) . ")", array($cart_id));
     run_sql($sql);
 
@@ -100,9 +107,20 @@ function touch_cart($cart_id)
 
 function update_cart_goods_num($cart_id, $goods_id, $num)
 {
-    $sql = prepare("UPDATE cart_goods SET `num`=`num`+?s WHERE `cart_id`=?s AND `goods_id`=?s",
-                    array($cart_id, $goods_id, $num));
+    $sql = prepare("UPDATE cart_goods SET `num`=?s WHERE `cart_id`=?s AND `goods_id`=?s",
+            array($num, $cart_id, $goods_id));
     run_sql($sql);
 
     touch_cart($cart_id);
+}
+
+function add_goods($cart_id, $goods_id, $num)
+{
+    $is_has = has_cart_goods($cart_id, $goods_id);
+    if ($is_has) {
+        update_cart_goods_num($cart_id, $goods_id, $num);
+    } else {
+        $data = array($cart_id, $goods_id, $num);
+        add_cart_goods($data);
+    }
 }

@@ -1,0 +1,48 @@
+<div class="items">
+    <table>
+        <tr>
+            <th width="52%">
+                <a onclick="cart.clear()" href="javascript:;">
+                    <img src="static/img/del.gif" style="vertical-align:middle;" alt="清空" title="清空购物车">
+                </a>
+                商品名
+            </th>
+            <th width="16%">单价</th>
+            <th width="16%">数量</th>
+            <th width="16%">小计</th>
+        </tr>
+        <?php $quantity=0;$amount=0;?>
+        <?php if($cart_goods):?>
+            <?php foreach($cart_goods as $c):?>
+                <?php $quantity+=$c['num'];$amount+=$c['price']*$c['num'];?>
+                <tr class="goods">
+                    <td>
+                        <span class="removeBtn" title="移除[<?=$c['name']?>]"
+                              onclick="cart.delete_goods(<?=$c['id']?>)"></span>
+                        &nbsp;<?=$c['name']?>
+                    </td>
+                    <td><?=$c['price']?></td>
+                    <td>
+                        <select onchange="cart.update_goods_num(<?=$c['id']?>,this.value)">
+                            <?php for($i=1; $i<100; $i++):?>
+                                <option value="<?=$i?>" <?php if($c['num']==$i):?>selected<?php endif;?>><?=$i?></option>
+                            <?php endfor;?>
+                        </select>
+                    </td>
+                    <td><?=$c['price']*$c['num']?></td>
+                </tr>
+            <?php endforeach;?>
+        <?php else:?>
+            <tr>
+                <td colspan="4">暂无商品</td>
+            </tr>
+        <?php endif;?>
+    </table>
+</div>
+<div class="total">
+    <span class="num">份数: <?=$quantity?></span>
+    <span class="price">总计: ￥<?=$amount?></span>
+</div>
+<div class="action">
+    <a class="submitBtn <?php if($quantity!=0):?>active<?php endif;?>" onclick="$.facebox({div:'#orderForm'})" href="javascript:;">下&nbsp;单</a>
+</div>

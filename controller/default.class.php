@@ -27,7 +27,6 @@ class defaultController extends appController
         } else {
             $data['cart_id'] = $cart_id;
         }
-        $data['cart_goods'] = get_cart_goods($data['cart_id']);
         $data['category_list'] = get_category_list();
         if (!$category_id && $data['category_list']) {
             $category_id = $data['category_list'][0]['id'];

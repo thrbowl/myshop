@@ -1,3 +1,4 @@
+
 <div class="right">
     <div class="info">
         <?php if($sysconfig['start_time']||$sysconfig['end_time']):?>
@@ -7,43 +8,37 @@
         <p>说 明：<span class="comment"><?=$sysconfig['comments']?></span></p>
     </div>
     <div id="shopCart">
-        <div class="items">
-            <table>
-                <tr>
-                    <th width="52%">
-                        <a onclick="cart.clear();" href="javascript:;">
-                            <img src="static/img/del.gif" style="vertical-align:middle;" alt="清空">
-                        </a>
-                        商品名
-                    </th>
-                    <th width="16%">单价</th>
-                    <th width="16%">数量</th>
-                    <th width="16%">小计</th>
-                </tr>
-                <tr id="emptyTip" style="display: none">
-                    <td colspan="4">暂无商品</td>
-                </tr>
-                <!--<tr class="goods">
-                    <td class="removeBtn" title="移除[三杯鸡]" onclick="remove_goods(this)">三杯鸡</td>
-                    <td>14</td>
-                    <td>
-                        <select onchange="(this)">
-                            <option selected="selected" value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                        </select>
-                    </td>
-                    <td>14.00</td>
-                </tr>-->
-            </table>
-        </div>
-        <div class="total">
-            <span class="num">份数: ￥1</span>
-            <span class="price">总计: ￥14.00</span>
-        </div>
-        <div class="action">
-            <a class="submitBtn" onclick="getYZ();return false;" href="javascript:void(0);">下&nbsp;单</a>
-        </div>
+    </div>
+    <div id="orderForm" style="display: none;">
+        <table style="width: 620px">
+            <tr>
+                <th style="width: 15%"><label for="name">收货人</label></th>
+                <td><input type="text" name="name" id="name" value=""></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="nameTip"></div></td>
+            </tr>
+            <tr>
+                <th><label for="mobile">手机号</label></th>
+                <td><input type="text" name="mobile" id="mobile" value=""></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="mobileTip"></div></td>
+            </tr>
+            <tr>
+                <th><label for="address">收获地址</label></th>
+                <td><input type="text" name="address" id="address" value=""></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="addressTip"></div></td>
+            </tr>
+            <tr>
+                <th>同步至账户</th>
+                <td><input type="checkbox" name="is_sync" id="is_sync" value=""></td>
+            </tr>
+        </table>
     </div>
 </div>
