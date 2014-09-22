@@ -14,12 +14,14 @@ $(function () {
                     $.facebox.close();
                 }
             });
+            return false;
         }
     });
     $("#name").formValidator({onShow: "请填写收货人姓名", onFocus: "", onCorrect: "", defaultValue: ""})
-        .regexValidator({regExp: "", dataType: "enum", onError: "收货人姓名不能为空"});
+        .functionValidator({func: isNonEmptyContent, onError: "收货人姓名不能为空"});
     $("#mobile").formValidator({onShow: "请填写收货人手机号码", onFocus: "", onCorrect: "", defaultValue: ""})
-        .regexValidator({regExp: "", dataType: "enum", onError: "收货人手机号码不能为空"});
+        .functionValidator({func: isNonEmptyContent, onError: "收货人手机号码不能为空"})
+        .functionValidator({regExp: "^(13|15|18|17)[0-9]{9}$", onError: "收货人手机号码不能为空"});
     $("#address").formValidator({onShow: "请填写收货地址", onFocus: "", onCorrect: "", defaultValue: ""})
-        .regexValidator({regExp: "", dataType: "enum", onError: "收货地址不能为空"});
+        .functionValidator({func: isNonEmptyContent, onError: "收货地址不能为空"});
 });

@@ -77,3 +77,11 @@ function getCookie(name) {
 function removeCookie(name, options) {
     addCookie(name, null, options);
 }
+
+function isEmptyField(text) {
+    return $.trim(text) == "";
+}
+
+function isNonEmptyContent(text) {
+    return !isEmptyField(text);
+}
