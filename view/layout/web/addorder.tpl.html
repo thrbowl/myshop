@@ -1,0 +1,45 @@
+<div id="orderDiv">
+    <form method="POST" action="?c=order&a=save_order" id="orderForm">
+        <table style="width: 620px">
+            <tr>
+                <th style="width: 15%"><label for="name">收货人</label></th>
+                <td><input type="text" name="name" id="name" value="<?=$user['name']?>" style="width: 30%"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="nameTip"></div></td>
+            </tr>
+            <tr>
+                <th><label for="mobile">手机号</label></th>
+                <td><input type="text" name="mobile" id="mobile" value="<?=$user['mobile']?>" style="width: 30%"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="mobileTip"></div></td>
+            </tr>
+            <tr>
+                <th><label for="address">收货地址</label></th>
+                <td><input type="text" name="address" id="address" value="<?=$user['address']?>" style="width: 90%"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="addressTip"></div></td>
+            </tr>
+            <?php if(check_login()):?>
+            <tr>
+                <th><label for="is_sync">同步至账户</label></th>
+                <td><input type="checkbox" name="is_sync" id="is_sync" value="1"></td>
+            </tr>
+            <?php endif;?>
+            <tr>
+                <td></td>
+                <td style="padding-top: 13px">
+                    <input type="hidden" name="cart_id" value="<?=$cart_id?>">
+                    <input type="submit" value="提交订单">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script src="static/js/order.js"></script>

@@ -89,5 +89,14 @@
             </span>
     </div>-->
 </div>
-
-<?php @include_once( dirname(__FILE__) . DS . 'sidebar.tpl.html' ); ?>
+<div class="right">
+    <div class="info">
+        <?php if($sysconfig['start_time']||$sysconfig['end_time']):?>
+        <p>营业时间：<span class="time"><?=substr($sysconfig['start_time'],0,5)?>~<?=substr($sysconfig['end_time'],0,5)?></span></p>
+        <?php endif;?>
+        <p>服务热线：<span class="phone"><?=$sysconfig['phone']?></span></p>
+        <p>说 明：<span class="comment"><?=$sysconfig['comments']?></span></p>
+    </div>
+    <div id="shopCart">
+    </div>
+</div>

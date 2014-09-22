@@ -82,6 +82,6 @@ function isEmptyField(text) {
     return $.trim(text) == "";
 }
 
-function isNonEmptyContent(text) {
+function isNonEmptyField(text) {
     return !isEmptyField(text);
 }

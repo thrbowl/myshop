@@ -13,6 +13,7 @@ class cartController extends appController
     {
         $cart_id = v('id');
 
+        $data['cart_id'] = $cart_id;
         $data['cart_goods'] = get_cart_goods_list($cart_id);
         render_to_web('cart', null, $data);
     }

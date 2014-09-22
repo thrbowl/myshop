@@ -44,5 +44,7 @@
     <span class="price">总计: ￥<?=$amount?></span>
 </div>
 <div class="action">
-    <a class="submitBtn <?php if($quantity!=0):?>active<?php endif;?>" onclick="$.facebox({div:'#orderDiv'})" href="javascript:;">下&nbsp;单</a>
+    <a class="submitBtn <?php if($quantity!=0):?>active<?php endif;?>"
+       onclick="$.facebox({ajax:'?c=order&a=add_order&cart_id=<?=$cart_id?>'})"
+       href="javascript:;">下&nbsp;单</a>
 </div>
