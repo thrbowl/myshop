@@ -3,12 +3,12 @@ if (!defined('IN')) die('bad request');
 
 function init_cart()
 {
-    $cart_id = $_COOKIE['cart_id'];
+    $cart_id = $_COOKIE['cartid'];
     if (!$cart_id) {
         $cart_id = get_uuid();
         $data = array($cart_id, null);
         save_cart($data);
-        setcookie('cart_id', $cart_id, time() + 31536000);
+        setcookie('cartid', $cart_id, time() + 31536000);
     }
     return $cart_id;
 }
@@ -24,10 +24,8 @@ function sync_cart($source_cart_id, $target_cart_id)
     $sql = prepare("SELECT * FROM cart_goods WHERE `cart_id`=?s", array($target_cart_id));
     $result_target = get_data($sql);
 
-    $target_goods_ids = array();
     $target_data = array();
     foreach ($result_target as $r) {
-        $target_goods_ids[] = $r['id'];
         $target_data[$r['goods_id']] = $r;
     }
 
@@ -50,22 +48,28 @@ function sync_cart($source_cart_id, $target_cart_id)
 
 function save_cart($data)
 {
-    $sql = prepare("INSERT INTO cart(`id`,`user_id`,`createDate`,`updateDate`) values(?s,?s,now(),now())", $data);
+    $sql = prepare("INSERT INTO cart(`id`,`user_id`,`createDate`,`updateDate`) VALUES(?s,?s,now(),now())", $data);
     run_sql($sql);
 }
 
-function get_cart_id($userid)
+function touch_cart($cart_id)
 {
-    $sql = prepare("SELECT `id` FROM cart WHERE `user_id`=?s", array($userid));
+    $sql = prepare("UPDATE cart SET `updateDate`=now() WHERE `id`=?s", array($cart_id));
+    run_sql($sql);
+}
+
+function get_user_cart_id($user_id)
+{
+    $sql = prepare("SELECT `id` FROM cart WHERE `user_id`=?s", array($user_id));
     return get_var($sql);
 }
 
-function add_cart_goods($data)
+function add_cart_goods($cart_id, $data)
 {
     $sql = prepare("INSERT INTO cart_goods(`cart_id`,`goods_id`,`num`) values(?s,?s,?s)", $data);
     run_sql($sql);
 
-    touch_cart($data[0]);
+    touch_cart($cart_id);
 }
 
 function get_cart_goods_list($cart_id)
@@ -90,19 +94,13 @@ function delete_cart_goods_by_cart_id($cart_id)
     touch_cart($cart_id);
 }
 
-function delete_cart_goods_by_ids($cart_id, $goods_ids)
+function delete_cart_goods_by_goods_ids($cart_id, $goods_ids)
 {
     $sql = prepare("DELETE FROM cart_goods WHERE `cart_id`=?s AND `goods_id` IN ("
         . implode(',', $goods_ids) . ")", array($cart_id));
     run_sql($sql);
 
     touch_cart($cart_id);
-}
-
-function touch_cart($cart_id)
-{
-    $sql = prepare("UPDATE cart SET `updateDate`=now() WHERE `id`=?s", array($cart_id));
-    run_sql($sql);
 }
 
 function update_cart_goods_num($cart_id, $goods_id, $num)
@@ -112,15 +110,4 @@ function update_cart_goods_num($cart_id, $goods_id, $num)
     run_sql($sql);
 
     touch_cart($cart_id);
-}
-
-function add_goods($cart_id, $goods_id, $num)
-{
-    $is_has = has_cart_goods($cart_id, $goods_id);
-    if ($is_has) {
-        update_cart_goods_num($cart_id, $goods_id, $num);
-    } else {
-        $data = array($cart_id, $goods_id, $num);
-        add_cart_goods($data);
-    }
 }

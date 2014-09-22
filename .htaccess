@@ -1,0 +1,7 @@
+<Files ~ "^.(htaccess|htpasswd)$">
+deny from all
+</Files>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www\.songpijiu\.com(.*)$ [NC]
+RewriteRule ^(.*)$ http://songpijiu.com/$1 [R=301,L]

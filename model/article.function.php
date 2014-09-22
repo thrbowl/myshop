@@ -5,7 +5,7 @@ include_once(AROOT . 'lib' . DS . 'pagination.class.php');
 function get_article_page($rows_per_page, $links_per_page, $append = "")
 {
     $conn = db();
-    $sql = "SELECT * FROM article ORDER BY updateDate DESC";
+    $sql = "SELECT * FROM article ORDER BY `updateDate` DESC";
     $pager = new PS_Pagination($conn, $sql, $rows_per_page, $links_per_page, $append);
     return $pager;
 }
@@ -19,14 +19,14 @@ function has_article($article_alias)
 function save_article($data)
 {
     $sql = prepare("INSERT INTO article(`type`,`flag`,`alias`,`title`,`content`,`createDate`,`updateDate`)
-                    values(?s,?s,?s,?s,?s,now(),now())", $data);
+                    VALUES(?s,?s,?s,?s,?s,now(),now())", $data);
     run_sql($sql);
     return last_id();
 }
 
-function delete_article($data)
+function delete_article($article_ids)
 {
-    $sql = "DELETE FROM article WHERE `id` IN (" . implode(',', $data) . ")";
+    $sql = "DELETE FROM article WHERE `id` IN (" . implode(',', $article_ids) . ")";
     run_sql($sql);
 }
 

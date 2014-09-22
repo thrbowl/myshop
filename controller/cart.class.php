@@ -23,7 +23,13 @@ class cartController extends appController
         $goods_id = v('goods_id');
         $num = v('num');
 
-        add_goods($cart_id, $goods_id, $num);
+        $is_has = has_cart_goods($cart_id, $goods_id);
+        if ($is_has) {
+            update_cart_goods_num($cart_id, $goods_id, $num);
+        } else {
+            $data = array($cart_id, $goods_id, $num);
+            add_cart_goods($cart_id, $data);
+        }
         AjaxMessage::simple(true);
     }
 
@@ -40,7 +46,7 @@ class cartController extends appController
         $cart_id = v('id');
         $goods_id = v('goods_id');
 
-        delete_cart_goods_by_ids($cart_id, array($goods_id));
+        delete_cart_goods_by_goods_ids($cart_id, array($goods_id));
         AjaxMessage::simple(true);
     }
 

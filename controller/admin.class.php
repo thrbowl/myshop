@@ -4,12 +4,12 @@ include_once(AROOT . 'controller' . DS . 'app.class.php');
 include_once(AROOT . 'config' . DS . 'admin.config.php');
 include_once(AROOT . 'lib' . DS . 'upload.class.php');
 include_once(AROOT . 'lib' . DS . 'admin.function.php');
-include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
-include_once(AROOT . 'model' . DS . 'goods.function.php');
-include_once(AROOT . 'model' . DS . 'category.function.php');
-include_once(AROOT . 'model' . DS . 'order.function.php');
-include_once(AROOT . 'model' . DS . 'user.function.php');
 include_once(AROOT . 'model' . DS . 'article.function.php');
+include_once(AROOT . 'model' . DS . 'category.function.php');
+include_once(AROOT . 'model' . DS . 'goods.function.php');
+include_once(AROOT . 'model' . DS . 'order.function.php');
+include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
+include_once(AROOT . 'model' . DS . 'user.function.php');
 
 class adminController extends appController
 {
@@ -20,7 +20,7 @@ class adminController extends appController
 
     function index()
     {
-        if (!admin_check_login()) {
+        if (!_check_login()) {
             render_to_web('admin/login');
         } else {
             $admin = c('admin');
@@ -47,8 +47,8 @@ class adminController extends appController
             return;
         }
 
-        $_SESSION['_id'] = $user['id'];
-        $_SESSION['_name'] = $user['name'];
+        $_SESSION['_userid'] = $user['id'];
+        $_SESSION['_nickname'] = $user['name'];
         $_SESSION['_is_super'] = $user['is_super'];
         $_SESSION['_perms'] = $user['perms'];
         forward('?c=admin&a=' . $admin['index']);
@@ -63,7 +63,7 @@ class adminController extends appController
 
     function sysconfig()
     {
-        admin_login_required();
+        _login_required();
 
         $data = get_sysconfig();
         render_to_web('admin/base', 'sysconfig', $data);
@@ -71,7 +71,7 @@ class adminController extends appController
 
     function updateSysconfig()
     {
-        admin_perm_required('sysconfig');
+        _perm_required('sysconfig');
 
         $name = v('name');
         $status = v('status');
@@ -87,7 +87,7 @@ class adminController extends appController
 
     function goodsList()
     {
-        admin_perm_required('goods');
+        _perm_required('goods');
 
         $data['pager'] = get_goods_page(20, 9, "c=admin&a=goodsList");
         render_to_web('admin/base', 'goodsList', $data);
@@ -95,7 +95,7 @@ class adminController extends appController
 
     function addGoods()
     {
-        admin_perm_required('goods');
+        _perm_required('goods');
 
         $data['category_list'] = get_category_list();
         render_to_web('admin/addGoods', null, $data);
@@ -103,7 +103,7 @@ class adminController extends appController
 
     function isExistGoods()
     {
-        admin_perm_required('goods');
+        _perm_required('goods');
 
         $name = v('name');
         $previous = v('previous');
@@ -119,7 +119,7 @@ class adminController extends appController
 
     function saveGoods()
     {
-        admin_perm_required('goods');
+        _perm_required('goods');
 
         $name = v('name');
         $price = v('price');
@@ -166,35 +166,35 @@ class adminController extends appController
 
     function deleteGoods()
     {
-        admin_perm_required('goods');
+        _perm_required('goods');
 
-        $ids = v('ids');
-        if (!$ids) {
+        $goods_ids = v('ids');
+        if (!$goods_ids) {
             AjaxMessage::simple(false);
             return;
         }
 
-        delete_goods($ids);
+        delete_goods($goods_ids);
         AjaxMessage::simple(true);
     }
 
     function editGoods()
     {
-        admin_perm_required('goods');
+        _perm_required('goods');
 
-        $id = v('id');
-        $data['goods'] = get_goods($id);
+        $goods_id = v('id');
+        $data['goods'] = get_goods($goods_id);
         $data['category_list'] = get_category_list();
-        $data['goods_category_ids'] = get_category_ids_by_goods($id);
+        $data['goods_category_ids'] = get_goods_category_ids($goods_id);
 
         render_to_web('admin/editGoods', null, $data);
     }
 
     function updateGoods()
     {
-        admin_perm_required('menu');
+        _perm_required('menu');
 
-        $id = v('id');
+        $goods_id = v('id');
         $name = v('name');
         $price = v('price');
         $status = v('status');
@@ -231,19 +231,19 @@ class adminController extends appController
             $handle->Clean();
             $picture = $handle->file_dst_name;
         } else {
-            $goods = get_goods($id);
+            $goods = get_goods($goods_id);
             $picture = $goods['picture'];
         }
 
         $data = array($name, $picture, $price, $description, $status);
-        update_goods($id, $data);
-        update_goods_category($id, $category_ids);
+        update_goods($goods_id, $data);
+        update_goods_category($goods_id, $category_ids);
         forward('?c=admin&a=goodsList');
     }
 
     function categoryList()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
         $data['pager'] = get_category_page(20, 9, "c=admin&a=categoryList");
         render_to_web('admin/base', 'categoryList', $data);
@@ -251,7 +251,7 @@ class adminController extends appController
 
     function addCategory()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
         $data['goods_list'] = get_goods_list();
         render_to_web('admin/addCategory', null, $data);
@@ -259,7 +259,7 @@ class adminController extends appController
 
     function isExistCategory()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
         $name = v('name');
         $previous = v('previous');
@@ -276,7 +276,7 @@ class adminController extends appController
 
     function saveCategory()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
         $name = v('name');
         $order = v('order');
@@ -291,49 +291,49 @@ class adminController extends appController
 
     function deleteCategory()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
-        $ids = v('ids');
-        if (!$ids) {
+        $category_ids = v('ids');
+        if (!$category_ids) {
             AjaxMessage::simple(false);
             return;
         }
 
-        delete_category($ids);
+        delete_category($category_ids);
         AjaxMessage::simple(true);
     }
 
     function editCategory()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
-        $id = v('id');
-        $data['category'] = get_category($id);
+        $category_id = v('id');
+        $data['category'] = get_category($category_id);
         $data['goods_list'] = get_goods_list();
-        $data['category_goods_ids'] = get_goods_ids_by_category($id);
+        $data['category_goods_ids'] = get_category_goods_ids($category_id);
 
         render_to_web('admin/editCategory', null, $data);
     }
 
     function updateCategory()
     {
-        admin_perm_required('category');
+        _perm_required('category');
 
-        $id = v('id');
+        $category_id = v('id');
         $name = v('name');
         $order = v('order');
         $goods_ids = v('goods');
 
         $data = array($name, $order);
-        update_category($id, $data);
-        update_category_goods($id, $goods_ids);
+        update_category($category_id, $data);
+        update_category_goods($category_id, $goods_ids);
 
         forward('?c=admin&a=categoryList');
     }
 
     function articleList()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
         $data['pager'] = get_article_page(20, 9, "c=admin&a=articleList");
         render_to_web('admin/base', 'articleList', $data);
@@ -341,14 +341,14 @@ class adminController extends appController
 
     function addArticle()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
         render_to_web('admin/addArticle');
     }
 
     function isExistArticle()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
         $alias = v('alias');
         $previous = v('previous');
@@ -364,7 +364,7 @@ class adminController extends appController
 
     function saveArticle()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
         $type = v('type');
         $flag = v('flag');
@@ -384,33 +384,33 @@ class adminController extends appController
 
     function deleteArticle()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
-        $ids = v('ids');
-        if (!$ids) {
+        $article_ids = v('ids');
+        if (!$article_ids) {
             AjaxMessage::simple(false);
             return;
         }
 
-        delete_article($ids);
+        delete_article($article_ids);
         AjaxMessage::simple(true);
     }
 
     function editArticle()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
-        $id = v('id');
+        $article_id = v('id');
 
-        $data['article'] = get_article_by_id($id);
+        $data['article'] = get_article_by_id($article_id);
         render_to_web('admin/editArticle', null, $data);
     }
 
     function updateArticle()
     {
-        admin_perm_required('article');
+        _perm_required('article');
 
-        $id = v('id');
+        $article_id = v('id');
         $type = v('type');
         $flag = v('flag');
         $alias = v('alias');
@@ -422,7 +422,7 @@ class adminController extends appController
         }
 
         $data = array($type, $flag, $alias, $title, $content);
-        update_article($id, $data);
+        update_article($article_id, $data);
 
         forward('?c=admin&a=articleList');
     }

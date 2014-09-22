@@ -1,21 +1,15 @@
 <?php
-if( !defined('IN') ) die('bad request');
-include_once( AROOT . 'controller'.DS.'app.class.php' );
-include_once(AROOT . 'model' . DS . 'sysconfig.function.php');
-include_once(AROOT . 'model' . DS . 'goods.function.php');
-include_once(AROOT . 'model' . DS . 'category.function.php');
-include_once(AROOT . 'model' . DS . 'order.function.php');
-include_once(AROOT . 'model' . DS . 'user.function.php');
-include_once(AROOT . 'model' . DS . 'article.function.php');
+if (!defined('IN')) die('bad request');
+include_once(AROOT . 'controller' . DS . 'app.class.php');
 
 class articleController extends appController
 {
-	function __construct()
-	{
-		parent::__construct();
-	}
-	
-	function view1()
+    function __construct()
+    {
+        parent::__construct();
+    }
+
+    function view1()
     {
         $article_id = v('id');
 
