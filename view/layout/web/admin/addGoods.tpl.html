@@ -132,7 +132,7 @@
                 },
                 price: {
                     required: true,
-                    number: true
+                    digits: true
                 }
             },
             messages: {
@@ -142,7 +142,7 @@
                 },
                 price: {
                     required: "请填写商品价格",
-                    number: "价格为数字类型"
+                    digits: "价格必须为整数"
                 }
             },
             highlight: function (e) {

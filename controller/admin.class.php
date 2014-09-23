@@ -432,6 +432,22 @@ class adminController extends appController
 
         _login_required();
 
-        echo("OK");
+        $data['pager'] = get_order_pager(50, 9, "c=admin&a=orderList");
+        render_to_web('admin/base', 'orderList', $data);
+    }
+
+    function changeOrderStatus()
+    {
+        _perm_required('orders');
+
+        $status = v('status');
+        $order_ids = v('ids');
+        if (!$order_ids) {
+            AjaxMessage::simple(false);
+            return;
+        }
+
+        update_order_status($order_ids, $status);
+        AjaxMessage::simple(true);
     }
 }

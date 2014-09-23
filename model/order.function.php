@@ -32,3 +32,30 @@ function save_order($cart_id, $data)
 
     delete_cart_goods_by_cart_id($cart_id);
 }
+
+function get_order_pager($rows_per_page, $links_per_page, $append = "")
+{
+    $conn = db();
+    $sql = "SELECT * FROM orders WHERE `status`!=-1 AND `status`!=9 ORDER BY `status`,`createDate` ASC";
+    $pager = new PS_Pagination($conn, $sql, $rows_per_page, $links_per_page, $append);
+    return $pager;
+}
+
+function get_order_list()
+{
+    $sql = "SELECT * FROM orders WHERE `status`!=-1 AND `status`!=9 ORDER BY `status`,`createDate` ASC";
+    return get_data($sql);
+}
+
+function update_order_status($order_ids, $status)
+{
+    $sql = prepare("UPDATE orders SET `status`=?s WHERE `id` IN (" . implode(',', $order_ids) . ")", array($status));
+    run_sql($sql);
+}
+
+function get_order_goods_list($order_id)
+{
+    $sql = prepare("SELECT A.id,A.name,A.price,B.num FROM goods AS A,order_goods AS B WHERE `order_id`=?s
+                    AND A.id=B.goods_id", array($order_id));
+    return get_data($sql);
+}
