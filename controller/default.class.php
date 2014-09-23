@@ -16,11 +16,10 @@ class defaultController extends appController
         $category_id = v('cid');
         $order_by = v('order');
 
-        $cart_id = init_cart();
         if (check_login()) {
             $data['cart_id'] = get_user_cart_id($_SESSION['userid']);
         } else {
-            $data['cart_id'] = $cart_id;
+            $data['cart_id'] = $_COOKIE['cartid'];
         }
         $data['category_list'] = get_category_list();
         if (!$category_id && $data['category_list']) {

@@ -4,7 +4,12 @@ function Cart(id, dom_id) {
 }
 
 Cart.prototype.reload = function() {
-    this.jqCart.load("?c=cart&id=" + this.id);
+    var cart = this;
+    this.jqCart.load("?c=cart&id=" + cart.id, function() {
+        if (!cart.id) {
+            cart.id = getCookie("cartid");
+        }
+    });
 };
 
 Cart.prototype.clear = function () {
