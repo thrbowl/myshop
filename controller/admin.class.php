@@ -63,7 +63,7 @@ class adminController extends appController
 
     function sysconfig()
     {
-        _login_required();
+        _perm_required('sysconfig');
 
         $data = get_sysconfig();
         render_to_web('admin/base', 'sysconfig', $data);
@@ -425,5 +425,13 @@ class adminController extends appController
         update_article($article_id, $data);
 
         forward('?c=admin&a=articleList');
+    }
+
+    function orderList()
+    {
+
+        _login_required();
+
+        echo("OK");
     }
 }

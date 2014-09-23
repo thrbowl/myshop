@@ -54,5 +54,6 @@
 
 #orderDiv {font-size: 13px;}
 #orderDiv table tr {height: 20px;}
-#orderDiv .onShow {color: #d3d3d3;}
+#orderDiv table th {vertical-align: top}
+#orderDiv .onShow {color: #a9a9a9;}
 #orderDiv .onError {color: #ff0000;}

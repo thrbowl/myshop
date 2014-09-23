@@ -26,6 +26,7 @@ class orderController extends appController
         $name = v('name');
         $mobile = v('mobile');
         $address = v('address');
+        $comments = v('comments');
         $cart_id = v('cart_id');
         $is_sync = v('is_sync');
 
@@ -34,7 +35,8 @@ class orderController extends appController
             update_user($_SESSION['userid'], $data);
         }
 
-
+        $data = array($name, $mobile, $address, $comments);
+        save_order($cart_id, $data);
         AjaxMessage::simple(true);
     }
 }

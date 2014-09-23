@@ -64,6 +64,12 @@ function get_user_cart_id($user_id)
     return get_var($sql);
 }
 
+function get_cart_user_id($cart_id)
+{
+    $sql = prepare("SELECT `user_id` FROM cart WHERE `id`=?s", array($cart_id));
+    return get_var($sql);
+}
+
 function add_cart_goods($cart_id, $data)
 {
     $sql = prepare("INSERT INTO cart_goods(`cart_id`,`goods_id`,`num`) values(?s,?s,?s)", $data);

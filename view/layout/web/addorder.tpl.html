@@ -25,6 +25,14 @@
                 <th></th>
                 <td><div id="addressTip"></div></td>
             </tr>
+            <tr>
+                <th><label for="comments">备注</label></th>
+                <td><textarea name="comments" id="comments" style="width: 90%;height: 50px"></textarea></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><div id="commentsTip" class="onShow">请备注你的要求，是否放辣，少盐等</div></td>
+            </tr>
             <?php if(check_login()):?>
             <tr>
                 <th><label for="is_sync">同步至账户</label></th>

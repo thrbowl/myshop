@@ -1,4 +1,5 @@
 <?php
+include_once(AROOT . 'config' . DS . 'sms.config.php');
 include_once(AROOT . 'lib' . DS . 'uuid.class.php');
 session_start();
 
@@ -30,10 +31,42 @@ function jsforword($url)
 
 function check_login()
 {
-    if(!$_SESSION["userid"]) {
+    if (!$_SESSION["userid"]) {
         return false;
     }
     return true;
+}
+
+function send_sms($mobile, $content)
+{
+    $sms_config = c('sms');
+    $curl = curl_init($sms_config['api_url']);
+    $request = array(
+        'sms_type' => $sms_config['sflag'],
+        'zh' => $sms_config['account'],
+        'mm' => $sms_config['password'],
+        'hm' => $mobile,
+        'nr' => $content
+    );
+    var_dump($request);
+    $options = array(
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => false,
+        CURLOPT_MAXREDIRS => 3,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $request,
+    );
+    curl_setopt_array($curl, $options);
+    $response = curl_exec($curl);
+    $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    curl_close($curl);
+
+    if ($status == 200) {
+        $retAttrs = explode(':', $response);
+        if ($retAttrs[0] == 0) {
+            #Todo: real success
+        }
+    }
 }
 
 class AjaxMessage
