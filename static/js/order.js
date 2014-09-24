@@ -12,7 +12,9 @@ $(function () {
                 $.message(message);
                 if (message.type == "success") {
                     $.facebox.close();
-                    location.reload();
+                    if (typeof cart != 'undefined') {
+                        cart.reload();
+                    }
                 }
             });
             return false;

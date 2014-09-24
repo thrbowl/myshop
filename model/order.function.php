@@ -1,6 +1,7 @@
 <?php
 if (!defined('IN')) die('bad request');
 include_once(AROOT . 'model' . DS . 'cart.function.php');
+include_once(AROOT . 'model' . DS . 'goods.function.php');
 
 function save_order($cart_id, $data)
 {
@@ -51,6 +52,15 @@ function update_order_status($order_ids, $status)
 {
     $sql = prepare("UPDATE orders SET `status`=?s WHERE `id` IN (" . implode(',', $order_ids) . ")", array($status));
     run_sql($sql);
+
+    if ($status == 9) {
+        foreach ($order_ids as $order_id) {
+            $order_goods_list = get_order_goods_list($order_id);
+            foreach ($order_goods_list as $goods) {
+                update_goods_sale($goods['id'], $goods['num']);
+            }
+        }
+    }
 }
 
 function get_order_goods_list($order_id)

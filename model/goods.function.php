@@ -94,3 +94,9 @@ function update_goods_category($goods_id, $category_ids)
         add_goods_category($goods_id, $add_ids);
     }
 }
+
+function update_goods_sale($goods_id, $num)
+{
+    $sql = prepare("UPDATE goods SET `sale`=`sale`+?s WHERE `id`=?s", array($num, $goods_id));
+    run_sql($sql);
+}
