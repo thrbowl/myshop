@@ -1,18 +1,6 @@
 <?php
 if (!defined('IN')) die('bad request');
 
-function init_cart()
-{
-    $cart_id = $_COOKIE['cartid'];
-    if (!$cart_id) {
-        $cart_id = get_uuid();
-        $data = array($cart_id, null);
-        save_cart($data);
-        setcookie('cartid', $cart_id, time() + 31536000);
-    }
-    return $cart_id;
-}
-
 function sync_cart($source_cart_id, $target_cart_id)
 {
     $sql = prepare("SELECT * FROM cart_goods WHERE `cart_id`=?s", array($source_cart_id));

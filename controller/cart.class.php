@@ -13,19 +13,9 @@ class cartController extends appController
     {
         $cart_id = v('id');
 
-        if (!$cart_id) {
-            $cart_id = init_cart();
-        }
-
         $data['cart_id'] = $cart_id;
         $data['cart_goods'] = get_cart_goods_list($cart_id);
         render_to_web('cart', null, $data);
-    }
-
-    function init()
-    {
-        $cart_id = init_cart();
-        AjaxMessage::success("操作成功", $cart_id);
     }
 
     function add_goods()

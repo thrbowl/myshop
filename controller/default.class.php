@@ -18,8 +18,6 @@ class defaultController extends appController
 
         if (check_login()) {
             $data['cart_id'] = get_user_cart_id($_SESSION['userid']);
-        } else {
-            $data['cart_id'] = $_COOKIE['cartid'];
         }
         $data['category_list'] = get_category_list();
         if (!$category_id && $data['category_list']) {

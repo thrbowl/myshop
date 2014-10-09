@@ -3,7 +3,22 @@
     var cart;
 
     $(function () {
+        <?php if(check_login()):?>
+
         cart = new Cart("<?=$cart_id?>", "shopCart");
+        <?php else:?>
+
+        var cart_id = getCookie("cartid");
+        if (!cart_id) {
+            var uuid = new UUID();
+            cart_id = uuid.createUUID();
+            addCookie("cartid", cart_id, {
+                expires: 31536000
+            });
+        }
+        cart = new Cart(cart_id, "shopCart");
+        <?php endif;?>
+
         cart.reload();
     });
 </script>

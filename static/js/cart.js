@@ -5,11 +5,7 @@ function Cart(id, dom_id) {
 
 Cart.prototype.reload = function() {
     var cart = this;
-    this.jqCart.load("?c=cart&id=" + cart.id, function() {
-        if (!cart.id) {
-            cart.id = getCookie("cartid");
-        }
-    });
+    this.jqCart.load("?c=cart&id=" + cart.id);
 };
 
 Cart.prototype.clear = function () {
