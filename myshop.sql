@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.20, for osx10.8 (x86_64)
+-- MySQL dump 10.13  Distrib 5.1.71, for redhat-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: myshop
 -- ------------------------------------------------------
--- Server version	5.6.20
+-- Server version	5.1.71
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -70,6 +70,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES ('194f4352-ba35-476d-a6d5-f1f79eb56f45',1,'2014-09-24 10:18:51','2014-09-24 10:19:05');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +88,7 @@ CREATE TABLE `cart_goods` (
   `num` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,6 +97,7 @@ CREATE TABLE `cart_goods` (
 
 LOCK TABLES `cart_goods` WRITE;
 /*!40000 ALTER TABLE `cart_goods` DISABLE KEYS */;
+INSERT INTO `cart_goods` VALUES (16,'a611ee3e-51d2-42ff-a2d6-6092ae12d146',20,1),(17,'a611ee3e-51d2-42ff-a2d6-6092ae12d146',21,1),(25,'194f4352-ba35-476d-a6d5-f1f79eb56f45',24,1),(26,'194f4352-ba35-476d-a6d5-f1f79eb56f45',19,1),(27,'194f4352-ba35-476d-a6d5-f1f79eb56f45',23,1),(28,'194f4352-ba35-476d-a6d5-f1f79eb56f45',21,1),(29,'c655c57c-c650-0001-82b4-913ba9e0ff00',20,1),(30,'c655c57c-c650-0001-82b4-913ba9e0ff00',21,1),(31,'c655c57c-c650-0001-82b4-913ba9e0ff00',22,1),(32,'c655c57c-c650-0001-82b4-913ba9e0ff00',23,1),(34,'c6562f72-c010-0001-1475-edd0ff0e1786',20,1),(35,'c6562f72-c010-0001-1475-edd0ff0e1786',18,26),(36,'c65b3d58-9fe0-0001-649a-13001c3011d6',19,99);
 /*!40000 ALTER TABLE `cart_goods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,7 +155,7 @@ CREATE TABLE `goods` (
 
 LOCK TABLES `goods` WRITE;
 /*!40000 ALTER TABLE `goods` DISABLE KEYS */;
-INSERT INTO `goods` VALUES (18,'清爽纸箱','65ab3da7-1d14-4870-ac13-1aa4f2373644.jpg',30,0,'',0,'2014-09-15 11:50:43'),(19,'燕京超爽','872b1005-ccaa-4674-bc50-348f6e436c5d.jpg',23,0,'',0,'2014-09-15 11:52:24'),(20,'燕京清爽塑包','5cb1f40d-c322-454a-b27b-e0daafe55a64.jpg',23,0,'',0,'2014-09-15 11:52:48'),(21,'燕京啤酒','e61a5667-d05d-4778-b829-15c08db18ac0.jpg',50,0,'',0,'2014-09-15 11:53:22'),(22,'燕京啤酒1','3c794be4-50db-4afa-946f-72823f668a02.jpg',50,0,'',0,'2014-09-15 11:53:48'),(23,'燕京8度精品','c9d23df5-48db-48f8-b35c-a159fa67e727.jpg',48,0,'',0,'2014-09-15 11:54:15'),(24,'燕京荞麦干啤','4bb2bd98-cedc-4297-9e6c-68dc0854d24d.jpg',45,0,'',0,'2014-09-15 11:54:43'),(25,'燕京精酿','4fea59e0-d17f-4ed8-bb68-3b1996d89df9.jpg',42,0,'',0,'2014-09-15 11:55:06');
+INSERT INTO `goods` VALUES (18,'清爽纸箱','65ab3da7-1d14-4870-ac13-1aa4f2373644.jpg',30,2,'',0,'2014-09-15 11:50:43'),(19,'燕京超爽','872b1005-ccaa-4674-bc50-348f6e436c5d.jpg',23,6,'',0,'2014-09-15 11:52:24'),(20,'燕京清爽塑包','5cb1f40d-c322-454a-b27b-e0daafe55a64.jpg',23,0,'',0,'2014-09-15 11:52:48'),(21,'燕京啤酒','e61a5667-d05d-4778-b829-15c08db18ac0.jpg',50,0,'',0,'2014-09-15 11:53:22'),(22,'燕京啤酒1','3c794be4-50db-4afa-946f-72823f668a02.jpg',50,0,'',0,'2014-09-15 11:53:48'),(23,'燕京8度精品','c9d23df5-48db-48f8-b35c-a159fa67e727.jpg',48,0,'',0,'2014-09-15 11:54:15'),(24,'燕京荞麦干啤','4bb2bd98-cedc-4297-9e6c-68dc0854d24d.jpg',45,9,'',0,'2014-09-15 11:54:43'),(25,'燕京精酿','4fea59e0-d17f-4ed8-bb68-3b1996d89df9.jpg',42,0,'',0,'2014-09-15 11:55:06');
 /*!40000 ALTER TABLE `goods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +201,7 @@ CREATE TABLE `order_goods` (
   `price` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,6 +210,7 @@ CREATE TABLE `order_goods` (
 
 LOCK TABLES `order_goods` WRITE;
 /*!40000 ALTER TABLE `order_goods` DISABLE KEYS */;
+INSERT INTO `order_goods` VALUES (1,1,18,1,30),(2,1,19,5,23),(3,1,24,5,45),(4,2,19,15,23),(5,2,24,9,45),(6,3,19,17,23),(7,3,20,6,23),(8,3,21,1,50),(9,4,18,1,30),(10,4,19,6,23),(11,4,20,15,23),(12,5,19,1,23),(13,5,20,1,23),(14,5,25,1,42),(15,6,18,1,30),(16,6,19,16,23),(17,7,19,1,23),(18,7,24,1,45),(19,8,18,1,30),(20,8,19,1,23),(21,8,24,4,45);
 /*!40000 ALTER TABLE `order_goods` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +233,7 @@ CREATE TABLE `orders` (
   `createDate` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,6 +242,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,0,370,'郝冲冲','18710092318','北京市朝阳区建国路京汇大厦5层',9,'','2014-09-24 10:09:59'),(2,1,750,'茅云龙','18710092308','北京昌平区六环以内回龙观龙跃苑一区2号楼一单元602室',-1,'','2014-09-24 10:19:05'),(3,0,579,'aina','18711111111','手机电话费',-1,'阿的风景啊看','2014-09-24 12:50:13'),(4,0,513,'maomao','18710092302','the god',0,'','2014-09-24 17:47:53'),(5,0,88,'zz','18712345678','zz',0,'','2014-09-24 23:35:57'),(6,0,398,'郝冲冲','18710092308','北京昌平区六环以内回龙观龙跃苑一区2号楼一单元602室',-1,'','2014-10-08 11:30:39'),(7,0,68,'test','18711001100','八大处',0,'','2014-10-09 13:28:30'),(8,0,233,'xiaowang','13419873421','中南海',9,'','2014-10-09 14:48:31');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,6 +295,7 @@ CREATE TABLE `third_connect` (
 
 LOCK TABLES `third_connect` WRITE;
 /*!40000 ALTER TABLE `third_connect` DISABLE KEYS */;
+INSERT INTO `third_connect` VALUES (1,'D5A2CD6AA2023B90554BF7D960E06EB0','毛毛',1,'2014-09-24 10:18:51');
 /*!40000 ALTER TABLE `third_connect` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +314,7 @@ CREATE TABLE `users` (
   `createDate` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -318,6 +323,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'茅云龙','18710092308','北京昌平区六环以内回龙观龙跃苑一区2号楼一单元602室','2014-09-24 10:18:51');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -330,4 +336,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-09-23 23:45:03
+-- Dump completed on 2014-10-29 17:28:59
